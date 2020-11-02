@@ -1,0 +1,29 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{yaklass,afterpage,fancyvrb}
+
+\begin{document}
+
+It all starts with implementing the algorithm of Chen \& Han that finds the shortest paths from a given point on the surface of a polyhedron given by its net to all the other points on the surface. The idea of the algorithm is to shoot a ray from the point in every possible direction and see where the rays can reach and which edges of the polyhedron these rays intersect.
+
+The algorithm can be implemented for squares, that are glued edge-to-edge: such a net is easy to store and draw. A harder approach can be taken with a polyhedron being spanned by vertices and edges drawn in 3D by user somehow.
+
+A polynomial procedure that lists all possible nets of squares up to a given size can be implemented in several ways: from DFS-like approach to drawing all possible polygons on a square grid and checking which combinations of them fit together.
+
+Chen—Han algorithm can be run on the net to determine the length of the shortest paths between the vertices. If there is a suitable permutation of vertices of two nets such that the lengths of paths between the vertices differ by a constant, then the nets are isomorphic and they correspond to the same polyhedron.
+
+The whole procedure helps us clusterize the nets and only present non-isomorphic ones.
+
+The shooting technique of Chen \& Han can be also used for other polyhedra-related problems like drawing deodesics.
+
+To conclude, the general plan is
+
+\begin{enumerate}
+	\item Chen—Han for nets of squares
+	\item All nets of $n$ squares
+	\item Chen—Han for those nets to clusterize them
+	\item See which of possible $\le 8$-hedra can be glued from squares
+\end{enumerate}
+
+This is already enough work but other related directions can also be studied.
+
+\end{document}
