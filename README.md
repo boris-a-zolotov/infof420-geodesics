@@ -5,4 +5,6 @@ This is the repository for the project, including documentation, proposal a sour
 
 The literature providing the background for the project can be found in `/papers`.
 
+The project proposal describing the overall idea of the project and the plan that is going to be carried out can be found in `/proposal`.
+
 All the *LaTeX* packages are put to `/modules`.
