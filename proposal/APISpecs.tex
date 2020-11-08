@@ -1,13 +1,21 @@
-\documentclass[potvin-zolotov-chen.tex]{subfiles}
-
 \section{Application Programming Interface}
 Both parts of the work will be connected through an API. Two main functions have been identified so far:
 \begin{itemize}
   \item Given a net, return the number of vertices that are part of the polyhedrons.
   \item Given a net, return a square matrix of dimensions $|V|\times|V|$. This matrix holds the distances between any two pairs of vertices, computed using the Chen \& Han algorithm.
 \end{itemize}
-The format used to represent a net is an array of $n$ arrays of $k$ oriented line segments. The number $n$ is arbitrary, but the number $k$ is fixed to either $3$ or $4$ to handle respectively the classical situation where triangles are used and the the more specific situation of a net made of squares.\par
+
+The format used to represent a net is an array of $n$ arrays of $k$ oriented line segments. The number $n$ is arbitrary, but the number $k$ is fixed to either $3$ or $4$ to handle respectively the classical situation where triangles are used and the the more specific situation of a net made of squares.
+
+When gluing squares of the same size edge-to-edge, we can forget about the segments and only store the numbers that represent the equivalence class that the edge belongs to. The orientation in which to glue the edges and the net itself can be reconstructed from this data immediately, see Figure~\ref{fig:squaresGlue}.
+
+\begin{figure}[h] \centering
+	\includegraphics[width=0.35\textwidth]{squares-glue}
+	\caption{The information about two edges of squares belonging to the same equivalence class is enough to reconstruct the way they are glued.}
+	\label{fig:squaresGlue}
+\end{figure}
 
 \subsection{Triangles and squares}
-When working on triangles, the Chen \& Han algorithm is unchanged. The issue arising from the use of squares instead is that a geodesic can go through a single square more than once. Since the algorithm does not come back on a previously visited shape, this means that the algorithm needs to be slightly modified.\par
-The idea is to run it longer to allow visiting again previously encountered squares. As proven by B. Zolotov in his bachelor thesis, the number of times a path goes through a single square is at most $7$, which provides an upper bound on the number of steps of the modified algorithm.
+When working on triangles, the Chen \& Han algorithm is unchanged. The issue arising from the use of squares instead is that a geodesic can go through a single square more than once. Since the algorithm does not come back on a previously visited shape, this means that the algorithm needs to be slightly modified.
+
+The idea is to run it longer to allow visiting again previously encountered squares. As proven in~\cite{z-bachthesis}, the number of times a path goes through a single square is at most $7$, which provides an upper bound on the number of steps of the modified algorithm.
