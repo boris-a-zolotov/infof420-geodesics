@@ -24,7 +24,22 @@ The special case when the polygons to be glued together are all identical regula
 
 \section{Boris' part: enumeration of gluings, isomorphism check}
 
-Estimate of the number of vertices, enumeration of gluings was done in~\cite{kl17-hex,alz-penta}.
+Enumeration of edge-to-edge gluings was already done for hexagons and pentagons
+in~\cite{kl17-hex,alz-penta}. This time we also want the running time of the enumeration
+procedure to be polynomial in the number of polygons, not exponential. This seems
+possible to do since the number of faces of the polyhedron we can get is bounded,
+and there is polynomial number of options to draw each face on the grid.
+
+Due to Gauss—Bonnet formula we know that the number of vertices of a polyhedron
+glued edge-to-edge from squares is at most 8. We then want to clusterize isomorphic
+polyhedra. One way is to see if they are homothetic, for this we can apply Chen—Han's
+algorithm: take the matrix of distances it calculates and see if we can transform
+one matrix into another by permutations of rows and columns and multiplying
+the entire matrix by a constant. Since all the matrices are at most $8 \times 8$,
+this is a fast check.
+
+In the end we will be able to see if all possible graph structures of polyhedra
+with at most 8 vertices are realizable by gluing from squares.
 
 \input{APISpecs}
 
