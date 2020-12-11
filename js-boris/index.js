@@ -83,11 +83,33 @@ function edgesFit(edge) {
 
 function checkAllEdgesFit() { // IMPORTANT: ONE OF THE CHECKS
     for (var i = 0; i < edges.length; i++) {
-        if (!edgesFit(edges[i])) {return false;}
+        if (!edgesFit(edges[i])) {
+            return false;
+        }
     }
     return true;
 }
 
-console.log(checkAllEdgesFit())
+// console.log(checkAllEdgesFit());
 
+function isRight([x1, y1], [x2, y2]) {
+    return (x1 * y2 - x2 * y1) > 0;
+}
 
+// console.log(isRight([1, 0], [0, 1]));
+
+function checkAllTurnsRight() {
+    for (var fc = 0; fc < faces.length; fc++) {
+        for (var eg = 0; eg < faces[fc].length - 1; eg++) {
+            if (!isRight(ithEdge(faces[fc], eg), ithEdge(faces[fc], eg + 1))) {
+                return false;
+            }
+        }
+        if (!isRight(ithEdge(faces[fc], faces[fc].length), ithEdge(faces[fc], 0))) {
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log(checkAllTurnsRight());
