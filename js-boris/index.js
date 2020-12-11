@@ -1,5 +1,7 @@
 // INITIAL DECLARATION OF FACES
 
+const field = 2;
+
 let face0 = [
     [0, 0],
     [1, 0],
@@ -90,15 +92,11 @@ function checkAllEdgesFit() { // IMPORTANT: ONE OF THE CHECKS
     return true;
 }
 
-// console.log(checkAllEdgesFit());
-
 function isRight([x1, y1], [x2, y2]) {
     return (x1 * y2 - x2 * y1) >= 0;
 }
 
-// console.log(isRight([1, 0], [0, 1]));
-
-function checkAllTurnsRight() {
+function checkAllTurnsRight() { // IMPORTANT: ONE OF THE CHECKS
     for (var fc = 0; fc < faces.length; fc++) {
         for (var eg = 0; eg < (faces[fc].length - 1); eg++) {
             if (!isRight(ithEdge(faces[fc], eg), ithEdge(faces[fc], eg + 1))) {
@@ -112,4 +110,24 @@ function checkAllTurnsRight() {
     return true;
 }
 
+function checkFaceEdge(face) {
+    let horiz = false;
+    let vert = false;
+    for (var ver = 0; ver < face.length; ver++) {
+        if (face[ver][0] == 0) {horiz = true;}
+        if (face[ver][1] == 0) {vert = true;}
+    }
+    return horiz && vert;
+}
+
+function checkAllFacesEdge() { // IMPORTANT: ONE OF THE CHECKS
+    for (fc=0;fc<faces.length;fc++) {
+        if (!checkFaceEdge(faces[fc])) {return false;}
+    }
+    return true;
+}
+
+
+console.log(checkAllFacesEdge ());
 console.log(checkAllTurnsRight());
+console.log(checkAllEdgesFit());
