@@ -1,4 +1,21 @@
-// INITIAL DECLARATION OF FACES
+// NET OF A SQUARE:
+// planar graph represented by DCEL
+// numbers are equivalence classes of edges
+
+let net = [
+    [2, 6, 1, 5],
+    [3, 0, 2, 11],
+    [4, 8, 3, 7],
+    [1, 10, 4, 9],
+    [8, 10, 6, 0],
+    [7, 11, 5, 9]
+];
+
+
+// RANDOMIZATION:
+// field is the size of space where a face is selected from
+// globalArray has to be initialized according to
+// the size of the net
 
 const field = 4;
 
@@ -10,7 +27,40 @@ let globalArray = [1, 0, 3, 1, 2, 3, 0, 2,
     1, 0, 3, 1, 2, 3, 0, 2
 ];
 
-let faces = []
+
+// INITIALIZATIONS:
+
+let faces = []; // List of coordinates of vertices
+let vertices = []; // List of edges, incident to vertices
+let cl = 0; // Current degree of a vertex
+let sca = 1000; // Data of a new edge appended to a vertex
+let scb = 1000;
+let lastFace = 0;
+let lastEdge = 0;
+let StopCondition = true;
+let edges = [];
+let maxedge = 0;
+
+
+// TECHNICAL FUNCTIONS:
+
+// angle between segments based on dot product
+
+function angle([x1, y1], [x2, y2]) {
+    let length1 = Math.sqrt(x1 * x1 + y1 * y1);
+    let length2 = Math.sqrt(x2 * x2 + y2 * y2);
+    return Math.acos((x1 * x2 + y1 * y2) / length1 / length2);
+}
+
+// checking if arrays are equal
+
+function arraysEq(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+    for (var i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) return false;
+    }
+    return true;
+};
 
 
 // Return direction of the i-th edge of the face
@@ -26,23 +76,6 @@ function ithEdge(face, i) {
         return [face[i + 1][0] - face[i][0], face[i + 1][1] - face[i][1]];
     }
 }
-
-function angle([x1, y1], [x2, y2]) {
-    let length1 = Math.sqrt(x1 * x1 + y1 * y1);
-    let length2 = Math.sqrt(x2 * x2 + y2 * y2);
-    return Math.acos((x1 * x2 + y1 * y2) / length1 / length2);
-}
-
-
-// Checking if arrays are equal
-
-function arraysEq(arr1, arr2) {
-    if (arr1.length !== arr2.length) return false;
-    for (var i = 0; i < arr1.length; i++) {
-        if (arr1[i] !== arr2[i]) return false;
-    }
-    return true;
-};
 
 
 // CHECKING IF TWO SEGMENTS ARE GLUABLE

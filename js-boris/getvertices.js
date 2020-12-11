@@ -1,19 +1,4 @@
-let net = [
-    [2, 6, 1, 5],
-    [3, 0, 2, 11],
-    [4, 8, 3, 7],
-    [1, 10, 4, 9],
-    [8, 10, 6, 0],
-    [7, 11, 5, 9]
-];
 
-let vertices = [];
-let cl = 0;
-let sca = 1000;
-let scb = 1000;
-let lastFace = 0;
-let lastEdge = 0;
-let StopCondition = true;
 
 for (var i = 0; i < net.length; i++) {
     for (var j = 0; j < net[i].length; j++) {
@@ -68,9 +53,7 @@ for (var vertex = 0; vertex < vertices.length; vertex++) {
 console.log(vertices);
 
 
-let edges = [];
 
-let maxedge = 0;
 
 for (var i = 0; i < net.length; i++) {
     for (var j = 0; j < net[i].length; j++) {
