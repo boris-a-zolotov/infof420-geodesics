@@ -19,6 +19,19 @@ for (var i = 0; i < net.length; i++) {
 
 
 
+function thereIsDifferent(f, e) {
+    console.log(net.length);
+    for (var face = 0; face < net.length; face++) {
+        for (var i = 0; i < net[face].length; i++) {
+            if (face !== f && net[face][i] == e) {
+                return [face,i+1];
+            }
+        }
+    }
+    return false;
+}
+
+
 for (var vertex = 0; vertex < vertices.length; vertex++) {
     let curLength = vertices[vertex].length;
     lastFace = vertices[vertex][curLength - 2];
@@ -36,7 +49,7 @@ for (var vertex = 0; vertex < vertices.length; vertex++) {
     }
 }
 
-console.log(vertices);
+// console.log(vertices);
 
 
 let edges = [];
@@ -64,4 +77,4 @@ for (var edge = 0; edge < maxedge; edge++) {
     }
 }
 
-console.log(edges);
+// console.log(edges);
