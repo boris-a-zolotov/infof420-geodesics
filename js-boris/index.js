@@ -37,6 +37,9 @@ let edges = [
 
 // Return direction of the i-th edge of the face
 
+// i-th edge is between vertices i and i+1
+// i-th vertex is between edges i-1 and i
+
 function ithEdge(face, i) {
     let l = face.length;
     if (i == l - 1) {
