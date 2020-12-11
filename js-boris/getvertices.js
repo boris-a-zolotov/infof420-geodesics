@@ -37,18 +37,6 @@ function thereIsDifferent(f, e) {
 }
 
 
-console.log(thereIsDifferent(0, 2));
-console.log(thereIsDifferent(1, 11));
-console.log(thereIsDifferent(5, 5));
-
-console.log(' ');
-
-console.log(thereIsDifferent(0, 6));
-console.log(thereIsDifferent(4, 0));
-console.log(thereIsDifferent(1, 2));
-
-console.log(' ');
-
 for (var vertex = 0; vertex < vertices.length; vertex++) {
     stopCondition = thereIsDifferent(vertices[vertex][0],
         net[vertices[vertex][0]][vertices[vertex][1]]);
