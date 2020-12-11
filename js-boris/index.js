@@ -1,27 +1,14 @@
 // INITIAL DECLARATION OF FACES
 
-const field = 2;
+const field = 1;
 
 let globalArray = [];
 
-for (var i = 0; i < 32; i++) {
+for (var i = 0; i < 48; i++) {
     globalArray[i] = 0;
 }
 
-let face0 = [
-    [0, 0],
-    [1, 0],
-    [1, 1],
-    [0, 1]
-];
-
-let face1 = face0;
-let face2 = face0;
-let face3 = face0;
-let face4 = face0;
-let face5 = face0;
-
-let faces = [face0, face1, face2, face3, face4, face5]
+let faces = []
 
 
 // DESCRIPTION OF EDGES
@@ -49,7 +36,7 @@ let edges = [
 // Return direction of the i-th edge of the face
 
 function ithEdge(face, i) {
-    let l = face.length
+    let l = face.length;
     if (i == l - 1) {
         return [face[0][0] - face[i][0], face[0][1] - face[i][1]];
     } else {
@@ -140,9 +127,9 @@ function checkAllFacesEdge() { // IMPORTANT: ONE OF THE CHECKS
 }
 
 
-console.log(checkAllFacesEdge());
-console.log(checkAllTurnsRight());
-console.log(checkAllEdgesFit());
+// console.log(checkAllFacesEdge());
+// console.log(checkAllTurnsRight());
+// console.log(checkAllEdgesFit());
 
 function arIncrement() {
     let i = 0;
@@ -162,4 +149,24 @@ for (i = 0; i < 2051; i++) {
     arIncrement();
 }
 
-console.log(globalArray);
+let globalCycle = 0;
+let p = true;
+
+for (globalCycle = 0; globalCycle < 10000000; globalCycle++) {
+    arIncrement();
+    p = true;
+    for (var i = 0; i < 6; i++) {
+        faces[i] = [
+            [globalArray[8 * i], globalArray[8 * i + 1]],
+            [globalArray[8 * i + 2], globalArray[8 * i + 3]],
+            [globalArray[8 * i + 4], globalArray[8 * i + 5]],
+            [globalArray[8 * i + 6], globalArray[8 * i + 7]]
+        ];
+    }
+    p = p && checkAllFacesEdge();
+    p = p && checkAllTurnsRight();
+    p = p && checkAllEdgesFit();
+    if (p) {console.log(faces);}
+}
+
+console.log('end');
