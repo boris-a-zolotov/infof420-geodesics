@@ -1,4 +1,9 @@
+// GETTING VERTICES TO CHECK EACH OF THEM IS CONVEX
 
+// initializing each vertex with one face 
+// that it is definitely incident to
+// this will result in every vertex
+// being listed multiple times
 
 for (var i = 0; i < net.length; i++) {
     for (var j = 0; j < net[i].length; j++) {
@@ -8,17 +13,22 @@ for (var i = 0; i < net.length; i++) {
     }
 }
 
-
+// f is face where the edge is originally found
+// e is the edge itself
 
 function thereIsDifferent(f, e) {
     for (var face = 0; face < net.length; face++) {
         for (var i = 0; i < net[face].length; i++) {
             if (face !== f && net[face][i] == e) {
+                // looking for the same edge in a different face
                 return [face, (i + 1) % net[face].length];
+                // shifting index now not to shift it
+                // when we start from this vertex later
             }
         }
     }
-    return false;
+    return false; // if it's only found in the same face
+    // there's no point to continue
 }
 
 
