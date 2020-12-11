@@ -38,7 +38,7 @@ let edges = [
 ]
 
 
-// Return direction i-th edge of the face
+// Return direction of the i-th edge of the face
 
 function ithEdge(face, i) {
     let l = face.length
@@ -61,7 +61,7 @@ function arraysEq(arr1, arr2) {
 };
 
 
-// Checking if two segments can glue to each other
+// CHECKING IF TWO SEGMENTS ARE GLUABLE
 
 function piRotate([x, y]) {
     return [-1 * y, x];
@@ -81,17 +81,13 @@ function edgesFit(edge) {
     return sameSegment(copy1, copy2);
 }
 
-console.log(edgesFit(edges[1]));
-
-
-// console.log(ithEdge(faces[0], 0));
-
-function totheright(xdir1, ydir1, xdir2, ydir2) {
-    return 5 < 2
+function checkAllEdgesFit() { // IMPORTANT: ONE OF THE CHECKS
+    for (var i = 0; i < edges.length; i++) {
+        if (!edgesFit(edges[i])) {return false;}
+    }
+    return true;
 }
 
+console.log(checkAllEdgesFit())
 
 
-function angle(xdir1, ydir1, xdir2, ydir2) {
-    return xdir2 - xdir1;
-}
