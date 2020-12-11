@@ -129,10 +129,6 @@ function checkAllFacesEdge() { // IMPORTANT: ONE OF THE CHECKS
 }
 
 
-// console.log(checkAllFacesEdge());
-// console.log(checkAllTurnsRight());
-// console.log(checkAllEdgesFit());
-
 function arIncrement() {
     let i = 0;
     let stopHere = false;
@@ -150,7 +146,7 @@ function arIncrement() {
 let globalCycle = 0;
 let p = true;
 
-for (globalCycle = 0; globalCycle < 3; globalCycle++) {
+for (globalCycle = 0; globalCycle < 1000000; globalCycle++) {
     p = true;
     for (var i = 0; i < 6; i++) {
         faces[i] = [
@@ -160,9 +156,6 @@ for (globalCycle = 0; globalCycle < 3; globalCycle++) {
             [globalArray[8 * i + 6], globalArray[8 * i + 7]]
         ];
     }
-    console.log(faces[0]);
-    console.log(faces);
-    console.log(faces[0][0]);
     p = p && checkAllFacesEdge();
     p = p && checkAllTurnsRight();
     p = p && checkAllEdgesFit();
