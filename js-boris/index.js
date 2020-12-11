@@ -27,6 +27,12 @@ function ithEdge(face, i) {
     }
 }
 
+function angle([x1, y1], [x2, y2]) {
+    let length1 = Math.sqrt(x1 * x1 + y1 * y1);
+    let length2 = Math.sqrt(x2 * x2 + y2 * y2);
+    return Math.acos((x1 * x2 + y1 * y2) / length1 / length2);
+}
+
 
 // Checking if arrays are equal
 
@@ -127,7 +133,7 @@ function arIncrement() {
 let globalCycle = 0;
 let p = true;
 
-for (globalCycle = 0; globalCycle < 1000000; globalCycle++) {
+for (globalCycle = 0; globalCycle < 10; globalCycle++) {
     p = true;
     for (var i = 0; i < 6; i++) {
         faces[i] = [
@@ -145,5 +151,13 @@ for (globalCycle = 0; globalCycle < 1000000; globalCycle++) {
     }
     arIncrement();
 }
+
+function ithAngle(face, i) {
+    let [x1, y1] = ithEdge(face, (i - 1 + face.length) % face.length);
+    let [x2, y2] = ithEdge(face, i);
+    return angle([-1 * x1, -1 * y1], [x2, y2]);
+}
+
+console.log(ithAngle(faces[1], 0));
 
 console.log('end');
