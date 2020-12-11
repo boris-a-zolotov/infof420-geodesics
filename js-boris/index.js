@@ -1,12 +1,14 @@
 // INITIAL DECLARATION OF FACES
 
-const field = 1;
+const field = 4;
 
-let globalArray = [];
-
-for (var i = 0; i < 48; i++) {
-    globalArray[i] = 0;
-}
+let globalArray = [1, 0, 3, 1, 2, 3, 0, 2,
+    1, 0, 3, 1, 2, 3, 0, 2,
+    1, 0, 3, 1, 2, 3, 0, 2,
+    1, 0, 3, 1, 2, 3, 0, 2,
+    1, 0, 3, 1, 2, 3, 0, 2,
+    1, 0, 3, 1, 2, 3, 0, 2
+];
 
 let faces = []
 
@@ -152,8 +154,7 @@ for (i = 0; i < 2051; i++) {
 let globalCycle = 0;
 let p = true;
 
-for (globalCycle = 0; globalCycle < 10000000; globalCycle++) {
-    arIncrement();
+for (globalCycle = 0; globalCycle < 3; globalCycle++) {
     p = true;
     for (var i = 0; i < 6; i++) {
         faces[i] = [
@@ -163,10 +164,15 @@ for (globalCycle = 0; globalCycle < 10000000; globalCycle++) {
             [globalArray[8 * i + 6], globalArray[8 * i + 7]]
         ];
     }
+    console.log(faces);
     p = p && checkAllFacesEdge();
     p = p && checkAllTurnsRight();
     p = p && checkAllEdgesFit();
-    if (p) {console.log(faces);}
+    if (p) {
+        console.log('TRUE');
+        console.log(faces);
+    }
+    arIncrement();
 }
 
 console.log('end');
