@@ -2,6 +2,12 @@
 
 const field = 2;
 
+let globalArray = [];
+
+for (var i = 0; i < 32; i++) {
+    globalArray[i] = 0;
+}
+
 let face0 = [
     [0, 0],
     [1, 0],
@@ -93,7 +99,7 @@ function checkAllEdgesFit() { // IMPORTANT: ONE OF THE CHECKS
 }
 
 function isRight([x1, y1], [x2, y2]) {
-    return (x1 * y2 - x2 * y1) >= 0;
+    return (x1 * y2 - x2 * y1) > 0;
 }
 
 function checkAllTurnsRight() { // IMPORTANT: ONE OF THE CHECKS
@@ -114,20 +120,46 @@ function checkFaceEdge(face) {
     let horiz = false;
     let vert = false;
     for (var ver = 0; ver < face.length; ver++) {
-        if (face[ver][0] == 0) {horiz = true;}
-        if (face[ver][1] == 0) {vert = true;}
+        if (face[ver][0] == 0) {
+            horiz = true;
+        }
+        if (face[ver][1] == 0) {
+            vert = true;
+        }
     }
     return horiz && vert;
 }
 
 function checkAllFacesEdge() { // IMPORTANT: ONE OF THE CHECKS
-    for (fc=0;fc<faces.length;fc++) {
-        if (!checkFaceEdge(faces[fc])) {return false;}
+    for (fc = 0; fc < faces.length; fc++) {
+        if (!checkFaceEdge(faces[fc])) {
+            return false;
+        }
     }
     return true;
 }
 
 
-console.log(checkAllFacesEdge ());
+console.log(checkAllFacesEdge());
 console.log(checkAllTurnsRight());
 console.log(checkAllEdgesFit());
+
+function arIncrement() {
+    let i = 0;
+    let stopHere = false;
+    while (!stopHere) {
+        if (globalArray[i] !== field) {
+            globalArray[i] += 1;
+            stopHere = true;
+        } else {
+            globalArray[i] = 0;
+            i += 1;
+        }
+    }
+}
+
+for (i = 0; i < 2051; i++) {
+    arIncrement();
+}
+
+console.log(globalArray);
