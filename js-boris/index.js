@@ -147,10 +147,6 @@ function arIncrement() {
     }
 }
 
-for (i = 0; i < 2051; i++) {
-    arIncrement();
-}
-
 let globalCycle = 0;
 let p = true;
 
@@ -164,12 +160,13 @@ for (globalCycle = 0; globalCycle < 3; globalCycle++) {
             [globalArray[8 * i + 6], globalArray[8 * i + 7]]
         ];
     }
+    console.log(faces[0]);
     console.log(faces);
+    console.log(faces[0][0]);
     p = p && checkAllFacesEdge();
     p = p && checkAllTurnsRight();
     p = p && checkAllEdgesFit();
     if (p) {
-        console.log('TRUE');
         console.log(faces);
     }
     arIncrement();
