@@ -11,8 +11,9 @@ let vertices = [];
 let cl = 0;
 let sca = 1000;
 let scb = 1000;
-let lastFace=0;
-let lastEdge=0;
+let lastFace = 0;
+let lastEdge = 0;
+let StopCondition = true;
 
 for (var i = 0; i < net.length; i++) {
     for (var j = 0; j < net[i].length; j++) {
@@ -28,7 +29,7 @@ function thereIsDifferent(f, e) {
     for (var face = 0; face < net.length; face++) {
         for (var i = 0; i < net[face].length; i++) {
             if (face !== f && net[face][i] == e) {
-                return [face, i + 1 % net[face].length];
+                return [face, (i + 1) % net[face].length];
             }
         }
     }
@@ -36,38 +37,42 @@ function thereIsDifferent(f, e) {
 }
 
 
+console.log(thereIsDifferent(0, 2));
+console.log(thereIsDifferent(1, 11));
+console.log(thereIsDifferent(5, 5));
+
+console.log(' ');
+
+console.log(thereIsDifferent(0, 6));
+console.log(thereIsDifferent(4, 0));
+console.log(thereIsDifferent(1, 2));
+
+console.log(' ');
+
 for (var vertex = 0; vertex < vertices.length; vertex++) {
-    let stopCondition = thereIsDifferent(vertices[vertex][0], vertices[vertex][1]);
+    stopCondition = thereIsDifferent(vertices[vertex][0],
+        net[vertices[vertex][0]][vertices[vertex][1]]);
+
+
     if (stopCondition !== false) {
         sca = stopCondition[0];
         scb = stopCondition[1];
     }
 
-    while (sca !== vertices[vertex][0] && scb !== vertices[vertex][1] && stopCondition !== false) {
-
-
+    while ((sca !== vertices[vertex][0] || scb !== vertices[vertex][1]) && stopCondition !== false) {
         vertices[vertex] = vertices[vertex].concat([sca, scb]);
         cl = vertices[vertex].length;
 
-        lastFace=vertices[vertex][cl - 2];
-        lastEdge=net[lastFace][vertices[vertex][cl - 1]]
+        lastFace = vertices[vertex][cl - 2];
+        lastEdge = net[lastFace][vertices[vertex][cl - 1]]
 
 
         stopCondition = thereIsDifferent(lastFace, lastEdge);
-        
+
         if (stopCondition !== false) {
             sca = stopCondition[0];
             scb = stopCondition[1];
         }
-
-        console.log('CURRENT STATE', vertex, '||||', vertices[vertex]);
-
-        console.log('WHAT WE SEARCH', lastFace, lastEdge, stopCondition, sca, scb);
-
-        console.log(' ');
-
-        console.log(' ');
-        
     }
 
 }
