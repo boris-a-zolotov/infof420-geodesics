@@ -1,4 +1,4 @@
-// Initial declaration of faces
+// INITIAL DECLARATION OF FACES
 
 let face0 = [
     [0, 0],
@@ -15,8 +15,11 @@ let face5 = face0;
 
 let faces = [face0, face1, face2, face3, face4, face5]
 
-// face, edge, face, edge
+
+// DESCRIPTION OF EDGES
+// face, edge no., face, edge no.
 // need to generate
+
 let edges = [
     [0, 0, 1, 2],
     [1, 0, 2, 2],
@@ -34,7 +37,8 @@ let edges = [
     [5, 0, 2, 3]
 ]
 
-// Return i-th edge of the face
+
+// Return direction i-th edge of the face
 
 function ithEdge(face, i) {
     let l = face.length
@@ -45,24 +49,39 @@ function ithEdge(face, i) {
     }
 }
 
+
+// Checking if arrays are equal
+
+function arraysEq(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+    for (var i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) return false;
+    }
+    return true;
+};
+
+
+// Checking if two segments can glue to each other
+
 function piRotate([x, y]) {
     return [-1 * y, x];
 }
 
 function sameSegment(s1, s2) {
-    return (s1 == s2 ||
-        s1 == piRotate(s2) ||
-        s1 == piRotate(piRotate(s2)) ||
-        s1 == piRotate(piRotate(piRotate(s2))));
+    if (arraysEq(s1, s2)) return true;
+    if (arraysEq(s1, piRotate(s2))) return true;
+    if (arraysEq(s1, piRotate(piRotate(s2)))) return true;
+    if (arraysEq(s1, piRotate(piRotate(piRotate(s2))))) return true;
+    return false;
 }
-
-console.log(sameSegment([1, 1], [1,1]));
 
 function edgesFit(edge) {
-    let copy1 = ithEdge(face[edge[0]], egde[1]);
-    let copy2 = ithEdge(face[edge[2]], edge[3]);
-    return copy1 === copy2 || copy1 === piRotate(copy2) || copy1 === piRotate(piRotate(copy2))
+    let copy1 = ithEdge(faces[edge[0]], edge[1]);
+    let copy2 = ithEdge(faces[edge[2]], edge[3]);
+    return sameSegment(copy1, copy2);
 }
+
+console.log(edgesFit(edges[1]));
 
 
 // console.log(ithEdge(faces[0], 0));
