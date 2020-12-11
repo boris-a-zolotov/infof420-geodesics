@@ -7,7 +7,14 @@ let face0 = [
     [0, 1]
 ];
 
-let face1 = face0;
+let face1 = [
+    [0, 0],
+    [3, 0],
+    [1, 1],
+    [0, 3]
+];
+
+// let face1 = face0;
 let face2 = face0;
 let face3 = face0;
 let face4 = face0;
@@ -93,19 +100,19 @@ function checkAllEdgesFit() { // IMPORTANT: ONE OF THE CHECKS
 // console.log(checkAllEdgesFit());
 
 function isRight([x1, y1], [x2, y2]) {
-    return (x1 * y2 - x2 * y1) > 0;
+    return (x1 * y2 - x2 * y1) >= 0;
 }
 
 // console.log(isRight([1, 0], [0, 1]));
 
 function checkAllTurnsRight() {
     for (var fc = 0; fc < faces.length; fc++) {
-        for (var eg = 0; eg < faces[fc].length - 1; eg++) {
-            if (!isRight(ithEdge(faces[fc], eg), ithEdge(faces[fc], eg + 1))) {
+        for (var eg = 0; eg < (faces[fc].length - 1); eg++) {
+            if (!isRight(ithEdge(faces[fc], eg), ithEdge(faces[fc], (eg)))) {
                 return false;
             }
         }
-        if (!isRight(ithEdge(faces[fc], faces[fc].length), ithEdge(faces[fc], 0))) {
+        if (!isRight(ithEdge(faces[fc], faces[fc].length-1), ithEdge(faces[fc], 0))) {
             return false;
         }
     }
