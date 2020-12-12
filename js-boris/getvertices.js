@@ -70,13 +70,12 @@ for (var vertex = 0; vertex < vertices.length; vertex++) {
             scb = stopCondition[1];
         }
     }
-
 }
 
-console.log(vertices);
 
+// GENERATING THE LIST OF EDGES TO CHECK THEIR GLUING
 
-
+// determine the number of classes of edges
 
 for (var i = 0; i < net.length; i++) {
     for (var j = 0; j < net[i].length; j++) {
@@ -86,7 +85,9 @@ for (var i = 0; i < net.length; i++) {
     }
 }
 
-maxedge = maxedge + 1;
+maxedge = maxedge + 1; // to use in «for» cycles
+
+// determine every face and every position that edge is in
 
 for (var edge = 0; edge < maxedge; edge++) {
     edges[edge] = [];
@@ -99,4 +100,3 @@ for (var edge = 0; edge < maxedge; edge++) {
     }
 }
 
-// console.log(edges);
