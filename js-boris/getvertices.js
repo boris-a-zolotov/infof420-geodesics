@@ -1,4 +1,8 @@
-// GETTING VERTICES TO CHECK EACH OF THEM IS CONVEX
+// PREPARING VERTICES TO CHECK EACH OF THEM IS CONVEX
+
+// MAIN RULE:
+// i-th edge is between vertices i and i+1
+// i-th vertex is between edges i-1 and i
 
 // initializing each vertex with one face 
 // that it is definitely incident to
@@ -19,8 +23,10 @@ for (var i = 0; i < net.length; i++) {
 function thereIsDifferent(f, e) {
     for (var face = 0; face < net.length; face++) {
         for (var i = 0; i < net[face].length; i++) {
+
             if (face !== f && net[face][i] == e) {
                 // looking for the same edge in a different face
+
                 return [face, (i + 1) % net[face].length];
                 // shifting index now not to shift it
                 // when we start from this vertex later
@@ -32,23 +38,30 @@ function thereIsDifferent(f, e) {
 }
 
 
+// FOR EACH VERTEX GETTING THE LIST OF INCIDENT EDGES
+
 for (var vertex = 0; vertex < vertices.length; vertex++) {
-    stopCondition = thereIsDifferent(vertices[vertex][0],
-        net[vertices[vertex][0]][vertices[vertex][1]]);
+    stopCondition = thereIsDifferent(vertices[vertex][0], // we know the edge is in the initial face
+        net[vertices[vertex][0]][vertices[vertex][1]]); // we get edge class knowing our place in face
 
-
-    if (stopCondition !== false) {
-        sca = stopCondition[0];
-        scb = stopCondition[1];
+    if (stopCondition !== false) { // our vertex found in another face
+        sca = stopCondition[0]; // number of that face
+        scb = stopCondition[1]; // position in that face
     }
 
-    while ((sca !== vertices[vertex][0] || scb !== vertices[vertex][1]) && stopCondition !== false) {
+    while ((sca !== vertices[vertex][0] || scb !== vertices[vertex][1]) &&
+        // we're hitting different faces or different places
+        stopCondition !== false) {
+        // really hitting them, not reusing old data
+
         vertices[vertex] = vertices[vertex].concat([sca, scb]);
-        cl = vertices[vertex].length;
+        // append new instance of the vertex
 
-        lastFace = vertices[vertex][cl - 2];
+        cl = vertices[vertex].length; // current degree * 2
+
+        lastFace = vertices[vertex][cl - 2]; // the face we're in now
         lastEdge = net[lastFace][vertices[vertex][cl - 1]]
-
+        // (!) get edge class knowing place in face
 
         stopCondition = thereIsDifferent(lastFace, lastEdge);
 
