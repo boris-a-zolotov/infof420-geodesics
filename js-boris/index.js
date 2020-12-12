@@ -166,17 +166,23 @@ for (var edge = 0; edge < maxedge; edge++) {
 }
 
 
-// Return direction of the i-th edge of the face
+// PICKING I-TH edge
+
+// return direction of i-th edge of the face
+// % l because face is cyclic
 
 function ithEdge(face, i) {
     let l = face.length;
-    if (i == l - 1) {
-        return [face[0][0] - face[i][0], face[0][1] - face[i][1]];
-    } else {
-        return [face[i + 1][0] - face[i][0], face[i + 1][1] - face[i][1]];
-    }
+    return [face[(i + 1) % l][0] - face[i][0], face[(i + 1) % l][1] - face[i][1]];
 }
 
+// return angle at i-th vertex
+
+function ithAngle(face, i) {
+    let [x1, y1] = ithEdge(face, (i - 1 + face.length) % face.length);
+    let [x2, y2] = ithEdge(face, i);
+    return angle([-1 * x1, -1 * y1], [x2, y2]);
+}
 
 // CHECKING IF TWO SEGMENTS ARE GLUABLE
 
@@ -248,20 +254,16 @@ function checkAllFacesEdge() { // IMPORTANT: ONE OF THE CHECKS
     return true;
 }
 
-function ithAngle(face, i) {
-    let [x1, y1] = ithEdge(face, (i - 1 + face.length) % face.length);
-    let [x2, y2] = ithEdge(face, i);
-    return angle([-1 * x1, -1 * y1], [x2, y2]);
-}
-
 
 function checkAllVerticesConvex() { // IMPORTANT: ONE OF THE CHECKS
-    for (var vertex=0; vertex < vertices.length; vertex++) {
-        let anglesum=0;
-        for (var i=0; i < vertices[vertex].length; i+=2) {
-            anglesum += ithAngle(faces[vertices[vertex][i]], vertices[vertex][i+1])
+    for (var vertex = 0; vertex < vertices.length; vertex++) {
+        let anglesum = 0;
+        for (var i = 0; i < vertices[vertex].length; i += 2) {
+            anglesum += ithAngle(faces[vertices[vertex][i]], vertices[vertex][i + 1])
         }
-        if (anglesum > 6.28319) {return false;}
+        if (anglesum > 6.28319) {
+            return false;
+        }
     }
     return true;
 }
