@@ -17,14 +17,14 @@ let net = [
 // globalArray has to be initialized according to
 // the size of the net
 
-const field = 4;
+const field = 3;
 
-let globalArray = [1, 0, 3, 1, 2, 3, 0, 2,
-    1, 0, 3, 1, 2, 3, 0, 2,
-    1, 0, 3, 1, 2, 3, 0, 2,
-    1, 0, 3, 1, 2, 3, 0, 2,
-    1, 0, 3, 1, 2, 3, 0, 2,
-    1, 0, 3, 1, 2, 3, 0, 2
+let globalArray = [3, 1, 2, 3, 0, 2, 1, 0,
+    3, 1, 2, 3, 0, 2, 1, 0,
+    3, 1, 2, 3, 0, 2, 1, 0,
+    3, 1, 2, 3, 0, 2, 1, 0,
+    3, 1, 2, 3, 0, 2, 1, 0,
+    3, 1, 2, 3, 0, 2, 1, 0
 ];
 
 
@@ -248,6 +248,24 @@ function checkAllFacesEdge() { // IMPORTANT: ONE OF THE CHECKS
     return true;
 }
 
+function ithAngle(face, i) {
+    let [x1, y1] = ithEdge(face, (i - 1 + face.length) % face.length);
+    let [x2, y2] = ithEdge(face, i);
+    return angle([-1 * x1, -1 * y1], [x2, y2]);
+}
+
+
+function checkAllVerticesConvex() { // IMPORTANT: ONE OF THE CHECKS
+    for (var vertex=0; vertex < vertices.length; vertex++) {
+        let anglesum=0;
+        for (var i=0; i < vertices[vertex].length; i+=2) {
+            anglesum += ithAngle(faces[vertices[vertex][i]], vertices[vertex][i+1])
+        }
+        if (anglesum > 6.28319) {return false;}
+    }
+    return true;
+}
+
 
 function arIncrement() {
     let i = 0;
@@ -266,7 +284,7 @@ function arIncrement() {
 let globalCycle = 0;
 let p = true;
 
-for (globalCycle = 0; globalCycle < 10; globalCycle++) {
+for (globalCycle = 0; globalCycle < 25000000; globalCycle++) {
     p = true;
     for (var i = 0; i < 6; i++) {
         faces[i] = [
@@ -279,18 +297,14 @@ for (globalCycle = 0; globalCycle < 10; globalCycle++) {
     p = p && checkAllFacesEdge();
     p = p && checkAllTurnsRight();
     p = p && checkAllEdgesFit();
+    p = p && checkAllVerticesConvex();
     if (p) {
         console.log(faces);
     }
     arIncrement();
 }
 
-function ithAngle(face, i) {
-    let [x1, y1] = ithEdge(face, (i - 1 + face.length) % face.length);
-    let [x2, y2] = ithEdge(face, i);
-    return angle([-1 * x1, -1 * y1], [x2, y2]);
-}
 
-console.log(ithAngle(faces[1], 0));
+
 
 console.log('end');
