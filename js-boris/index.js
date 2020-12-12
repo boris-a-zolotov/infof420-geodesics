@@ -184,7 +184,10 @@ function ithAngle(face, i) {
     return angle([-1 * x1, -1 * y1], [x2, y2]);
 }
 
+
 // CHECKING IF TWO SEGMENTS ARE GLUABLE
+
+// check that directions of edges differ by 90*k degrees
 
 function piRotate([x, y]) {
     return [-1 * y, x];
@@ -197,6 +200,10 @@ function sameSegment(s1, s2) {
     if (arraysEq(s1, piRotate(piRotate(piRotate(s2))))) return true;
     return false;
 }
+
+// with each edge we're given
+// no. of face; position; no. of face; position
+// we use it to extract directions and check fitment
 
 function edgesFit(edge) {
     let copy1 = ithEdge(faces[edge[0]], edge[1]);
@@ -213,23 +220,28 @@ function checkAllEdgesFit() { // IMPORTANT: ONE OF THE CHECKS
     return true;
 }
 
+
+// CHECKING THAT EACH FACE IS A CONVEX POLYGON
+
 function isRight([x1, y1], [x2, y2]) {
     return (x1 * y2 - x2 * y1) > 0;
 }
 
 function checkAllTurnsRight() { // IMPORTANT: ONE OF THE CHECKS
     for (var fc = 0; fc < faces.length; fc++) {
-        for (var eg = 0; eg < (faces[fc].length - 1); eg++) {
-            if (!isRight(ithEdge(faces[fc], eg), ithEdge(faces[fc], eg + 1))) {
+        let l = faces[fc].length;
+        for (var eg = 0; eg < l; eg++) {
+            if (!isRight(ithEdge(faces[fc], eg), ithEdge(faces[fc], (eg + 1) % l))) {
                 return false;
             }
-        }
-        if (!isRight(ithEdge(faces[fc], faces[fc].length - 1), ithEdge(faces[fc], 0))) {
-            return false;
         }
     }
     return true;
 }
+
+
+// CHECKING THAT EACH FACE HAS AT LEAST TWO VERTICES ON THE BORDER
+// we do not want to have too much freedom
 
 function checkFaceEdge(face) {
     let horiz = false;
@@ -286,7 +298,7 @@ function arIncrement() {
 let globalCycle = 0;
 let p = true;
 
-for (globalCycle = 0; globalCycle < 25000000; globalCycle++) {
+for (globalCycle = 0; globalCycle < 200000000; globalCycle++) {
     p = true;
     for (var i = 0; i < 6; i++) {
         faces[i] = [
