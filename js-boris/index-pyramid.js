@@ -3,7 +3,7 @@
 // numbers are equivalence classes of edges
 
 let net = [
-    [3, 4, 1],
+    [3, 4, 0],
     [0, 1, 2],
     [1, 5, 8],
     [4, 6, 5],
@@ -298,7 +298,9 @@ function arIncrement() {
 let globalCycle = 0;
 let p = true;
 
-for (globalCycle = 0; globalCycle < 1; globalCycle++) {
+console.log(edges);
+
+for (globalCycle = 0; globalCycle < 200000000; globalCycle++) {
     p = true;
     for (var i = 0; i < 6; i++) { // number of faces is 6
         faces[i] = [
@@ -314,11 +316,7 @@ for (globalCycle = 0; globalCycle < 1; globalCycle++) {
     if (p) {
         console.log(faces);
     }
-    //arIncrement();
+    arIncrement();
 }
-
-console.log(faces);
-
-console.log(edges);
 
 console.log('end');
