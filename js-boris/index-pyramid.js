@@ -300,7 +300,7 @@ let p = true;
 
 console.log(edges);
 
-for (globalCycle = 0; globalCycle < 200000000; globalCycle++) {
+for (globalCycle = 0; globalCycle < 70000000000; globalCycle++) {
     p = true;
     for (var i = 0; i < 6; i++) { // number of faces is 6
         faces[i] = [
