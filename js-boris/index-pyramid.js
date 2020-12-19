@@ -3,12 +3,12 @@
 // numbers are equivalence classes of edges
 
 let net = [
-    [0, 3, 2],
-    [0, 1, 4],
-    [1, 7, 6],
-    [2, 8, 7],
-    [8, 3, 5],
-    [5, 4, 6]
+    [3, 4, 1],
+    [0, 1, 2],
+    [1, 5, 8],
+    [4, 6, 5],
+    [6, 3, 7],
+    [8, 7, 2]
 ];
 
 
@@ -19,12 +19,12 @@ let net = [
 
 const field = 4;
 
-let globalArray = [2, 2, 0, 0, 2, 0,
+let globalArray = [0, 0, 2, 0, 2, 2,
     0, 0, 2, 2, 0, 2,
     0, 0, 2, 0, 1, 1,
     1, 0, 1, 2, 0, 1,
     1, 0, 2, 1, 0, 1,
-    1, 1, 0, 2, 0, 0
+    0, 0, 1, 1, 0, 2
 ];
 
 
@@ -298,13 +298,13 @@ function arIncrement() {
 let globalCycle = 0;
 let p = true;
 
-for (globalCycle = 0; globalCycle < 200000000; globalCycle++) {
+for (globalCycle = 0; globalCycle < 1; globalCycle++) {
     p = true;
     for (var i = 0; i < 6; i++) { // number of faces is 6
         faces[i] = [
-            [globalArray[8 * i], globalArray[8 * i + 1]],
-            [globalArray[8 * i + 2], globalArray[8 * i + 3]],
-            [globalArray[8 * i + 4], globalArray[8 * i + 5]],
+            [globalArray[6 * i], globalArray[6 * i + 1]],
+            [globalArray[6 * i + 2], globalArray[6 * i + 3]],
+            [globalArray[6 * i + 4], globalArray[6 * i + 5]],
         ];
     }
     p = p && checkAllFacesEdge();
@@ -314,7 +314,11 @@ for (globalCycle = 0; globalCycle < 200000000; globalCycle++) {
     if (p) {
         console.log(faces);
     }
-    arIncrement();
+    //arIncrement();
 }
+
+console.log(faces);
+
+console.log(edges);
 
 console.log('end');
