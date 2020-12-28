@@ -1,0 +1,65 @@
+\RequirePackage[margin=1.15in,bottom=1.1in]{geometry}
+\RequirePackage{amsmath,amssymb,amsthm,mathtools}
+\RequirePackage{graphicx,caption,subcaption,makecell}
+\RequirePackage{titletoc,tocloft,hyperref,fancyvrb}
+\RequirePackage{enumerate,enumitem,indentfirst,euscript}
+\RequirePackage{alphalph,xcolor}
+\RequirePackage[numbers,sort]{natbib}
+
+\RequirePackage[small]{complexity}
+\hypersetup{unicode=true}
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{cmap}
+\RequirePackage[T2A]{fontenc}
+\RequirePackage{csquotes}
+\RequirePackage[english]{babel}
+\RequirePackage{xspace}
+
+\RequirePackage{tikz}
+\usetikzlibrary{arrows,backgrounds,patterns,matrix,
+	shapes,fit,calc,shadows,plotmarks,snakes}
+
+\linespread{1.12} \def\ms{\medskip\par}
+\def\ll{\left(} \def\rr{\right)}
+\def\lag{\left\langle} \def\rag{\right\rangle}
+\def\l{\lambda}
+
+\parindent=0.33in \footskip=0.35in \parskip=0.12cm
+\renewcommand{\labelenumi}{\arabic{enumi}) }
+
+\newcommand{\bq}{{\mathbb Q}}
+\newcommand{\br}{{\mathbb R}}
+\newcommand{\bc}{{\mathbb C}}
+\newcommand{\bn}{{\mathbb N}}
+\newcommand{\bz}{{\mathbb Z}}
+
+\def\l{\lambda}
+
+\newtheorem{exmpl}{Example}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{stat}[theorem]{Statement}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{clm}[theorem]{Claim}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{task}{Problem}
+
+\newtheorem*{remark}{Remark}
+
+\DeclarePairedDelimiter\set{\lbrace}{\rbrace}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\segment{[}{]}
+\DeclarePairedDelimiter\parens{(}{)}
+
+\DeclarePairedDelimiterX{\map}[2]{\lbrace}{\rbrace}{#1 \,\delimsize\vert\,\mathopen{} #2}
+\newcommand{\BigO}{\mathcal{O}}
+\newcommand{\SmallO}{o}
+
+\newcommand{\eps}{\varepsilon}
