@@ -13,13 +13,13 @@
 In this section, we prove that the number of edge-to-edge gluings of $n$ squares is polynomial in $n$.
 
 \begin{theorem}
-	There is at most $(2n)^{36}$ edge-to-edge gluings of $n$ squares that satisfy Alexandrov's conditions.
+	There are $O \left( n^{36} \right)$ edge-to-edge gluings of at most $n$ squares that satisfy Alexandrov's conditions.
 \end{theorem}
 
 \begin{proof}
 Since we're considering gluings that satisfy Alexandrov's conditions, there is a polyhedron corresponding to each of them. Consider this polyhedron and triangulate it. Since this polyhedron is glued from squares, it is possible to draw each of its faces on square grid, the vertices of the face being also the vertices of the grid.
 
-What is more, an edge shared by two faces must look the same on the drawings of these faces; an example can be seen in Figure~\ref{fig:edgesMeeting}. That means, it must have the same length and the same or differing by $\frac{\pi}{2}$ tilt angle. 
+What is more, an edge shared by two faces must look the same on the drawings of these faces; an example can be seen in Figure~\ref{fig:edgesMeeting}. That means, it must have the same length and the tilt angle that is the same or differing by $\frac{\pi}{2}$. 
 
 \begin{figure}[h] \centering
 \tikz[scale=0.45]{
@@ -42,7 +42,23 @@ What is more, an edge shared by two faces must look the same on the drawings of 
 \label{fig:edgesMeeting}
 \end{figure}
 
-The graph of the polyhedron is planar and has at most 8 vertices. Due to Euler's formula, it can have at most 18 edges.
+The graph of the polyhedron is planar and has at most 8 vertices. Due to Euler's formula, it can have at most 18 edges. For each edge, we can choose its projections on $x$ and $y$ axes once it is drawn on the grid. Since the edge is a part of a flat face, all the squares that intersect the edge are distinct. There is at most $n$ of them, which yields that both projections are at most $n$, so there is at most $n^2$ ways to choose the edge.
+
+Once the projections of the edges are known, let us draw the faces on the grid. At every vertex, there is at most two ways to place the next edge, such that the convexity of the face is preserved, those differ by $\frac{\pi}{2}$, see Figure~\ref{fig:twoWays} for an example.
+
+\begin{figure}[h] \centering
+\tikz[scale=0.45]{
+	\foreach \i in {0,...,6} {
+		\draw[gray] (0,\i) -- (6,\i) (\i,0) -- (\i,6);
+	}
+	\draw[thick] (1,0)--(2,3);
+	\draw[thick,red,dashed] (4,6)--(2,3)--(5,2);
+}
+\caption{There are two ways to place each edge preserving convexity of the face}
+\label{fig:twoWays}
+\end{figure}
+
+This adds at most $2^{2 \cdot 18}$ ways to draw the net once the edges are known, which gives the total of at most $(2n)^{36}$ gluings.
 \end{proof}
 
 % \bibliography{boris-bac}{}
