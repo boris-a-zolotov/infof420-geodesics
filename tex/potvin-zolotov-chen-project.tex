@@ -61,6 +61,24 @@ Once the projections of the edges are known, let us draw the faces on the grid. 
 This adds at most $2^{2 \cdot 18}$ ways to draw the net once the edges are known, which gives the total of at most $(2n)^{36}$ gluings.
 \end{proof}
 
+\begin{theorem}
+	There are $\Omega \left( n^{\frac52} \right)$ edge-to-edge gluings of at most $n$ squares that satisfy Alexandrov's conditions.
+\end{theorem}
+
+\begin{proof}
+We will construct a family of $\Omega \left( n^{\frac52} \right)$ distinct polyhedra that can be glued from squares edge-to-edge. Those will be doubly-covered convex polygons whose edges are either parallel to the axes or inclined by $\frac{\pi}{8}$ and vertices are vertices of the grid.
+
+Consider a square $\left \lfloor \frac{\sqrt n}{2} \right \rfloor \times \left \lfloor \frac{\sqrt n}{2} \right \rfloor$ drawn on the square grid. If a polygon is drawn inside this square, and it satisfies the conditions of the previous paragraph, then doubly covered version of this polygon can be glued from squares and consists of at most $n$ squares.
+
+The polygons will be constructed the following way: we will take a rectangle and cut it angles off. More formally, we will pick two points on either of short sides of the rectangle and shoot lines inclined by $\frac{\pi}{8}$ from them.
+
+%	\begin{figure}[h] \centering
+%		\tikz{
+%		}
+%	\end{figure}
+
+\end{proof}
+
 % \bibliography{boris-bac}{}
 % \bibliographystyle{plain}
 
