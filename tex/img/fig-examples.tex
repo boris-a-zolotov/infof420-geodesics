@@ -1,0 +1,34 @@
+\begin{figure}[h] \centering
+\begin{subfigure}[t]{3.2cm} \centering
+\tikz[scale=0.45]{ % (3,-0.7) node[text height=3ex]{(a)}
+	\baserect
+	\filldraw[fill=bluetri,thick,fill opacity=0.55] (6,0) -- (4,0) -- (6,2) -- (3,5) -- (6,5) -- cycle;
+	\filldraw[fill=bluetri,thick,fill opacity=0.55] (0,0) -- (1,0) -- (0,1) -- cycle;
+	\filldraw[fill=bluetri,thick,fill opacity=0.55] (0,3) -- (2,5) -- (0,5) -- cycle;
+	\fill (6,2) circle[radius = 1.6mm]
+		(0,3) circle[radius = 1.6mm]
+		(0,1) circle[radius = 1.6mm];
+} \caption{ } \label{fig:cutExA} \end{subfigure} \hspace{0.6cm}
+\begin{subfigure}[t]{3.2cm} \centering
+\tikz[scale=0.45]{
+	\baserect
+	\filldraw[fill=bluetri,thick,fill opacity=0.55] (0,3) -- (0,5) -- (6,5) -- (6,1) -- (2,5) -- cycle;
+	\draw[thick,red,dashed] (0,2) -- (3,5);
+	\fill (6,1) circle[radius = 1.6mm]
+		(0,2) circle[radius = 1.6mm]
+		(0,3) circle[radius = 1.6mm]
+		(0,0) circle[radius = 1.6mm]
+		(6,0) circle[radius = 1.6mm];
+} \caption{ } \label{fig:cutExB} \end{subfigure} \hspace{0.6cm}
+\begin{subfigure}[t]{3.2cm} \centering
+\tikz[scale=0.45]{
+	\baserect
+	\filldraw[fill=bluetri,thick,fill opacity=0.55] (0,0) -- (4,4) -- (6,2) -- (6,5) -- (0,5) -- cycle;
+	\draw[thick,dashed] (0,4) -- (6,4);
+	\fill (0,0) circle[radius = 1.6mm]
+		(6,0) circle[radius = 1.6mm]
+		(6,2) circle[radius = 1.6mm];
+} \caption{ } \label{fig:cutExC} \end{subfigure}
+
+\caption{(a) An example of a polygon produced by cutting angles of a rectangle. (b) Some pairs of points on short sides do not produce valid polygons. (c) A polygon can be obtained by cutting angles of several different rectangles.}
+\end{figure}
