@@ -1,4 +1,4 @@
-// NET OF A SQUARE:
+// NET OF A CUBE:
 // planar graph represented by DCEL
 // numbers are equivalence classes of edges
 
@@ -61,6 +61,87 @@ function arraysEq(arr1, arr2) {
     }
     return true;
 };
+
+// removing duplicates from a multidimensional array
+
+function multiDimensionalUnique(arr) {
+    var uniques = [];
+    var itemsFound = {};
+    for (var i = 0, l = arr.length; i < l; i++) {
+        var stringified = JSON.stringify(arr[i]);
+        if (itemsFound[stringified]) {
+            continue;
+        }
+        uniques.push(arr[i]);
+        itemsFound[stringified] = true;
+    }
+    return uniques;
+}
+
+// for each vertex make the face with
+// the smallest index the first face to appear
+
+function rotateMin(arr) {
+    let locLen = arr.length;
+    let locMin = 1000;
+    let minPos = 1000;
+    let resArr = [];
+
+    for (var i = 0; i < locLen; i += 2) {
+        // we assume we deal with planar faces,
+        // which means two vertices of one face
+        // can't glue to each other
+        if (arr[i] < locMin) {
+            locMin = arr[i];
+            minPos = i;
+        }
+    }
+
+    for (var i = 0; i < locLen; i++) {
+        resArr = resArr.concat(arr[(i + minPos) % locLen]);
+    }
+
+    return resArr;
+};
+
+
+// PRINTING
+
+function printPair([a, b]) {
+    return `(${a},${b})`;
+}
+
+// print a single face in a single tikz
+
+function printFace(nom, arr) {
+    let locRes = `  \\tikz[scale=0.56]{\n`;
+    locRes += `    \\fill[white] (-0.4,-0.4) rectangle (${field}+0.4,${field}+0.4);\n`
+    locRes += `    \\foreach \\i in {0,...,${field}} {\\draw[gray,opacity=0.6]`
+    locRes += ` (0,\\i) -- (${field},\\i) (\\i,0) -- (\\i,${field});}\n`
+    locRes += `    \\draw[thick] `;
+    locRes += printPair(arr[0]);
+    for (var i = 1; i < arr.length; i++) {
+        locRes += ` -- `;
+        locRes += printPair(arr[i]);
+        locRes += ` \\midnode{${net[nom][i-1]}}`;
+    }
+
+    locRes += ` -- cycle \\midnode{${net[nom][arr.length-1]}};} \\qquad\n`
+    return locRes;
+}
+
+// print all the faces in a figure
+
+function printFaces(nom, arr) {
+    let globRes = `\\begin{figure} \\centering\n`;
+
+    for (var i = 0; i < arr.length; i++) {
+        globRes += printFace(i, arr[i]);
+    }
+
+    globRes += `\\caption{Net ${nom}} \\end{figure}\n\n\n`;
+    return globRes;
+}
 
 
 // PREPARING VERTICES TO CHECK EACH OF THEM IS CONVEX
@@ -184,6 +265,12 @@ function ithAngle(face, i) {
     return angle([-1 * x1, -1 * y1], [x2, y2]);
 }
 
+function ithOuterAngle(face, i) {
+    let [x1, y1] = ithEdge(face, (i - 1 + face.length) % face.length);
+    let [x2, y2] = ithEdge(face, i);
+    return angle([x1, y1], [x2, y2]);
+}
+
 
 // CHECKING IF TWO SEGMENTS ARE GLUABLE
 
@@ -221,6 +308,15 @@ function checkAllEdgesFit() { // IMPORTANT: ONE OF THE CHECKS
 }
 
 
+// removing duplicates from the list of vertices
+
+for (var i = 0; i < vertices.length; i++) {
+    vertices[i] = rotateMin(vertices[i]);
+}
+
+vertices = multiDimensionalUnique(vertices);
+
+
 // CHECKING THAT EACH FACE IS A CONVEX POLYGON
 
 function isRight([x1, y1], [x2, y2]) {
@@ -230,10 +326,15 @@ function isRight([x1, y1], [x2, y2]) {
 function checkAllTurnsRight() { // IMPORTANT: ONE OF THE CHECKS
     for (var fc = 0; fc < faces.length; fc++) {
         let l = faces[fc].length;
+        let sumOuterAngles = 0;
         for (var eg = 0; eg < l; eg++) {
             if (!isRight(ithEdge(faces[fc], eg), ithEdge(faces[fc], (eg + 1) % l))) {
                 return false;
             }
+            sumOuterAngles += ithOuterAngle(faces[fc], eg);
+        }
+        if (sumOuterAngles > 6.29) {
+            return false;
         }
     }
     return true;
@@ -298,7 +399,7 @@ function arIncrement() {
 let globalCycle = 0;
 let p = true;
 
-for (globalCycle = 0; globalCycle < 200000000; globalCycle++) {
+for (globalCycle = 0; globalCycle < 400000000; globalCycle++) {
     p = true;
     for (var i = 0; i < 6; i++) {
         faces[i] = [
@@ -313,12 +414,9 @@ for (globalCycle = 0; globalCycle < 200000000; globalCycle++) {
     p = p && checkAllEdgesFit();
     p = p && checkAllVerticesConvex();
     if (p) {
-        console.log(faces);
+        console.log(printFaces(globalCycle, faces));
     }
     arIncrement();
 }
-
-
-
 
 console.log('end');
