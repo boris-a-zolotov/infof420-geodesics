@@ -67,9 +67,11 @@ function arraysEq(arr1, arr2) {
 function multiDimensionalUnique(arr) {
     var uniques = [];
     var itemsFound = {};
-    for(var i = 0, l = arr.length; i < l; i++) {
+    for (var i = 0, l = arr.length; i < l; i++) {
         var stringified = JSON.stringify(arr[i]);
-        if(itemsFound[stringified]) { continue; }
+        if (itemsFound[stringified]) {
+            continue;
+        }
         uniques.push(arr[i]);
         itemsFound[stringified] = true;
     }

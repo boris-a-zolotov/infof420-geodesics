@@ -9,9 +9,11 @@ function arraysEq(arr1, arr2) {
 function multiDimensionalUnique(arr) {
     var uniques = [];
     var itemsFound = {};
-    for(var i = 0, l = arr.length; i < l; i++) {
+    for (var i = 0, l = arr.length; i < l; i++) {
         var stringified = JSON.stringify(arr[i]);
-        if(itemsFound[stringified]) { continue; }
+        if (itemsFound[stringified]) {
+            continue;
+        }
         uniques.push(arr[i]);
         itemsFound[stringified] = true;
     }
@@ -48,7 +50,7 @@ function isLonely(x, arr) {
     let locSum = 0;
 
     for (var i = 0; i < arr.length; i++) {
-        if (arraysEq (x, arr[i])) locSum++;
+        if (arraysEq(x, arr[i])) locSum++;
     }
 
     if (locSum > 1) return false;
@@ -56,60 +58,36 @@ function isLonely(x, arr) {
 }
 
 
-let vertices = [
+let faces = [
     [
-        0, 0, 4, 2,
-        5, 2, 1, 0
-    ],
-    [0, 1, 3, 1, 4, 1],
-    [
-        0, 2, 1, 1,
-        2, 1, 3, 0
+        [0, 0],
+        [2, 0],
+        [2, 2]
     ],
     [
-        1, 0, 0, 0,
-        4, 2, 5, 2
+        [0, 0],
+        [2, 2],
+        [0, 2]
     ],
     [
-        1, 1, 2, 1,
-        3, 0, 0, 2
-    ],
-    [1, 2, 5, 0, 2, 0],
-    [2, 0, 1, 2, 5, 0],
-    [
-        2, 1, 3, 0,
-        0, 2, 1, 1
+        [0, 0],
+        [2, 0],
+        [1, 1]
     ],
     [
-        2, 2, 5, 1,
-        4, 0, 3, 2
+        [1, 0],
+        [1, 2],
+        [0, 1]
     ],
     [
-        3, 0, 0, 2,
-        1, 1, 2, 1
-    ],
-    [3, 1, 4, 1, 0, 1],
-    [
-        3, 2, 2, 2,
-        5, 1, 4, 0
+        [1, 0],
+        [2, 1],
+        [0, 1]
     ],
     [
-        4, 0, 3, 2,
-        2, 2, 5, 1
-    ],
-    [4, 1, 0, 1, 3, 1],
-    [
-        4, 2, 5, 2,
-        1, 0, 0, 0
-    ],
-    [5, 0, 2, 0, 1, 2],
-    [
-        5, 1, 4, 0,
-        3, 2, 2, 2
-    ],
-    [
-        5, 2, 1, 0,
-        0, 0, 4, 2
+        [0, 0],
+        [1, 1],
+        [0, 2]
     ]
 ];
 
