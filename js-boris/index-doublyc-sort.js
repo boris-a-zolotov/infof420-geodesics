@@ -3,8 +3,8 @@
 // numbers are equivalence classes of edges
 
 let net = [
-    [1, 2, 3, 4, 5, 6],
-    [6, 5, 4, 3, 2, 1]
+    [1, 2, 3, 4, 5, 0],
+    [0, 5, 4, 3, 2, 1]
 ];
 
 
@@ -386,12 +386,12 @@ for (globalCycle = 0; globalCycle < 100000000; globalCycle++) {
     p = true;
     for (var i = 0; i < 2; i++) { // number of faces is 2
         faces[i] = [
-            [globalArray[6 * i], globalArray[6 * i + 1]],
-            [globalArray[6 * i + 2], globalArray[6 * i + 3]],
-            [globalArray[6 * i + 4], globalArray[6 * i + 5]],
-            [globalArray[6 * i + 6], globalArray[6 * i + 7]],
-            [globalArray[6 * i + 8], globalArray[6 * i + 9]],
-            [globalArray[6 * i + 10], globalArray[6 * i + 11]],
+            [globalArray[12 * i], globalArray[12 * i + 1]],
+            [globalArray[12 * i + 2], globalArray[12 * i + 3]],
+            [globalArray[12 * i + 4], globalArray[12 * i + 5]],
+            [globalArray[12 * i + 6], globalArray[12 * i + 7]],
+            [globalArray[12 * i + 8], globalArray[12 * i + 9]],
+            [globalArray[12 * i + 10], globalArray[12 * i + 11]]
         ];
     }
     p = p && checkAllFacesEdge();
