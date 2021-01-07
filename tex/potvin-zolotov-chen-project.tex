@@ -4,7 +4,7 @@
 
 \title{Geodesics, Shortest Paths, and Non-Isomorphic Nets}
 \author{{\scshape Potvin} Nicolas \and {\scshape Zolotov} Boris}
-\date{ULB,\quad November 2020}
+\date{ULB,\quad December 2020}
 
 \begin{document} \maketitle
 
@@ -59,6 +59,35 @@ Once the projections of the edges are known, let us draw the faces on the grid. 
 \end{figure}
 
 This adds at most $2^{2 \cdot 18}$ ways to draw the net once the edges are known, which gives the total of at most $(2n)^{36}$ gluings.
+\end{proof}
+
+\begin{theorem}
+	There are $\Omega \left( n^{\frac52} \right)$ edge-to-edge gluings of at most $n$ squares that satisfy Alexandrov's conditions.
+\end{theorem}
+
+\begin{proof}
+We will construct a family of $\Omega \left( n^{\frac52} \right)$ distinct polyhedra that can be glued from squares edge-to-edge. Those will be doubly-covered convex polygons whose edges are either parallel to the axes or inclined by $\frac{\pi}{4}$, and vertices are vertices of the grid.
+
+Consider a square $\left \lfloor \frac{\sqrt n}{2} \right \rfloor \times \left \lfloor \frac{\sqrt n}{2} \right \rfloor$ drawn on the square grid. If a polygon is drawn inside this square, and it satisfies the conditions of the previous paragraph, then doubly covered version of this polygon can be glued from squares and consists of at most $n$ squares.
+
+The polygons will be constructed the following way: we will take a rectangle and cut it angles off. More formally, we will pick two points on either of short sides of the rectangle and shoot lines inclined by $\frac{\pi}{4}$ from them. The points can correspond, in this case there is one vertex of the polyhedron on the corresponding side of the rectangle. An example can be seen in Figure~\ref{fig:cutExA}: the points we picked are marked, and the areas that are cut off are highlighted.
+
+\input{img/fig-examples}
+
+Define the length of the longer side of the rectangle by $a$, and length of the shorter side by $b$. There number of ways to choose a pair of points on each of shorter sides is
+\[ \ll \frac{b(b+1)}{2} \rr^2. \]
+
+However, some sets of points do not produce valid polygons, since the rays shot from them intersect not at a vertex of the grid. An example can be seen in Figure~\ref{fig:cutExB}: red dashed line intersects with the line from the right side in the middle of a cell. Still, at least half the pairs of upper points on the sides are valid: for each invalid pair, the pair where left point is raised by 1 is valid. We get that the number of ways to select a valid set of points is
+\[ \left. \ll \frac{b(b+1)}{2} \rr^2 \right/ 4 . \]
+
+Note that each polyhedron has at least one horizontal edge, since otherwise $a$ must be less than $b$: the sum of segments cut off horizontal edges and the sum of segments cut off vertical edges are equal. However, on the other side there may not be a horizontal edge, see Figure~\ref{fig:cutExC}. In this case, it is not certain from which rectangle the polygon is cut: in Figure~\ref{fig:cutExC} it can be either $6 \times 4$ or $6 \times 5$.
+
+However, one polygon can be cut from at most $a$ rectangles, since we know its horizontal dimension, and at least one horizontal side is fixed. Thus, the number of rectangles we get for a given $a$ is at least
+\[ \sum\limits_{b=1}^a \frac{b^2 (b+1)^2}{16a} = \Omega\ll a^4 \rr. \]
+
+Recall that $a$ can vary from 1 to $\sqrt n / 2$, the number of polygons we can produce is
+\[ \Omega \ll \sum\limits_{a=1}^{\sqrt n / 2} a^4 \rr = \Omega \ll n^\frac{5}{2} \rr. \]
+
 \end{proof}
 
 % \bibliography{boris-bac}{}

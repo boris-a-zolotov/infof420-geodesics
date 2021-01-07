@@ -63,3 +63,11 @@
 \newcommand{\SmallO}{o}
 
 \newcommand{\eps}{\varepsilon}
+
+\newcommand{\baserect}{
+	\foreach \x in {0,...,6} {\draw[gray,opacity=0.8] (\x,0) -- (\x,5);}
+	\foreach \y in {0,...,5} {\draw[gray,opacity=0.8] (0,\y) -- (6,\y);}
+	\draw[thick] (0,0) -- (6,0) -- (6,5) -- (0,5) -- cycle;
+}
+
+\definecolor{bluetri}{RGB}{45,155,190}
