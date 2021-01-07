@@ -1,3 +1,14 @@
+let net = [
+    [3, 4, 0],
+    [0, 1, 2],
+    [1, 5, 8],
+    [4, 6, 5],
+    [6, 3, 7],
+    [8, 7, 2]
+];
+
+const field = 4;
+
 function arraysEq(arr1, arr2) {
     if (arr1.length !== arr2.length) return false;
     for (var i = 0; i < arr1.length; i++) {
@@ -91,10 +102,36 @@ let faces = [
     ]
 ];
 
-for (var i = 0; i < vertices.length; i++) {
-    vertices[i] = rotateMin(vertices[i]);
+function printPair([a, b]) {
+    return `(${a},${b})`;
 }
 
-vertices = multiDimensionalUnique(vertices);
+function printFace(nom, arr) {
+    let locRes = `  \\tikz[scale=0.56]{\n`;
+    locRes += `    \\fill[white] (-0.4,-0.4) rectangle (${field}+0.4,${field}+0.4);\n`
+    locRes += `    \\foreach \\i in {0,...,${field}} {\\draw[gray,opacity=0.6]`
+    locRes += ` (0,\\i) -- (${field},\\i) (\\i,0) -- (\\i,${field});}\n`
+    locRes += `    \\draw[thick] `;
+    locRes += printPair(arr[0]);
+    for (var i = 1; i < arr.length; i++) {
+        locRes += ` -- `;
+        locRes += printPair(arr[i]);
+        locRes += ` \\midnode{${net[nom][i-1]}}`;
+    }
 
-console.log(vertices);
+    locRes += ` -- cycle \\midnode{${net[nom][arr.length-1]}};} \\qquad\n`
+    return locRes;
+}
+
+function printFaces(nom,arr) {
+    let globRes = `\\begin{figure} \\centering\n`;
+
+    for (var i = 0; i < arr.length; i++) {
+        globRes += printFace(i, arr[i]);
+    }
+
+    globRes += `\\caption{Net ${nom}} \\end{figure}`;
+    return globRes;
+}
+
+console.log(printFaces(1000,faces));
