@@ -265,6 +265,12 @@ function ithAngle(face, i) {
     return angle([-1 * x1, -1 * y1], [x2, y2]);
 }
 
+function ithOuterAngle(face, i) {
+    let [x1, y1] = ithEdge(face, (i - 1 + face.length) % face.length);
+    let [x2, y2] = ithEdge(face, i);
+    return angle([x1, y1], [x2, y2]);
+}
+
 
 // CHECKING IF TWO SEGMENTS ARE GLUABLE
 
@@ -320,10 +326,15 @@ function isRight([x1, y1], [x2, y2]) {
 function checkAllTurnsRight() { // IMPORTANT: ONE OF THE CHECKS
     for (var fc = 0; fc < faces.length; fc++) {
         let l = faces[fc].length;
+        let sumOuterAngles = 0;
         for (var eg = 0; eg < l; eg++) {
             if (!isRight(ithEdge(faces[fc], eg), ithEdge(faces[fc], (eg + 1) % l))) {
                 return false;
             }
+            sumOuterAngles += ithOuterAngle(faces[fc], eg);
+        }
+        if (sumOuterAngles > 6.29) {
+            return false;
         }
     }
     return true;
@@ -390,7 +401,7 @@ let p = true;
 
 console.log(vertices); // it was edges
 
-for (globalCycle = 0; globalCycle < 100000000; globalCycle++) {
+for (globalCycle = 0; globalCycle < 2000000000; globalCycle++) {
     p = true;
     for (var i = 0; i < 6; i++) { // number of faces is 6
         faces[i] = [
