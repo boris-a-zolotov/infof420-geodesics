@@ -24,6 +24,14 @@ The special case when the polygons to be glued together are all identical regula
 
 \subsection{Interpretating and listing valid gluings}
 
+Due to Alexandrov's theorem, for every gluing of squares satisfying Alexandrov's conditions there is a convex polyhedron corresponding to it. It is possible to draw each of its faces on square grid, the vertices of the face being also the vertices of the grid.
+
+Due to Gauss—Bonnet formula, the number of vertices of the polyhedron is at most 8, which yields that the number of faces is at most 12. When there is a constant number of faces and edges, any kind of check can be carried for them in a short matter of time.
+
+Square grid gives a convenient way to represent gluing as a set of faces draw on the grid, it is easy to check if Alexandrov's conditions are satisfied for a gluing if it is represented as a set of planar faces on the grid. This representation allows for estimating the number of valid gluings and for development of an algortihm with polynomial running time that lists all the gluings, which will be done later in this paper.
+
+We have to note however, that a gluing can comply with different nets, and with one net in several different ways. See Figure~\ref{fig:notRect} for an example: the net consisting of two parallelograms clearly corresponds to a doubly covered rectangle $1 \times 4$. This is still our a-priori knowlegde. It is not possible to determine which net is exactly the net of the polyhedron corresponding to the gluing, because of non-constructiveness of Alexandrov's theorem.
+
 \subsection{Chen—Han algorithm}
 
 Chen—Han algorithm is presented in~\cite{chen-han}. Estimation for the running time is proved in~\cite{z-bachthesis}.
@@ -114,7 +122,7 @@ Recall that $a$ can vary from 1 to $\sqrt n / 2$, the number of polygons we can 
 
 % \input{app/doubly6}
 
-% \input{app/doubly4}
+\input{app/doubly4}
 
 % \input{app/pyramid}
 
