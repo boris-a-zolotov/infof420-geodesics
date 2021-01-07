@@ -18,7 +18,15 @@ There is no known exact algorithm for reconstructing the 3D polyhedron, and in f
 
 Enumerating all possible valid gluings is also not an easy task, as the number of gluings can be exponential even for a single polygon~\cite{DDLO02}. However one valid gluing can be found in polynomial time using dynamic programming~\cite{DO07,lo96-dynprog}. Complete enumerations of gluings and the resulting polyhedra are only known for very specific cases such as the Latin cross~\cite{ddlop99} and a single regular convex polygon~\cite{DO07}.
 
-The special case when the polygons to be glued together are all identical regular $k$-gons, and the gluing is \emph{edge-to-edge} was studied recently for $k \ge 6$~\cite{kl17-hex} and $k=5$~\cite{alz-penta}. The aim of this project is to study the case of $k=4$.
+The special case when the polygons to be glued together are all identical regular $k$-gons, and the gluing is \emph{edge-to-edge} was studied recently for $k \ge 6$~\cite{kl17-hex} and $k=5$~\cite{alz-penta}. The aim of this project is to study the case of $k=4$: namely, to {\it enumerate} all valid gluings of squares and {\it classify} them up to isomorphism.
+
+\section{Methods}
+
+\subsection{Interpretating and listing valid gluings}
+
+\subsection{Chen—Han algorithm}
+
+Chen—Han algorithm is presented in~\cite{chen-han}. Estimation for the running time is proved in~\cite{z-bachthesis}.
 
 \section{Bounds on the number of egde-to-edge gluings of squares}
 
@@ -104,11 +112,11 @@ Recall that $a$ can vary from 1 to $\sqrt n / 2$, the number of polygons we can 
 
 \section*{Appendix: examples of valid nets}
 
-\input{app/doubly6}
+% \input{app/doubly6}
 
-\input{app/doubly4}
+% \input{app/doubly4}
 
-\input{app/pyramid}
+% \input{app/pyramid}
 
 \bibliography{boris-bac}{}
 \bibliographystyle{plain}
