@@ -1,0 +1,2355 @@
+[ [ 0, 0, 1, 0 ], [ 0, 1, 1, 3 ], [ 0, 2, 1, 2 ], [ 0, 3, 1, 1 ] ]
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,1) -- (1,0) \midnode{0} -- (2,1) \midnode{1} -- (1,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,1) -- (1,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 0} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,0) -- (1,2) \midnode{0} -- (0,1) \midnode{1} -- (1,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (1,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 2186498} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (2,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (1,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 2277612} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (2,2) \midnode{0} -- (1,3) \midnode{1} -- (0,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (1,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 2334020} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,2) -- (2,0) \midnode{0} -- (3,1) \midnode{1} -- (2,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (1,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 2360030} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,1) -- (1,3) \midnode{0} -- (0,2) \midnode{1} -- (1,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (2,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 10002252} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (3,1) \midnode{0} -- (2,2) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (2,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 10065796} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (2,1) \midnode{0} -- (3,2) \midnode{1} -- (1,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (2,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 10082020} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,0) -- (1,2) \midnode{0} -- (0,3) \midnode{1} -- (1,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (2,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 10083372} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (1,1) \midnode{0} -- (0,0) \midnode{1} -- (2,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (2,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 10089508} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (3,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (2,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 10105732} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,3) -- (1,1) \midnode{0} -- (2,0) \midnode{1} -- (1,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (2,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 10153260} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,2) -- (1,0) \midnode{0} -- (2,1) \midnode{1} -- (1,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (2,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 10234380} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,0) -- (1,3) \midnode{0} -- (0,2) \midnode{1} -- (1,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (2,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 12345998} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,3) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (3,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (2,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 12449488} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (3,2) \midnode{0} -- (2,3) \midnode{1} -- (0,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (2,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 12490920} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,3) -- (2,0) \midnode{0} -- (3,1) \midnode{1} -- (2,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (2,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 12594410} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,0) -- (1,2) \midnode{0} -- (0,3) \midnode{1} -- (1,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (3,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 19770872} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (2,1) \midnode{0} -- (3,2) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (3,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 19832020} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (1,1) \midnode{0} -- (0,0) \midnode{1} -- (3,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (3,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 19870758} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,3) -- (1,1) \midnode{0} -- (2,0) \midnode{1} -- (1,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (3,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 19997010} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,1) -- (1,4) \midnode{0} -- (0,3) \midnode{1} -- (1,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (3,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 20161752} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (4,1) \midnode{0} -- (3,2) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (3,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 20222696} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (3,1) \midnode{0} -- (4,2) \midnode{1} -- (1,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (3,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 20238920} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,0) -- (1,3) \midnode{0} -- (0,4) \midnode{1} -- (1,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (3,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 20242872} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (1,1) \midnode{0} -- (0,0) \midnode{1} -- (3,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (3,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 20261384} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (4,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (3,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 20277608} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,4) -- (1,1) \midnode{0} -- (2,0) \midnode{1} -- (1,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (3,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 20387640} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,3) -- (1,0) \midnode{0} -- (2,1) \midnode{1} -- (1,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (3,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 20468760} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,1) -- (1,3) \midnode{0} -- (0,4) \midnode{1} -- (1,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (4,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 29539752} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (3,1) \midnode{0} -- (4,2) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (4,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 29598296} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (1,1) \midnode{0} -- (0,0) \midnode{1} -- (4,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (4,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 29652008} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,3) -- (1,1) \midnode{0} -- (2,0) \midnode{1} -- (1,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (4,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 29840760} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,0) -- (1,3) \midnode{0} -- (0,4) \midnode{1} -- (1,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (4,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 29930372} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (3,1) \midnode{0} -- (4,2) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (4,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 29988920} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (1,1) \midnode{0} -- (0,0) \midnode{1} -- (4,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (4,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 30042634} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,4) -- (1,1) \midnode{0} -- (2,0) \midnode{1} -- (1,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (4,2) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 30231390} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,3) -- (1,3) \midnode{0} -- (0,2) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,0) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 37330388} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,3) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,0) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 37371360} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,0) -- (3,2) \midnode{0} -- (2,3) \midnode{1} -- (0,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,0) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 37569048} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (2,0) \midnode{0} -- (3,1) \midnode{1} -- (3,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,0) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 37610020} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (1,3) \midnode{0} -- (0,2) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,1) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 38892882} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,2) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,1) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 38933856} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,0) -- (3,1) \midnode{0} -- (2,2) \midnode{1} -- (0,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,1) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 39050172} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,1) -- (1,0) \midnode{0} -- (2,1) \midnode{1} -- (2,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,1) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 39156250} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,1) -- (1,3) \midnode{0} -- (0,2) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,2) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 40455376} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (1,1) \midnode{0} -- (0,0) \midnode{1} -- (2,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,2) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 40480128} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,1) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,2) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 40496352} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (3,0) \midnode{0} -- (2,1) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,2) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 40531296} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (1,2) \midnode{0} -- (0,3) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,2) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 40536496} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (2,0) \midnode{0} -- (3,1) \midnode{1} -- (1,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,2) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 40547520} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,3) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (1,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,2) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 40621360} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,2) -- (0,0) \midnode{0} -- (1,1) \midnode{1} -- (1,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,2) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 40702480} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (1,3) \midnode{0} -- (0,2) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 42408496} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 42449478} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (3,0) \midnode{0} -- (2,1) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 42484420} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,3) -- (0,0) \midnode{0} -- (1,1) \midnode{1} -- (1,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 42655610} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,0) -- (1,3) \midnode{0} -- (0,2) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,3) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 43580374} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,4) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,3) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 43621368} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,3) -- (3,0) \midnode{0} -- (4,1) \midnode{1} -- (4,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,3) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 43876310} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (3,3) \midnode{0} -- (2,4) \midnode{1} -- (0,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,3) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 43900420} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,4) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 44402604} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (1,4) \midnode{0} -- (0,3) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,4) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 44442996} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (4,0) \midnode{0} -- (3,1) \midnode{1} -- (1,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,4) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 44453820} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,4) -- (0,0) \midnode{0} -- (1,1) \midnode{1} -- (1,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,4) -- (0,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 44608740} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,3) -- (1,2) \midnode{0} -- (0,1) \midnode{1} -- (2,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 49467764} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,0) -- (2,3) \midnode{0} -- (1,4) \midnode{1} -- (0,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 49602898} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,4) -- (1,1) \midnode{0} -- (2,0) \midnode{1} -- (3,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 49637640} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (3,1) \midnode{0} -- (4,2) \midnode{1} -- (2,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 49707670} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,1) -- (2,3) \midnode{0} -- (1,2) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 50612276} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (1,2) \midnode{0} -- (0,1) \midnode{1} -- (2,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 50639628} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,1) -- (0,2) \midnode{0} -- (1,1) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 50655852} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (2,2) \midnode{0} -- (1,3) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 50693396} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,1) -- (3,0) \midnode{0} -- (2,1) \midnode{1} -- (0,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 50765676} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,1) -- (2,0) \midnode{0} -- (3,1) \midnode{1} -- (1,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 50781900} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (2,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 50793236} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,2) -- (0,0) \midnode{0} -- (1,1) \midnode{1} -- (2,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 50874356} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (2,3) \midnode{0} -- (1,2) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 52565396} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (0,2) \midnode{0} -- (1,1) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 52608978} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,1) -- (3,0) \midnode{0} -- (2,1) \midnode{1} -- (0,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 52718800} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,0) \midnode{0} -- (1,1) \midnode{1} -- (2,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 52827486} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,0) -- (1,2) \midnode{0} -- (0,1) \midnode{1} -- (2,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,3) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 52983374} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (2,3) \midnode{0} -- (1,4) \midnode{1} -- (0,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,3) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 53118520} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,4) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (2,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,3) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 53136992} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,2) -- (3,0) \midnode{0} -- (4,1) \midnode{1} -- (2,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,3) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 53141930} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (0,2) \midnode{0} -- (1,1) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,4) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 54562104} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (2,4) \midnode{0} -- (1,3) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,4) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 54599896} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,1) -- (4,0) \midnode{0} -- (3,1) \midnode{1} -- (1,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,4) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 54688200} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,4) -- (0,0) \midnode{0} -- (1,1) \midnode{1} -- (2,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,4) -- (1,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 54780616} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,0) -- (3,1) \midnode{0} -- (2,2) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,0) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 56472048} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (1,3) \midnode{0} -- (0,2) \midnode{1} -- (2,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,0) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 56502262} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,2) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (3,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,0) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 56668230} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (1,0) \midnode{0} -- (2,1) \midnode{1} -- (0,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,0) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 56703120} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,0) -- (3,1) \midnode{0} -- (2,2) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,1) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 58425172} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (1,3) \midnode{0} -- (0,2) \midnode{1} -- (2,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,1) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 58455382} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,2) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (3,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,1) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 58621356} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,1) -- (1,0) \midnode{0} -- (2,1) \midnode{1} -- (0,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,1) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 58656250} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (1,3) \midnode{0} -- (0,2) \midnode{1} -- (2,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 60799128} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (3,2) \midnode{0} -- (2,3) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 60850296} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (3,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 60965112} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,2) -- (2,0) \midnode{0} -- (3,1) \midnode{1} -- (1,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 61016280} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,0) -- (1,3) \midnode{0} -- (0,2) \midnode{1} -- (2,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,3) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 63142874} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (3,3) \midnode{0} -- (2,4) \midnode{1} -- (0,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,3) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 63275420} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,4) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (3,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,3) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 63308868} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,3) -- (3,0) \midnode{0} -- (4,1) \midnode{1} -- (2,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,3) -- (2,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 63376310} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,0) -- (4,1) \midnode{0} -- (3,2) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (3,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 68582072} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (1,4) \midnode{0} -- (0,3) \midnode{1} -- (2,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (3,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 68614882} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (4,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (3,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 68793232} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,2) -- (1,0) \midnode{0} -- (2,1) \midnode{1} -- (0,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (3,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 68890630} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (1,4) \midnode{0} -- (0,3) \midnode{1} -- (2,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (3,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 70958628} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (4,2) \midnode{0} -- (3,3) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (3,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 71007196} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (3,2) \midnode{0} -- (4,3) \midnode{1} -- (1,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (3,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 71023420} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,0) -- (1,3) \midnode{0} -- (0,4) \midnode{1} -- (2,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (3,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 71039748} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,3) -- (1,1) \midnode{0} -- (0,0) \midnode{1} -- (3,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (3,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 71120764} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,3) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (4,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (3,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 71136988} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,4) -- (2,1) \midnode{0} -- (3,0) \midnode{1} -- (1,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (3,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 71169540} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,3) -- (2,0) \midnode{0} -- (3,1) \midnode{1} -- (1,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (3,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 71250660} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,0) -- (1,3) \midnode{0} -- (0,4) \midnode{1} -- (2,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (4,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 80727248} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (3,2) \midnode{0} -- (4,3) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (4,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 80773420} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,3) -- (1,1) \midnode{0} -- (0,0) \midnode{1} -- (4,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (4,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 80902014} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,4) -- (2,1) \midnode{0} -- (3,0) \midnode{1} -- (1,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,2) -- (4,3) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 81013290} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,4) -- (1,4) \midnode{0} -- (0,3) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,0) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 86552394} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,4) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (4,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,0) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 86605740} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,0) -- (4,3) \midnode{0} -- (3,4) \midnode{1} -- (0,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,0) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 86869824} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (3,0) \midnode{0} -- (4,1) \midnode{1} -- (4,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,0) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 86923170} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,1) -- (1,4) \midnode{0} -- (0,3) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 91239876} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (1,1) \midnode{0} -- (0,0) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 91277004} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (4,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 91293228} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (4,0) \midnode{0} -- (3,1) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 91313196} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (1,3) \midnode{0} -- (0,4) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 91320996} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (3,0) \midnode{0} -- (4,1) \midnode{1} -- (1,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 91329420} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,4) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (1,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 91480740} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,3) -- (0,0) \midnode{0} -- (1,1) \midnode{1} -- (1,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 91561860} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (1,4) \midnode{0} -- (0,3) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,4) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 93192996} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (4,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,4) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 93246354} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (4,0) \midnode{0} -- (3,1) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,4) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 93266320} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,4) -- (0,0) \midnode{0} -- (1,1) \midnode{1} -- (1,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,4) -- (0,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 93514990} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (2,4) \midnode{0} -- (1,3) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 97881158} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (0,2) \midnode{0} -- (1,1) \midnode{1} -- (4,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 97937112} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,0) -- (4,1) \midnode{0} -- (3,2) \midnode{1} -- (0,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 98113322} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,2) -- (1,0) \midnode{0} -- (2,1) \midnode{1} -- (3,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 98234380} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,1) -- (2,4) \midnode{0} -- (1,3) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 101396776} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (1,2) \midnode{0} -- (0,1) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 101436504} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (0,2) \midnode{0} -- (1,1) \midnode{1} -- (4,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 101452728} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (2,3) \midnode{0} -- (1,4) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 101477896} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,1) -- (4,0) \midnode{0} -- (3,1) \midnode{1} -- (0,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 101547576} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,1) -- (3,0) \midnode{0} -- (4,1) \midnode{1} -- (1,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 101563800} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,4) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (2,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 101652616} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,0) \midnode{0} -- (1,1) \midnode{1} -- (2,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 101733736} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (2,4) \midnode{0} -- (1,3) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,4) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 103349896} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (0,2) \midnode{0} -- (1,1) \midnode{1} -- (4,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,4) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 103405854} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,1) -- (4,0) \midnode{0} -- (3,1) \midnode{1} -- (0,2) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,4) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 103500700} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,4) -- (0,0) \midnode{0} -- (1,1) \midnode{1} -- (2,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,4) -- (1,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 103686866} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,0) -- (3,2) \midnode{0} -- (2,3) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 109209672} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (1,3) \midnode{0} -- (0,2) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 109252258} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,1) -- (2,0) \midnode{0} -- (3,1) \midnode{1} -- (0,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 109438150} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,3) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (3,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,2) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 109480736} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,1) -- (3,4) \midnode{0} -- (2,3) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,3) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 111553676} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (1,3) \midnode{0} -- (0,2) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,3) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 111596004} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,1) -- (0,3) \midnode{0} -- (1,2) \midnode{1} -- (4,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,3) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 111612228} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (3,3) \midnode{0} -- (2,4) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,3) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 111634796} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,2) -- (4,0) \midnode{0} -- (3,1) \midnode{1} -- (0,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,3) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 111781956} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,2) -- (3,0) \midnode{0} -- (4,1) \midnode{1} -- (1,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,3) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 111798180} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,4) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (3,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,3) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 111824492} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (0,0) \midnode{0} -- (1,1) \midnode{1} -- (3,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,3) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 111905612} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (3,4) \midnode{0} -- (2,3) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,4) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 113506796} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (0,3) \midnode{0} -- (1,2) \midnode{1} -- (4,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,4) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 113565354} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,2) -- (4,0) \midnode{0} -- (3,1) \midnode{1} -- (0,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,4) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 113735080} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,4) -- (0,0) \midnode{0} -- (1,1) \midnode{1} -- (3,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,4) -- (2,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 113858742} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,0) -- (4,2) \midnode{0} -- (3,3) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,0) -- (3,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 115460324} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,4) -- (1,4) \midnode{0} -- (0,3) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,0) -- (3,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 115505518} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,3) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (4,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,0) -- (3,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 115746360} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,0) -- (2,0) \midnode{0} -- (3,1) \midnode{1} -- (0,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,0) -- (3,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 115766270} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,0) -- (4,2) \midnode{0} -- (3,3) \midnode{1} -- (0,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (3,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 119366572} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (1,4) \midnode{0} -- (0,3) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (3,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 119411758} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (2,3) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (4,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (3,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 119652612} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,2) -- (2,0) \midnode{0} -- (3,1) \midnode{1} -- (0,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,2) -- (3,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 119672530} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,1) -- (1,4) \midnode{0} -- (0,3) \midnode{1} -- (3,0) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,3) -- (3,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 121755504} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (1,0) -- (4,3) \midnode{0} -- (3,4) \midnode{1} -- (0,1) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,3) -- (3,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 121791696} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (3,4) -- (0,1) \midnode{0} -- (1,0) \midnode{1} -- (4,3) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,3) -- (3,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 121996368} \end{figure}
+
+
+
+\begin{figure} \centering
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (0,3) -- (3,0) \midnode{0} -- (4,1) \midnode{1} -- (1,4) \midnode{2} -- cycle \midnode{3};} \qquad
+  \tikz[scale=0.56]{
+    \fill[white] (-0.4,-0.4) rectangle (4+0.4,4+0.4);
+    \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (4,\i) (\i,0) -- (\i,4);}
+    \draw[thick] (4,3) -- (3,4) \midnode{3} -- (0,1) \midnode{2} -- (1,0) \midnode{1} -- cycle \midnode{0};} \qquad
+\caption{Net 122032560} \end{figure}
+
+
+
+end
