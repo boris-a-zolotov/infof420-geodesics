@@ -6,6 +6,18 @@ function arraysEq(arr1, arr2) {
     return true;
 };
 
+function multiDimensionalUnique(arr) {
+    var uniques = [];
+    var itemsFound = {};
+    for(var i = 0, l = arr.length; i < l; i++) {
+        var stringified = JSON.stringify(arr[i]);
+        if(itemsFound[stringified]) { continue; }
+        uniques.push(arr[i]);
+        itemsFound[stringified] = true;
+    }
+    return uniques;
+}
+
 // for each vertex make the face with
 // the smallest index the first face to appear
 
@@ -105,6 +117,6 @@ for (var i = 0; i < vertices.length; i++) {
     vertices[i] = rotateMin(vertices[i]);
 }
 
-vertices = vertices.filter(x => isLonely(x, vertices));
+vertices = multiDimensionalUnique(vertices);
 
 console.log(vertices);
