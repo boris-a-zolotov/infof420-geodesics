@@ -8,6 +8,18 @@
 
 \begin{document} \maketitle
 
+\section{Introduction}
+
+Given a collection of 2D polygons, a \emph{gluing} or a \emph{net} describes a closed surface by specifying how to glue (a part of) each edge of these polygons onto (a part of) another edge. Alexandrov's uniqueness theorem~\cite{alex} states that any valid gluing that is homeomorphic to a sphere and that does not yield a total facial angle greater than $2\pi$ at any point, corresponds to the surface of a unique convex 3D polyhedron (doubly covered convex polygons are also regarded as polyhedra). Note that the original polygonal pieces might need to be folded to obtain this 3D surface.
+
+Unfortunately, the proof of Alexandrov's theorem is highly non-constructive. The only known approximation algorithm to find the vertices of this polyhedron~\cite{kpd09-approx} has a (pseudopolynomial) running time really large in $n$, where $n$ is the total complexity of the gluing.
+
+There is no known exact algorithm for reconstructing the 3D polyhedron, and in fact the coordinates of the vertices of the polyhedron might not even be expressible as a closed formula~\cite{bannister2014galois}.
+
+Enumerating all possible valid gluings is also not an easy task, as the number of gluings can be exponential even for a single polygon~\cite{DDLO02}. However one valid gluing can be found in polynomial time using dynamic programming~\cite{DO07,lo96-dynprog}. Complete enumerations of gluings and the resulting polyhedra are only known for very specific cases such as the Latin cross~\cite{ddlop99} and a single regular convex polygon~\cite{DO07}.
+
+The special case when the polygons to be glued together are all identical regular $k$-gons, and the gluing is \emph{edge-to-edge} was studied recently for $k \ge 6$~\cite{kl17-hex} and $k=5$~\cite{alz-penta}. The aim of this project is to study the case of $k=4$.
+
 \section{Bounds on the number of egde-to-edge gluings of squares}
 
 In this section, we prove that the number of edge-to-edge gluings of $n$ squares is polynomial in $n$.
@@ -98,7 +110,7 @@ Recall that $a$ can vary from 1 to $\sqrt n / 2$, the number of polygons we can 
 
 \input{app/pyramid}
 
-% \bibliography{boris-bac}{}
-% \bibliographystyle{plain}
+\bibliography{boris-bac}{}
+\bibliographystyle{plain}
 
 \end{document}
