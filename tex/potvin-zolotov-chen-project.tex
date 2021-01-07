@@ -22,7 +22,7 @@ The special case when the polygons to be glued together are all identical regula
 
 \section{Methods}
 
-\subsection{Interpretating and listing valid gluings}
+\subsection{Interpreting and listing valid gluings}
 
 Due to Alexandrov's theorem, for every gluing of squares satisfying Alexandrov's conditions there is a convex polyhedron corresponding to it. It is possible to draw each of its faces on square grid, the vertices of the face being also the vertices of the grid.
 
@@ -38,7 +38,7 @@ Chen—Han algorithm is presented in~\cite{chen-han}. Estimation for the running
 
 \section{Bounds on the number of egde-to-edge gluings of squares}
 
-In this section, we prove that the number of edge-to-edge gluings of $n$ squares is polynomial in $n$.
+In this section, we prove that the number of edge-to-edge gluings of $n$ squares is polynomial in $n$. Note that the layout of these theorems allow to develop a polynomial algorithm to list the nets, one just needs to follow all the cases that we describe, and also estimate how much output this algorithm will produce.
 
 \begin{theorem}
 	There are $O \left( n^{36} \right)$ edge-to-edge gluings of at most $n$ squares that satisfy Alexandrov's conditions.
@@ -118,13 +118,59 @@ Recall that $a$ can vary from 1 to $\sqrt n / 2$, the number of polygons we can 
 
 \end{proof}
 
+\section{Description of practical results}
+
+\subsection{Listing valid gluings}
+
+The listing procedure is given a net in advance in a form of DCEL. Then it processes this list to obtain the data that will be needed for the checks: how many vertices there are, to what faces a vertex belongs and at which position it is in that vertex.
+
+After this initialisation stage the procedure takes arbitrary coordinates for each vertex in each face and performs the following checks in the following order:
+
+\begin{enumerate}
+	\item Each face has at least two vertices on the border of the $n \times n$ square, this is to avoid repeated listing faces that differ by a shift.
+	\item All the turns took by the edges of a single face are in the positive direction, and the sum of the exterior angles is at most $2 \pi$, which corresponds to each face being a convex polygon.
+	\item If an edge belogs to two faces, than in those faces it has the same length and the tilt angle that is the same or differing by $\frac{\pi}{2}$.
+	\item Sum of angles at every vertex is at most $2 \pi$.
+\end{enumerate}
+
+\begin{theorem}
+	Running time of the implemented algorithm is $O(n^{72})$.
+\end{theorem}
+
+\begin{proof}
+	Once the coordinates of each vertex of each face is known, the check if the gluing is valid takes $O(1)$ time. For every vertex we need to select two coordinates, which gives $O(n^2)$ per vertex per face.
+
+	Each vertex appears as many times as many faces it belongs to, the number of those faces is equal to the degree of the vertex. Thus, we get
+	\[ O \ll n^{2 \cdot \sum\limits_v \deg (v)} \rr
+		= O \ll n^{4 |E|} \rr
+		= O \ll n^{72} \rr . \]
+\end{proof}
+
+As an attempt to speed up the running time, the unicalization of the list of vertices was performed. Originally, if a vertex appears in $d$ faces, it will appear in the list of vertices exactly $d$ times.
+
+Each vertex $v$ is represented by a list $\left[ i_1, x_{i_1}, i_1, x_{i_2} \ldots \right]$, where $i_1, i_2, \ldots$ are faces to which $v$ belongs, and $x_{i_1}, x_{i_2}, \ldots$ are the positions of $v$ in these faces respectively. The faces are traversed in clockwise order around $v$.
+
+As a modification of the program, each list was rotated in a way that the face with the smallest index takes the first position. Then the duplicates were removed from the multi-dimensional list of vertices, the code for this exact procedure was sourced from \url{stackoverflow.com}.
+
+After the program achieved representations of the nets in numerical form, the graphic output was configured for an user to see the polygons and the way they are glued. TikZ code was selected as a platform for the output, drawings of several nets can be seen in {\bf Appendix}.
+
 \section*{Appendix: examples of valid nets}
 
-% \input{app/doubly6}
+\subsection*{Nets consisting of two hexagons}
+
+\input{app/doubly6}
+
+\subsection*{Nets consisting of two quadrilaterals}
 
 \input{app/doubly4}
 
-% \input{app/pyramid}
+\subsection*{Nets of a four-sided pyramid}
+
+\input{app/pyramid}
+
+\subsection*{Net of a cube}
+
+\input{app/cube}
 
 \bibliography{boris-bac}{}
 \bibliographystyle{plain}
