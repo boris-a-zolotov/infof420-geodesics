@@ -3,8 +3,8 @@
 // numbers are equivalence classes of edges
 
 let net = [
-    [1, 2, 3, 4, 5, 0],
-    [0, 5, 4, 3, 2, 1]
+    [0, 1, 2, 3],
+    [3, 2, 1, 0]
 ];
 
 
@@ -15,8 +15,8 @@ let net = [
 
 const field = 4;
 
-let globalArray = [0, 1, 1, 0, 2, 0, 2, 1, 1, 2, 0, 2,
-    2, 1, 2, 2, 1, 2, 0, 1, 0, 0, 1, 0
+let globalArray = [0, 1, 1, 0, 2, 1, 1, 2,
+    2, 1, 1, 2, 0, 1, 1, 0
 ];
 
 
@@ -393,16 +393,14 @@ let p = true;
 
 console.log(vertices); // it was edges
 
-for (globalCycle = 0; globalCycle < 100000000; globalCycle++) {
+for (globalCycle = 0; globalCycle < 160000000; globalCycle++) {
     p = true;
     for (var i = 0; i < 2; i++) { // number of faces is 2
         faces[i] = [
-            [globalArray[12 * i], globalArray[12 * i + 1]],
-            [globalArray[12 * i + 2], globalArray[12 * i + 3]],
-            [globalArray[12 * i + 4], globalArray[12 * i + 5]],
-            [globalArray[12 * i + 6], globalArray[12 * i + 7]],
-            [globalArray[12 * i + 8], globalArray[12 * i + 9]],
-            [globalArray[12 * i + 10], globalArray[12 * i + 11]]
+            [globalArray[8 * i], globalArray[8 * i + 1]],
+            [globalArray[8 * i + 2], globalArray[8 * i + 3]],
+            [globalArray[8 * i + 4], globalArray[8 * i + 5]],
+            [globalArray[8 * i + 6], globalArray[8 * i + 7]],
         ];
     }
     p = p && checkAllFacesEdge();
