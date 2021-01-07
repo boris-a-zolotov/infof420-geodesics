@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script src="/jsNicolas/LaTeXMathML.js"></script>
+    <title>Chen & Han</title>
+  </head>
+  <body>
+    <script src="/jsNicolas/canvasEnvironment.js"></script>
+    <script src="/jsNicolas/Vertex.js"></script>
+    <script src="/jsNicolas/Edge.js"></script>
+    <script src="/jsNicolas/Face.js"></script>
+    <script src="/jsNicolas/Projection.js"></script>
+    <script src="/jsNicolas/utils.js"></script>
+    <script src="/jsNicolas/display.js"></script>
+    <script src="/jsNicolas/chenHan.js"></script>
+    <script src="/jsNicolas/main.js"></script>
+    <center>
+        <button onclick="canEnv.switchDisplay()" id="button1">Flatten</button>
+        <button onclick="canEnv.resetAll()" id="button2">Reset</button>
+        <select id="selectButton" onchange="canEnv.loadPoly()">
+          <option value="/assets/cube.obj">Cube</option>
+          <option value="/assets/tetrahedron.obj">Tetrahedron</option>
+          <option value="/assets/octahedron.obj">Octahedron</option>
+          <option value="/assets/icosahedron.obj" selected="selected"
+            >Icosahedron</option
+          >
+          <!option value="/assets/dodecahedron.obj">Dodecahedron</option>
+        </select>
+        <div id='canEnv'></div>
+    </center>
+  </body>
+</html>
