@@ -261,6 +261,15 @@ function checkAllEdgesFit() { // IMPORTANT: ONE OF THE CHECKS
 }
 
 
+// removing duplicates from the list of vertices
+
+for (var i = 0; i < vertices.length; i++) {
+    vertices[i] = rotateMin(vertices[i]);
+}
+
+vertices = multiDimensionalUnique(vertices);
+
+
 // CHECKING THAT EACH FACE IS A CONVEX POLYGON
 
 function isRight([x1, y1], [x2, y2]) {
