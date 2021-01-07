@@ -105,6 +105,45 @@ function rotateMin(arr) {
 };
 
 
+// PRINTING
+
+function printPair([a, b]) {
+    return `(${a},${b})`;
+}
+
+// print a single face in a single tikz
+
+function printFace(nom, arr) {
+    let locRes = `  \\tikz[scale=0.56]{\n`;
+    locRes += `    \\fill[white] (-0.4,-0.4) rectangle (${field}+0.4,${field}+0.4);\n`
+    locRes += `    \\foreach \\i in {0,...,${field}} {\\draw[gray,opacity=0.6]`
+    locRes += ` (0,\\i) -- (${field},\\i) (\\i,0) -- (\\i,${field});}\n`
+    locRes += `    \\draw[thick] `;
+    locRes += printPair(arr[0]);
+    for (var i = 1; i < arr.length; i++) {
+        locRes += ` -- `;
+        locRes += printPair(arr[i]);
+        locRes += ` \\midnode{${net[nom][i-1]}}`;
+    }
+
+    locRes += ` -- cycle \\midnode{${net[nom][arr.length-1]}};} \\qquad\n`
+    return locRes;
+}
+
+// print all the faces in a figure
+
+function printFaces(nom, arr) {
+    let globRes = `\\begin{figure} \\centering\n`;
+
+    for (var i = 0; i < arr.length; i++) {
+        globRes += printFace(i, arr[i]);
+    }
+
+    globRes += `\\caption{Net ${nom}} \\end{figure}\n\n\n`;
+    return globRes;
+}
+
+
 // PREPARING VERTICES TO CHECK EACH OF THEM IS CONVEX
 
 // MAIN RULE:
@@ -365,7 +404,7 @@ for (globalCycle = 0; globalCycle < 10; globalCycle++) {
     p = p && checkAllEdgesFit();
     p = p && checkAllVerticesConvex();
     if (p) {
-        console.log(faces);
+        console.log(printFaces(globalCycle, faces));
     }
     arIncrement();
 }
