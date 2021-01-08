@@ -1,4 +1,5 @@
 \begin{figure}[h] \centering
+\begin{minipage}[b]{0.55\textwidth} \centering
   \tikz[scale=0.56]{
     \fill[white] (-0.4,-0.4) rectangle (3+0.4,3+0.4);
     \foreach \i in {0,...,3} {\draw[gray,opacity=0.6] (0,\i) -- (3,\i) (\i,0) -- (\i,3);}
@@ -23,10 +24,10 @@
     \fill[white] (-0.4,-0.4) rectangle (3+0.4,3+0.4);
     \foreach \i in {0,...,3} {\draw[gray,opacity=0.6] (0,\i) -- (3,\i) (\i,0) -- (\i,3);}
     \draw[thick] (3,1) -- (2,3) \midnode{7} -- (0,2) \midnode{11} -- (1,0) \midnode{5} -- cycle \midnode{9};} \qquad
-\caption{Net 22695} \label{fig:skewCube} \end{figure}
-
-
-\begin{figure}[h] \centering
+\captionof{figure}{Net 22695}
+\label{fig:skewCube}
+\end{minipage}
+\begin{minipage}[b]{0.35\textwidth} \centering
 	\tikz[xscale=-0.56,yscale=0.56]{
 		\draw (0,0) -- (0,3) -- (3,3) -- (3,0) -- cycle; 
 		\draw (0,3) -- (1,4) -- (4,4) -- (3,3) -- (3,0) -- (4,1) -- (4,4); 
@@ -40,5 +41,6 @@
 		\draw[very thick] (1,4) -- (0.5+3.5/5,4-2/5) -- (0.5,3.5); 
 		\draw[very thick] (4,1) -- (3+4/5,2) -- (4,2.5)
 	}
-\caption{The way the cube is glued from the net on Figure~\ref{fig:skewCube}}
+\captionof{figure}{The way the cube is glued from the net on Figure~\ref{fig:skewCube}} \label{fig:glueCube}
+\end{minipage}
 \end{figure}
