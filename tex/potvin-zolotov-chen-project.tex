@@ -40,7 +40,7 @@ Chen—Han algorithm is presented in~\cite{chen-han}. Estimation for the running
 
 In this section, we prove that the number of edge-to-edge gluings of $n$ squares is polynomial in $n$. Note that the layout of these theorems allow to develop a polynomial algorithm to list the nets, one just needs to follow all the cases that we describe, and also estimate how much output this algorithm will produce.
 
-\begin{theorem}
+\begin{theorem} \label{thm:n36}
 	There are $O \left( n^{36} \right)$ edge-to-edge gluings of at most $n$ squares that satisfy Alexandrov's conditions.
 \end{theorem}
 
@@ -155,6 +155,12 @@ As a modification of the program, each list was rotated in a way that the face w
 After the program achieved representations of the nets in numerical form, the graphic output was configured for an user to see the polygons and the way they are glued. TikZ code was selected as a platform for the output, drawings of several nets can be seen in {\bf Appendix}.
 
 \section{Discussion}
+
+Out our current machinery it takes the program roughly 30 seconds to analyze 100 million nets, which means all nets consisting of two quadrilaterals fitting inside $4 \times 4$ field can be checked in 13 hours, but it will take 9'000'000 years to check all the nets consisting of 5 triangles. So, an implementation of a faster algorithm is needed to perform the check in feasible time.
+
+Theorem~\ref{thm:n36} suggests that there is a faster algorithm, but the degree is still huge, and it is harder to implement.
+
+What is still to be implemented is the check of isomorphism of $8 \times 8$ matrices, it is however an insignificant $O(1)$ subroutine.
 
 \section*{Appendix: examples of valid nets}
 
