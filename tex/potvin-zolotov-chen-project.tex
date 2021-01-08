@@ -89,7 +89,7 @@ Once the projections of the edges are known, let us draw the faces on the grid. 
 This adds at most $2^{2 \cdot 18}$ ways to draw the net once the edges are known, which gives the total of at most $(2n)^{36}$ gluings.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem} \label{thm:n52}
 	There are $\Omega \left( n^{\frac52} \right)$ edge-to-edge gluings of at most $n$ squares that satisfy Alexandrov's conditions.
 \end{theorem}
 
@@ -154,21 +154,31 @@ As a modification of the program, each list was rotated in a way that the face w
 
 After the program achieved representations of the nets in numerical form, the graphic output was configured for an user to see the polygons and the way they are glued. TikZ code was selected as a platform for the output, drawings of several nets can be seen in {\bf Appendix}.
 
+\section{Discussion}
+
 \section*{Appendix: examples of valid nets}
 
 \subsection*{Nets consisting of two hexagons}
+
+The polygons in these nets represent ones that we counted while proving Theorem~\ref{thm:n52}: those are rectangles with some angles cut.
 
 \input{app/doubly6}
 
 \subsection*{Nets consisting of two quadrilaterals}
 
+Some rather surprising nets can be found here. While the net in Figure~\ref{fig:4dc} clearly corresponds to a doubly-covered quadrilateral, for other nets it is completely unclear which polyhedron is obtain after gluing them together.
+
 \input{app/doubly4}
 
 \subsection*{Nets of a four-sided pyramid}
 
+We were trying to find a non-trivial way to glue a four-sided pyramid from squares, however the only polyhedron we could find complying with this net is a doubly-covered square, see Figure~\ref{fig:notPyramid}.
+
 \input{app/pyramid}
 
 \subsection*{Net of a cube}
+
+Another net worth noting is an unusual net of cube shown in Figure~\ref{fig:skewCube}. This way to glue the cube is rather non-trivial, and the resulting cube can be seen in Figure~\ref{fig:glueCube}.
 
 \input{app/cube}
 
