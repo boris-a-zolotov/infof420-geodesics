@@ -1,7 +1,7 @@
 # Geodesics, Shortest Paths, and Non-Isomorphic Nets
 > INFO-F420 course, ULB, fall 2020
 
-This is the repository for the project, including documentation, proposal a source code.
+This is the repository for the project, including documentation, proposal and source code.
 
 **The report for the project** is [here](https://github.com/boris-a-zolotov/infof420-geodesics/blob/master/tex/potvin-zolotov-chen-project.pdf).
 
