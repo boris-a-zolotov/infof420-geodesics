@@ -126,8 +126,4 @@ var canvasEnv = function(c) {
       }
     }
   }
-
-  c.windowResized = function() {
-    c.resizeCanvas(c.windowWidth/2, c.windowHeight/2);
-  }
 }

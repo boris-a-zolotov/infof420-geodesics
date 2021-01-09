@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Chen & Han</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
     <script src="jsNicolas/LaTeXMathML.js"></script>
-    <title>Chen & Han</title>
-  </head>
-  <body>
-    <script src="jsNicolas/canvasEnvironment.js"></script>
+    <script src="jsNicolas/polyCanvas.js"></script>
+    <script src="jsNicolas/flatCanvas.js"></script>
     <script src="jsNicolas/Vertex.js"></script>
     <script src="jsNicolas/Edge.js"></script>
     <script src="jsNicolas/Face.js"></script>
@@ -18,19 +18,87 @@
     <script src="jsNicolas/display.js"></script>
     <script src="jsNicolas/chenHan.js"></script>
     <script src="jsNicolas/main.js"></script>
-    <center>
-        <button onclick="canEnv.switchDisplay()" id="button1">Flatten</button>
-        <button onclick="canEnv.resetAll()" id="button2">Reset</button>
-        <select id="selectButton" onchange="canEnv.loadPoly()">
-          <option value="assets/cube.obj">Cube</option>
-          <option value="assets/tetrahedron.obj">Tetrahedron</option>
-          <option value="assets/octahedron.obj">Octahedron</option>
-          <option value="assets/icosahedron.obj" selected="selected"
-            >Icosahedron</option
-          >
-          <!option value="/assets/dodecahedron.obj">Dodecahedron</option>
-        </select>
-        <div id='canEnv'></div>
-    </center>
+  </head>
+  <body class="w3-content" style="max-width:1400px">
+
+
+  <div class="w3-row">
+    <div class="w3-half w3-indigo w3-container w3-center" style="height:700px">
+      <div class="w3-padding-16">
+        <h1>Info f420 - Computational Geometry</h1>
+      </div>
+      <div class="w3-padding-16">
+        <h3>Geodesics, Shortest Paths, and Non-Isomorphic Nets</h3>
+        <h5>Potvin Nicolas & Zolotov Boris</h5>
+        <h7>ULB January 2021</h7>
+      </div>
+      <div class="w3-padding-32">
+        <a href="#" class="w3-button w3-indigo w3-block w3-hover-teal w3-padding-16">Introduction</a>
+        <a href="#defs" class="w3-button w3-indigo w3-block w3-hover-teal w3-padding-16">Definitions</a>
+        <a href="#chenHan" class="w3-button w3-indigo w3-block w3-hover-teal w3-padding-16">Chen Han</a>
+        <a href="#demo" class="w3-button w3-indigo w3-block w3-hover-teal w3-padding-16">Demonstration</a>
+      </div>
+    </div>
+
+    <div class="w3-half w3-dark-grey w3-container" style="height:700px">
+      <div class="w3-padding-32 w3-center">
+        <h1>Introduction</h1>
+        <div class="w3-left-align w3-padding-large">
+          TODO<p/>
+          TODO
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="w3-row">
+    <div class="w3-half w3-dark-grey w3-center" style="height:700px" id="defs">
+      
+    </div>
+    <div class="w3-half w3-indigo w3-center" style="height:700px">
+
+    </div>
+  </div>
+
+  
+  <div class="w3-row">
+    <div class="w3-half w3-indigo w3-center" style="height:700px" id="chenHan">
+      
+    </div>
+    <div class="w3-half w3-dark-grey w3-center" style="height:700px">
+
+    </div>
+  </div>
+
+  
+  <div class="w3-row">
+    <div class="w3-half w3-dark-grey w3-center" style="height:700px" id="demo">
+      <h3>Demonstration</h3>
+      <div id='polyCan'></div>
+      <div class="w3-container" style="width:600px">
+        <p>On the right panel, choose a polyhedron by clicking on its name.</p>
+        <p>Point the source and the target by clicking on the flattened polyhedron. The two points are colored in green and blue respectively.</p>
+        <p>The algorithm computes the shortest sequences of edges and displays them in orange on the left panel. Note that a sequence is not necessarily made of entire faces.</p>
+      </div>
+    </div>
+    <div class="w3-half w3-indigo w3-center" style="height:700px">
+      <h3>Pick a polyhedron</h3>
+      <div id='flatCan'></div>
+      <div class="w3-padding-16">
+        <a onclick="flatCan.resetAll(); polyCan.loadPoly('assets/cube.obj')" class="w3-button w3-indigo w3-block w3-hover-teal w3-padding-8">Cube</a>
+        <a onclick="flatCan.resetAll(); polyCan.loadPoly('assets/tetrahedron.obj')" class="w3-button w3-indigo w3-block w3-hover-teal w3-padding-8">Tetrahedron</a>
+        <a onclick="flatCan.resetAll(); polyCan.loadPoly('assets/octahedron.obj')" class="w3-button w3-indigo w3-block w3-hover-teal w3-padding-8">Octahedron</a>
+        <a onclick="flatCan.resetAll(); polyCan.loadPoly('assets/icosahedron.obj')" class="w3-button w3-indigo w3-block w3-hover-teal w3-padding-8">Icosahedron</a>
+        <a onclick="flatCan.resetAll(); polyCan.loadPoly('assets/dodecahedron.obj')" class="w3-button w3-indigo w3-block w3-hover-teal w3-padding-8">Dodecahedron</a>
+        <a onclick="flatCan.resetAll()" class="w3-button w3-indigo w3-block w3-hover-teal w3-padding-8">Reset</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <!-- <footer class="w3-container w3-black w3-padding-16">
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  </footer> -->
   </body>
 </html>
