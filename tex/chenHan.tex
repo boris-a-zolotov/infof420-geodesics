@@ -2,8 +2,16 @@
 
 \subsection{Chen—Han algorithm}
 
-Chen—Han algorithm is presented in~\cite{chen-han}. Considering the hull $H$ of a convex polyhedron (\textit{i.e.} its surface), the goal is to find the shortest path from one point of $H$ to another. To achieve it, the algorithm makes the simple observation that the shortest path follows a geodesic, hence the only angles are those made by moving from one face to another. In other words, if the polyhedron is cut open and flattened in such a way that the shortest path is not cut in the process, one would see this path as a straight line.\par
-Following this observation, the idea of the algorithm is to project a cone of all possible paths from the source into all neighbour faces. Then from the projection of the source on an edge to the opposite edges of the face and so on. The sequences of these projections form corridors delimited by two geodesics through which goes the shortest paths from the source to any point on the surface.\par
+When all the gluings of squares are listed, each polyhedron most certainly appears in the list several times, because its faces can be triangulated in several ways and because homothetic copies of it can be glued from different numbers of squares. The problem arises of classifying the nets and removing isomorphic duplicates, where isomorphism is defined as a homothety of resulting polyhedra.
+
+In~\cite{DO07} it is shown that polyhedra are isomorphic if the length of shortest paths between their vertices of nonzero curvature coincide. Thus, the problem of finding out if two gluings are isomorphic can be reduced to finding out the distances between edges of a gluing.
+
+An example of an algorithm used for finding distances between vertices of a polyhedron that can be generalised for an arbitrary gluing is Chen—Han algorithm presented in~\cite{chen-han}.
+
+Considering the hull $H$ of a convex polyhedron (\textit{i.e.} its surface), the goal is to find the shortest path from one point of $H$ to another. To achieve it, the algorithm makes the simple observation that the shortest path follows a geodesic, hence the only angles are those made by moving from one face to another. In other words, if the polyhedron is cut open and flattened in such a way that the shortest path is not cut in the process, one would see this path as a straight line.
+
+Following this observation, the idea of the algorithm is to project a cone of all possible paths from the source into all neighbour faces. Then from the projection of the source on an edge to the opposite edges of the face and so on. The sequences of these projections form corridors delimited by two geodesics through which goes the shortest paths from the source to any point on the surface.
+
 This algorithm runs in $O(n^2)$ and uses up to $\Theta(n)$ space~\cite{chen-han}. This algorithm can be used not only for the case when the polyhedron is cut into its faces, but into arbitrary flat parts. For the latter case, however, additional observations have to be made to show that the running time is preserved. For the case of a polyhedron that is glued of squares edge-to-edge this is done in~\cite{z-bachthesis}.
 
 \subsubsection{Concepts and notions}
