@@ -3,7 +3,8 @@
 \subsection{Chen—Han algorithm}
 
 Chen—Han algorithm is presented in~\cite{chen-han}. Considering the hull $H$ of a convex polyhedron (\textit{i.e.} its surface), the goal is to find the shortest path from one point of $H$ to another. To achieve it, the algorithm makes the simple observation that the shortest path follows a geodesic, hence the only angles are those made by moving from one face to another. In other words, if the polyhedron is cut open and flattened in such a way that the shortest path is not cut in the process, one would see this path as a straight line.\par
-Following this observation, the idea of the algorithm is to project a cone of all possible paths from the source into all neighbour faces. Then from the projection of the source on an edge to the opposite edges of the face and so on. The sequences of these projections form corridors delimited by two geodesics through which goes the shortest paths from the source to any point on the surface.
+Following this observation, the idea of the algorithm is to project a cone of all possible paths from the source into all neighbour faces. Then from the projection of the source on an edge to the opposite edges of the face and so on. The sequences of these projections form corridors delimited by two geodesics through which goes the shortest paths from the source to any point on the surface.\par
+This algorithm runs in $O(n^2)$ and uses up to $\Theta(n)$ space\cite{chen-han}. Estimation for the running time is proved in~\cite{z-bachthesis}.
 
 \subsubsection{Concepts and notions}
 
@@ -102,8 +103,3 @@ However, the inner nodes of the tree must be discarded and only the leaves are k
 In practice, when the source is projected on an angle $\alpha$, two projections are built to cover $\alpha$. This results in a node having two children, one for each projection. This node is said to \textit{occupy} $\alpha$.\par
 If a newly created node is found to cover an angle $\alpha$ that is already occupied, then the distances between their respective images and the vertex on which lies $\alpha$ are compared. The node being the closest to $\alpha$ is the one that should occupy it, hence keeping both its children. The other node does no longer need two children and keeps the only one whose projection covers an otherwise uncovered section of its supporting edge. In the special case of a tie, no node has two children.\par
 The algorithm ~\ref{fig:efficientChenHanCore} shows the core loop of the algorithm. The other parts are left unchanged.
-
-
-\subsection{Analysis}
-TODO\\
-Estimation for the running time is proved in~\cite{z-bachthesis}.
