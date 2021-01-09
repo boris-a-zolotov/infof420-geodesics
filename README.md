@@ -3,7 +3,7 @@
 
 This is the repository for the project, including documentation, proposal a source code.
 
-The report for the project is [here](https://github.com/boris-a-zolotov/infof420-geodesics/blob/master/tex/potvin-zolotov-chen-project.pdf)
+**The report for the project** is [here](https://github.com/boris-a-zolotov/infof420-geodesics/blob/master/tex/potvin-zolotov-chen-project.pdf).
 
 The project proposal describing the overall idea of the project and the plan that is going to be carried out can be found in [`/proposal`](https://github.com/boris-a-zolotov/infof420-geodesics/tree/master/proposal).
 
