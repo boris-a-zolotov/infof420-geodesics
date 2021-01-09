@@ -1,0 +1,109 @@
+\documentclass[potvin-zolotov-chen-project.tex]{subfiles}
+
+\subsection{Chen—Han algorithm}
+
+Chen—Han algorithm is presented in~\cite{chen-han}. Considering the hull $H$ of a convex polyhedron (\textit{i.e.} its surface), the goal is to find the shortest path from one point of $H$ to another. To achieve it, the algorithm makes the simple observation that the shortest path follows a geodesic, hence the only angles are those made by moving from one face to another. In other words, if the polyhedron is cut open and flattened in such a way that the shortest path is not cut in the process, one would see this path as a straight line.\par
+Following this observation, the idea of the algorithm is to project a cone of all possible paths from the source into all neighbour faces. Then from the projection of the source on an edge to the opposite edges of the face and so on. The sequences of these projections form corridors delimited by two geodesics through which goes the shortest paths from the source to any point on the surface.
+
+\subsubsection{Concepts and notions}
+
+Several key concepts are used in the Chen \& Han algorithm. Each face of a polyhedron is modelled as a list of three oriented edges. These edges are sorted such that the start of an edge is the end of the previous one and conversely.\par
+A \textit{net} is a convenient way to represent the faces of a polyhedron. In essence, it simply is a list of $n$ triples of edges. That is a list of the $n$ faces modelled by their three edges.\par
+Sorting the edges of a face is easy since they are all coplanar. In a three-dimensional object, one willing to organise the faces needs a notion different than order (in a mathematical sense). To tackle this difficulty, the edges of the faces are made conceptually different than the edges of the polyhedron.\par
+Each face-edge is paired with another face-edge such that their respective faces are direct neighbours. Together they form one edge of the polyhedron By convention, the edges are all sorted counter-clockwise in each face, hence each pair of edges are opposite in orientation, cover the same vertices and are consequently of equal size.\par
+The \textit{shadow} of a face with respect to one of its edges $e$ is defined as the face of the paired edge of $e$. In effect it is its neighbour face on the other side of $e$.\par
+In the "cut open" polyhedron shortest paths are straight lines, not geodesics. Building these lines is achieved by \textit{unfolding} two joint faces around their common edge to make they coplanar. Rather than actually unfolding all the faces from the source to the current face being processed, the \textit{image} of the source is kept along with its \textit{projection} on each successive edge.\par
+A \textit{projection} is the section of an edge accessible from an image of the source in neighbour faces. Consequently, a shortest path to any point of the surface falls completely into an area delimited by successive projections. (That is, no shortest path gets out of such an area).
+
+\subsubsection{Naive algorithm}
+
+Chen \& Han \cite{chen-han} proposed a first, naive algorithm presented in figure ~\ref{fig:naiveChenHan} in order to explain the basic strategy followed. The idea is to build a tree rooted on the source point $S$. Each node of this tree keeps a reference to an edge $e$, an image $I$ of the source in the face of $e$ and the projection of $I$ on $e$, noted $proj^I_e$.\par
+The returned tree in itself is not convenient to compute distances or to build actual paths, but it holds all the necessary information to compute them. One can backtrack a path from a leaf up to the root using the projections.
+
+\begin{figure}[h]\centering
+  \begin{algorithm}[H]
+    \DontPrintSemicolon
+    \KwIn{
+      $S$: The source, the starting point of the paths\;
+      $N = \{F_1, F_2, \ldots F_n\}$: The net, a list of triples of edges\;
+    }
+    $L = \{\}$: Current leaves\;
+    $T = (S, \emptyset, \emptyset)$: The tree\;
+    \For{$e \in F_S$ }{
+      \tcp{$F_S$ is the source's face}
+      $I = S$: The image of $S$ (trivial here)\;
+      $proj^I_e = e$: The projection of $I_0$ on $e$ (trivial here)\;
+      $\texttt{addChild}(T, (I, proj^I_e, e))$\;
+    }
+    \For{$i \in \{1, 2, \ldots n\}$}{
+      $L' = \{\}$\;
+      \For{$l \in L$}{
+        \tcc{For each path remaining open (\textit{i.e.} non-dead-end)}
+        $F = \texttt{shadow}(e_l)$: The current face, shadow of $e_l$\;
+        $I' = \texttt{unfold}(I_l, e_l)$: The image of $S$ in $F$ around $e_l$\;
+        $\{e_1, e_2, e_l\} = F$: $e_1$ and $e_2$ are the opposite edges of $e_l$ in $F$\;
+        \For{$e \in \{e_1, e_2\}$}{
+          \If{$proj^{I'}_{e} \neq \emptyset$}{
+            $l' = (I', proj^{I'}_{e})$\;
+            $\texttt{addChild}(l, l')$\;
+            $L' = L' \cup \{l'\}$\;
+          }
+        }
+      }
+      $L = L'$\;
+    }
+    \Return $T$\;
+  \end{algorithm}
+  \label{fig:naiveChenHan}
+  \caption{Chen \& Han, naive algorithm}
+\end{figure}
+
+\subsubsection{Efficient algorithm}
+
+The previous algorithm is correct but it has an exponential running time due to the fact that different paths may overlap each other. Overlapping paths are a consequence of projections falling on an angles rather than on single, flat edges. In this situation, two projections are created, hence two paths.\par
+
+\begin{figure}[ht]
+  \begin{algorithm}[H]
+    \DontPrintSemicolon
+    \For{$l \in L$}{
+      $F = \texttt{shadow}(e_l)$: The current face, shadow of $e_l$\;
+      $I' = \texttt{unfold}(I_l, e_l)$: The image of $S$ in $F$ around $e_l$\;
+      $\{e_1, e_2, e_l\} = F$: $e_1$ and $e_2$ are the opposite edges of $e_l$ in $F$\;
+      $\alpha = \texttt{angle}(e_1, e_2)$\;
+      $o = \texttt{occupyingAngle}(\alpha)$: The node $o$ currently occupying $\alpha$\;
+      \uIf{$proj^{I'}_{e_1} = \emptyset$ or $proj^{I'}_{e_2} = \emptyset$ or $o = \emptyset$}{
+        $l_{1,2}' = (I', proj^{I'}_{e_1, e_2})$: Where the projections are non-empty\;
+        $\texttt{addChild}(l, l_{1,2}')$\;
+        \lIf{$l$ has two children}{$\texttt{occupy}(l, \alpha)$: The angle $\alpha$ is now occupied by $l$}
+      }
+      \Else{
+        \uIf{$|I', \alpha| < |I_o, \alpha|$}{
+          $l_{1,2}' = (I', proj^{I'}_{e_1, e_2})$: Where the projections are non-empty\;
+          $\texttt{addChild}(l, l_{1,2}')$\;
+          $\texttt{deleteRedundantChild}(o)$\;
+          $\texttt{occupy}(l, \alpha)$: The angle $\alpha$ is now occupied by $l$\;
+        }
+        \Else{
+          $l' = (I', proj^{I'}_{e_{1:2}})$: Where the projection is the non-redundant one\;
+          $\texttt{addChild}(l, l')$\;
+          \lIf{$|I', \alpha| = |I_o, \alpha|$}{
+            $\texttt{deleteRedundantChild}(o)$
+          }
+        }
+      }
+    }
+  \end{algorithm}
+  \label{fig:efficientChenHanCore}
+  \caption{Chen \& Han, efficient algorithm (core loop)}
+\end{figure}
+
+Chen and Han proved that in the situation when more than one sequence cover the same angle, only one of them needs to have (at most) two children. Otherwise, some of the children's paths are redundant. This observation is powerful since it bounds the number of subtrees at each vertex, making the tree sparser by pruning away useless branches as soon as they appear. The complexity in space falls from exponential to linear in the number of vertices.\par
+However, the inner nodes of the tree must be discarded and only the leaves are kept in order to achieve such a space complexity. For the sake of simplicity, these nodes are kept in the implementation to ease the backtracking phase.\par
+In practice, when the source is projected on an angle $\alpha$, two projections are built to cover $\alpha$. This results in a node having two children, one for each projection. This node is said to \textit{occupy} $\alpha$.\par
+If a newly created node is found to cover an angle $\alpha$ that is already occupied, then the distances between their respective images and the vertex on which lies $\alpha$ are compared. The node being the closest to $\alpha$ is the one that should occupy it, hence keeping both its children. The other node does no longer need two children and keeps the only one whose projection covers an otherwise uncovered section of its supporting edge. In the special case of a tie, no node has two children.\par
+The algorithm ~\ref{fig:efficientChenHanCore} shows the core loop of the algorithm. The other parts are left unchanged.
+
+
+\subsection{Analysis}
+TODO\\
+Estimation for the running time is proved in~\cite{z-bachthesis}.

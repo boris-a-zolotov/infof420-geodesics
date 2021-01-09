@@ -1,6 +1,7 @@
 \documentclass[a4paper,11pt]{article}
 \usepackage{subfiles}
 \usepackage{f420}
+\usepackage[]{algorithm2e}
 
 \title{Geodesics, Shortest Paths, and Non-Isomorphic Nets}
 \author{{\scshape Potvin} Nicolas \and {\scshape Zolotov} Boris}
@@ -32,9 +33,7 @@ Square grid gives a convenient way to represent gluing as a set of faces draw on
 
 We have to note however, that a gluing can comply with different nets, and with one net in several different ways. See Figure~\ref{fig:notRect} for an example: the net consisting of two parallelograms clearly corresponds to a doubly covered rectangle $1 \times 4$. This is still our a-priori knowlegde. It is not possible to determine which net is exactly the net of the polyhedron corresponding to the gluing, because of non-constructiveness of Alexandrov's theorem.
 
-\subsection{Chen—Han algorithm}
-
-Chen—Han algorithm is presented in~\cite{chen-han}. Estimation for the running time is proved in~\cite{z-bachthesis}.
+\subfile{chenHan}
 
 \section{Bounds on the number of egde-to-edge gluings of squares}
 
@@ -47,7 +46,7 @@ In this section, we prove that the number of edge-to-edge gluings of $n$ squares
 \begin{proof}
 Since we're considering gluings that satisfy Alexandrov's conditions, there is a polyhedron corresponding to each of them. Consider this polyhedron and triangulate it. Since this polyhedron is glued from squares, it is possible to draw each of its faces on square grid, the vertices of the face being also the vertices of the grid.
 
-What is more, an edge shared by two faces must look the same on the drawings of these faces; an example can be seen in Figure~\ref{fig:edgesMeeting}. That means, it must have the same length and the tilt angle that is the same or differing by $\frac{\pi}{2}$. 
+What is more, an edge shared by two faces must look the same on the drawings of these faces; an example can be seen in Figure~\ref{fig:edgesMeeting}. That means, it must have the same length and the tilt angle that is the same or differing by $\frac{\pi}{2}$.
 
 \begin{figure}[h] \centering
 \tikz[scale=0.45]{
