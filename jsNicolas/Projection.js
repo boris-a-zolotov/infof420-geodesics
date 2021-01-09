@@ -41,4 +41,6 @@ class Projection {
   empty() {
     return !(this.start && this.end);
   }
+
+  magnitude() { return this.start.dist(this.end); }
 }

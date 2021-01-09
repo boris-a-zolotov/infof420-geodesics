@@ -16,6 +16,20 @@ class ChenHanNode {
 
   addChild(child) { this.children.push(child); }
   unfold() { return this.edge.unfold(this.img); }
+  
+  removeRedundant(node) {
+    const keptChildren = [];
+    this.children.forEach((child) => {
+      let remove = false;
+      node.children.forEach((otherChild) => {
+        if (Object.is(otherChild.edge, child.edge) && 
+            child.proj.magnitude() < otherChild.proj.magnitude())
+          remove = true;
+      });
+      if (!remove) keptChildren.push(child);
+    });
+    this.children = keptChildren;
+  }
 }
 
 
@@ -34,12 +48,12 @@ function chenHanNaive(source, srcFace, targetFace, facesNum) {
       if (!targetFace || !Object.is(shadow, targetFace)) {
         const img = leaf.unfold();
         shadow.edges.forEach((edge) => {
-          if (!Object.is(edge.start, leaf.edge.end) || !Object.is(edge.end, leaf.edge.start)) {
+          if (!Object.is(edge, leaf.edge.paired)) {
             const proj = new Projection(img, leaf.proj, edge);
             if (!proj.empty()) {
               const l = new ChenHanNode(img, proj, edge);
               leaf.addChild(l);
-              newLeaves.push(l);  
+              newLeaves.push(l);
             }
           }
         })
@@ -50,56 +64,65 @@ function chenHanNaive(source, srcFace, targetFace, facesNum) {
   return tree;
 }
 
-function chenHanNaive_(source, sourceFace, targetFace, facesNum) {
-  const root = {
-    edge: null,
-    image: source,
-    projection: null,
-    children: []
-  };
+
+function chenHan(source, srcFace, targetFace, facesNum) {
+  const tree = new ChenHanNode(source);
+  const angle = new Map;
   let leaves = [];
-  sourceFace.edges.forEach((edge) => {
-    const node = {
-      edge: edge,
-      image: source,
-      projection: {
-        start: edge.start.p5V,
-        end: edge.end.p5V,
-        empty: function () {
-          return false;
-        }
-      },
-      children: []
-    };
-    root.children.push(node);
-    leaves.push(node);
+  srcFace.edges.forEach((edge) => {
+    const l = new ChenHanNode(source, edge);
+    tree.addChild(l);
+    leaves.push(l);
+    angle.set(edge.start, new Map);
+    angle.get(edge.start).set(srcFace, l)
   });
-  for (let i = 0; leaves.length && i < facesNum; ++i) {
-    const currentLeaves = leaves;
-    leaves = [];
-    currentLeaves.forEach((leaf) => {
+  for (let i=0; i < facesNum; ++i) {
+    leaves.forEach((leaf) => {
       const shadow = leaf.edge.shadow;
-      if (!Object.is(shadow, targetFace)) {
-        const img = leaf.edge.unfold(leaf.image);
+      if (!targetFace || !Object.is(shadow, targetFace)) {
+        const img = leaf.unfold();
+        const nodes = [];
+        let vertex = null;
         shadow.edges.forEach((edge) => {
-          if (leaf.edge.start !== edge.end && leaf.edge.end !== edge.start) {
-            const proj = new Projection(img, leaf.projection, edge);
-            if (!proj.empty()) {
-              const node = {
-                edge: edge,
-                image: img,
-                projection: proj,
-                children: []
-              };
-              leaf.children.push(node);
-              leaves.push(node);
+          if (!Object.is(edge, leaf.edge.paired)) {
+            vertex = Object.is(edge.end, leaf.edge.start) ? edge.start : edge.end;
+            const proj = new Projection(img, leaf.proj, edge);
+            if (!proj.empty())
+              nodes.push(new ChenHanNode(img, proj, edge));
+          }
+        })
+        if (nodes.length === 2) {
+          if (!angle.has(vertex)) angle.set(vertex, new Map);
+          if (!angle.get(vertex).has(shadow)) {
+            angle.get(vertex).set(shadow, leaf);
+            nodes.forEach((node) => leaf.addChild(node));
+          } else {
+            const occupant = angle.get(vertex).get(shadow);
+            const dist = occupant.img.dist(vertex.p5V);
+            const newDist = img.dist(vertex.p5V);
+            if (newDist < dist) {
+              nodes.forEach((node) => leaf.addChild(node));
+              occupant.removeRedundant(leaf);
+              angle.get(vertex).set(shadow, leaf);
+            } else {
+              nodes.forEach((node) => leaf.addChild(node));
+              leaf.removeRedundant(occupant);
+              if (newDist === dist)
+                occupant.removeRedundant(leaf);
             }
           }
-        });
+        } else if (nodes.length === 1) leaf.addChild(nodes[0]);
       }
-    });
+    })
+    const newLeaves = [];
+    leaves.forEach((leaf) => 
+      leaf.children.forEach((child) => 
+        newLeaves.push(child)
+      )
+    );
+    leaves = newLeaves;
   }
-  return root;
+  return tree;
 }
 
 function buildPaths(
@@ -109,7 +132,7 @@ function buildPaths(
   targetFace,
   facesNum
 ) {
-  const tree = chenHanNaive(sourcePoint, sourceFace, targetFace, facesNum);
+  const tree = chenHan(sourcePoint, sourceFace, targetFace, facesNum);
   const deadEnds = [];
   const paths = [];
   let partialPaths = [];
