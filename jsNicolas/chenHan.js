@@ -1,4 +1,56 @@
-function chenHanNaive(source, sourceFace, targetFace, facesNum) {
+class ChenHanNode {
+  constructor(img, proj=null, edge=null) {
+    this.img = img;
+    this.proj = proj;
+    this.edge = edge;
+    this.children = [];
+    if (proj && !edge) {
+      this.edge = proj;
+      this.proj = {
+        start: proj.start.p5V,
+        end: proj.end.p5V,
+        empty: function () { return false; }
+      };
+    }
+  }
+
+  addChild(child) { this.children.push(child); }
+  unfold() { return this.edge.unfold(this.img); }
+}
+
+
+function chenHanNaive(source, srcFace, targetFace, facesNum) {
+  const tree = new ChenHanNode(source);
+  let leaves = [];
+  srcFace.edges.forEach((edge) => {
+    const l = new ChenHanNode(source, edge);
+    tree.addChild(l);
+    leaves.push(l);
+  });
+  for (let i=0; i < facesNum; ++i) {
+    const newLeaves = [];
+    leaves.forEach((leaf) => {
+      const shadow = leaf.edge.shadow;
+      if (!targetFace || !Object.is(shadow, targetFace)) {
+        const img = leaf.unfold();
+        shadow.edges.forEach((edge) => {
+          if (!Object.is(edge.start, leaf.edge.end) || !Object.is(edge.end, leaf.edge.start)) {
+            const proj = new Projection(img, leaf.proj, edge);
+            if (!proj.empty()) {
+              const l = new ChenHanNode(img, proj, edge);
+              leaf.addChild(l);
+              newLeaves.push(l);  
+            }
+          }
+        })
+      }
+    })
+    leaves = newLeaves;
+  }
+  return tree;
+}
+
+function chenHanNaive_(source, sourceFace, targetFace, facesNum) {
   const root = {
     edge: null,
     image: source,
@@ -63,7 +115,7 @@ function buildPaths(
   let partialPaths = [];
   tree.children.forEach((child) =>
     partialPaths.push({
-      path: [[child.image, child.edge.start, child.edge.end]],
+      path: [[child.img, child.edge.start, child.edge.end]],
       node: child
     })
   );
@@ -73,8 +125,8 @@ function buildPaths(
     current.forEach((partial) => {
       if (Object.is(targetFace, partial.node.edge.shadow)) {
         partial.path.push([
-          partial.node.projection.start,
-          partial.node.projection.end,
+          partial.node.proj.start,
+          partial.node.proj.end,
           targetPoint
         ]);
         paths.push(partial.path);
@@ -82,10 +134,10 @@ function buildPaths(
         partial.node.children.forEach((child) => {
           const path = [...partial.path];
           path.push([
-            partial.node.projection.end,
-            partial.node.projection.start,
-            child.projection.start,
-            child.projection.end
+            partial.node.proj.end,
+            partial.node.proj.start,
+            child.proj.start,
+            child.proj.end
           ]);
           partialPaths.push({ path: path, node: child });
         });
