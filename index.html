@@ -23,29 +23,30 @@
 
 
   <div class="w3-row">
-    <div class="w3-half w3-indigo w3-container w3-center" style="height:700px">
-      <div class="w3-padding-16">
+    <div class="w3-half w3-dark-grey w3-container w3-center" style="height:700px">
+      <div class="w3-padding-32">
         <h1>Info f420 - Computational Geometry</h1>
       </div>
-      <div class="w3-padding-16">
+      <div class="w3-padding-32">
         <h3>Geodesics, Shortest Paths, and Non-Isomorphic Nets</h3>
         <h5>Potvin Nicolas & Zolotov Boris</h5>
         <h7>ULB January 2021</h7>
       </div>
       <div class="w3-padding-32">
-        <a href="#" class="w3-button w3-indigo w3-block w3-hover-teal w3-padding-16">Introduction</a>
-        <a href="#defs" class="w3-button w3-indigo w3-block w3-hover-teal w3-padding-16">Definitions</a>
-        <a href="#chenHan" class="w3-button w3-indigo w3-block w3-hover-teal w3-padding-16">Chen Han</a>
-        <a href="#demo" class="w3-button w3-indigo w3-block w3-hover-teal w3-padding-16">Demonstration</a>
+        <a href="#" class="w3-button w3-dark-grey w3-block w3-hover-teal w3-padding-16">Introduction</a>
+        <a href="#chenHan" class="w3-button w3-dark-grey w3-block w3-hover-teal w3-padding-16">Chen Han</a>
+        <a href="#demo" class="w3-button w3-dark-grey w3-block w3-hover-teal w3-padding-16">Demonstration</a>
       </div>
     </div>
 
-    <div class="w3-half w3-dark-grey w3-container" style="height:700px">
+    <div class="w3-half w3-indigo w3-container" style="height:700px">
       <div class="w3-padding-32 w3-center">
         <h1>Introduction</h1>
-        <div class="w3-left-align w3-padding-large">
-          TODO<p/>
-          TODO
+        <div class="w3-left-align w3-padding-32 w3-padding-large">
+          <p>This webpage presents an intuitive explanation of the Chen Han shortest path algorithm. It is a part of a joint project on geodesics, shortest paths and non-isomorphic nets. The paper with much more in depth details and results can be found <a href="https://github.com/boris-a-zolotov/infof420-geodesics/blob/master/tex/potvin-zolotov-chen-project.pdf">here</a>.</p>
+          <p>Since the aim of this project is to demonstrate the algorithm, the definitions and explanations proposed here are rather informal on purpose. One interested in a more in depth view, implementation details or formal algorithmic considerations should <a href="https://github.com/boris-a-zolotov/infof420-geodesics/blob/master/tex/potvin-zolotov-chen-project.pdf">look at the article instead</a>.</p>
+          <p>This site is divided in three parts. This introduction is the first, then come a high level description of Chen & Han algorithm along with high level explanations of its key notions. In the third and final section an interactive demonstration of the algorithm is proposed.</p>
+          <p>The parts of the page are accessible by scrolling or clicking on them in the menu on the left.</p>
         </div>
       </div>
     </div>
@@ -53,21 +54,24 @@
 
   
   <div class="w3-row">
-    <div class="w3-half w3-dark-grey w3-center" style="height:700px" id="defs">
-      
-    </div>
-    <div class="w3-half w3-indigo w3-center" style="height:700px">
-
-    </div>
-  </div>
-
-  
-  <div class="w3-row">
     <div class="w3-half w3-indigo w3-center" style="height:700px" id="chenHan">
-      
+      <h3>Chen Han - Explanations</h3>
+      <div class="w3-left-align w3-padding-32 w3-padding-large">
+        <p>The algorithm aims at finding the shortest path between two points on the surface of a polyhedron. That is any 3d object made of flat surfaces glued together. Polyhedrons are used extensively in computer science to approximate objects having curved surfaces. It is easier for a machine to work on many flat surfaces rather than on a single curved one.</p>
+        <p>For two points located in space (both 3d and 2d), finding the shortest path is rather easy. Just draw the straight line going through both of them, take the segment of the line delimited by these points and voilà. Issues arise when an obstacle is found on this ideal path. This situation can be tackled by shortest path algorithms. Such algorithms most often identify points of interest (e.g. cross roads) and the paths that it can take to move from one point to the next (e.g. roads). Then it searches the combination of roads it can take to reach its destination in a minimum total distance.</p>
+        <p>In the case of Chen Han algorithm, one has to stay on the surface of the polyhedron, moving from face to face. The points of interest are the vertices of the faces and the path goes across several edges.</p>
+        <p>The goal of the algorithm is to find a geodesic, that is a line drawn straight on the surface of a polyhedron. To do so, it shoots geodesic rays from the starting point hence delimiting areas in which the actual sortest path is to be drawn. These areas are clipped by the edges of the successive surfaces they encounter, forming corridors to surface on which lies the target point.</p>
+      </div>
     </div>
     <div class="w3-half w3-dark-grey w3-center" style="height:700px">
-
+      <h3>Chen Han - Outline</h3>
+      <div class="w3-left-align w3-padding-32 w3-padding-large">
+        <p>The algorithm starts on the surface of the source point. From there, the corridors are all the triangles formed by the source point and the edges of the surface. In any case, one willing to walk the shortest path would have to walk from this point to an edge.</p>
+        <p>Once the walker reaches an edge, it should not turn left nor right but go straight forward across the edge. To ensure going straight, the algorithm flatten the two faces on each side of the edge to draw the continuation of the corridor sides on a flat surface. This process is called "unfolding".</p>
+        <p>An issue can occur at this stage, a side of the corridor may go out of the face in which is the walker. In such situation, the corridor was too wide and needs to be reduced. Otherwise it would mean going out of the surface while staying in its plane, hence "flying" out of the surface, which is not possible.</p>
+        <p>Any corridor may encounter an angle (hence two edges) rather than a single edge resulting in corridors being split into two new ones. This is not an issue, but it is important to keep track of which corridor leads faster to any angle and stop exploring those leading there slower.</p>
+        <p>Upon completion, the algorithm has a list of corridors leading to the target surface. What remains is to draw the line connecting the source to the target in each of these corridor (as one would do in a 2d surface) and select the shortest one of them.</p>
+      </div>
     </div>
   </div>
 
