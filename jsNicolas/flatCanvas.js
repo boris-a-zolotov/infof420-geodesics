@@ -36,7 +36,7 @@ var flatCanvas = function(c) {
 
   c.draw = function() {
     // Put drawings here
-    c.background(97);
+    c.background('#3f51b5');
     c.scale(c.displayScale);
     displayCutPoly(c,
       poly.faces,
