@@ -1,5 +1,21 @@
 \documentclass[a4paper,USenglish,cleveref, autoref, thm-restate]{socg-lipics-v2019}
 
+\usepackage{tikz}
+\usetikzlibrary{arrows,backgrounds,patterns,matrix,
+	shapes,fit,calc,shadows,plotmarks,snakes}
+
+\newcommand{\baserect}{
+	\foreach \x in {0,...,6} {\draw[gray,opacity=0.8] (\x,0) -- (\x,5);}
+	\foreach \y in {0,...,5} {\draw[gray,opacity=0.8] (0,\y) -- (6,\y);}
+	\draw[thick] (0,0) -- (6,0) -- (6,5) -- (0,5) -- cycle;
+}
+
+\definecolor{bluetri}{RGB}{45,155,190}
+
+\newcommand{\midnode}{
+	node[midway,circle,fill=white,fill opacity=0.92,inner sep=0pt,minimum size=2.1ex]
+}
+
 \bibliographystyle{plainurl}
 
 \title{Listing All Convex Polyhedra Glued from Squares in Polynomial Time}
@@ -20,21 +36,70 @@
 
 \acknowledgements{I want to thank \dots}
 
+\ccsdesc{\#10010061 Computational geometry}
+
+% \relatedversion{0}
+
 \begin{document}
 
 \maketitle
 
+\begin{abstract} Lorem Ipsum Dolor Sit Amet \end{abstract}
+
 \section{Bounds on the number of egde-to-edge gluings of squares}
 
-In this section, we prove that the number of edge-to-edge gluings of $n$ squares is polynomial in $n$. These theorems allows to develop a polynomial algorithm to list the nets.
+In this section, we prove that the number of edge-to-edge gluings of $n$ squares is polynomial in $n$. This result allows to develop a polynomial algorithm to list all the valid gluings.
 
 \begin{theorem} \label{thm:n36}
 	There are $O \left( n^{36} \right)$ edge-to-edge gluings of at most $n$ squares that satisfy Alexandrov's conditions.
 \end{theorem}
 
+\begin{proof} To prove the theorem, we triangulate the polyhedron corresponding to the net and draw its faces on the square grid. We note that an edge shared by two faces must have the same lengths of $x$- and $y$-projections on the drawings of these faces, see Figure~\ref{fig:edgesMeeting}. Then we count the number of sets of triangles satisfying this restriction and taking up at most $n$ squares.
+
+\begin{figure}[h] \centering
+\tikz[scale=0.45]{
+	\foreach \i in {-1,...,6} {
+		\draw[gray] (-1,\i) -- (6,\i) (\i,-1) -- (\i,6);
+	}
+	\draw[very thick,red] (4,5) -- (5,2);
+	\draw[thick] (5,2) -- ++(-2,-2) -- ++(-3,0) --
+		++(0,2) -- ++(1,3) -- ++(3,0);
+}\hspace{1.2cm}
+\tikz[scale=0.45]{
+	\foreach \i in {-1,...,6} {
+		\draw[gray] (-1,\i) -- (6,\i) (\i,-1) -- (\i,6);
+	}
+	\draw[very thick,red] (0,4) -- (3,5);
+	\draw[thick] (3,5) -- ++(2,-2) -- ++(0,-3) --
+		++(-3,0) -- ++(-2,2) -- ++(0,2);
+}
+\caption{Highlighted edge has the same lengths of projections on the drawings of two faces}
+\label{fig:edgesMeeting}
+\end{figure}
+
+To do so, we choose $x$- and $y$-projections for each of at most 18 edges and note that there is at most two ways to place each edge such that the convexity of the face is preserved, those differ by $\frac{\pi}{2}$, see Figure~\ref{fig:twoWays}. \end{proof}
+
+\begin{figure}[h] \centering
+\tikz[scale=0.45]{
+	\foreach \i in {0,...,6} {
+		\draw[gray] (0,\i) -- (6,\i) (\i,0) -- (\i,6);
+	}
+	\draw[thick] (1,0)--(2,3);
+	\draw[thick,red,dashed] (4,6)--(2,3)--(5,1);
+}
+\caption{There are two ways to place each edge preserving convexity of the face}
+\label{fig:twoWays}
+\end{figure}
+
 \begin{theorem} \label{thm:n52}
 	There are $\Omega \left( n^{\frac52} \right)$ edge-to-edge gluings of at most $n$ squares that satisfy Alexandrov's conditions.
 \end{theorem}
+
+\begin{proof} To prove the theorem, we construct a series of such gluings. These gluings correspond to doubly-covered polygons, the polygons being obtained by cutting edges of a rectangle with sides no longer than $\frac{\sqrt{n}}{2}$, see Figure~\ref{fig:cutExA}.
+
+\input{img/fig-examples}
+
+If the length of the shorter side of the rectangle is equal to $b$, then there is $\left( b(b+1) / 2 \right)^2$ ways to choose how much of angles is cut. However, to count only valid gluings, we have to count in that in some cases the sides of angles we cut do not meet at a node of the grid, see Figure~\ref{fig:cutExB}, and that one polygon can be obtained from several rectangles, see Figure~\ref{fig:cutExC}. This yields the final formula.\end{proof}
 
 % \bibliography{boris-bac}
 
