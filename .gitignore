@@ -284,4 +284,5 @@ TSWLatexianTemp*
 #*Notes.bib
 
 tex/lipics-sample.pdf
+*.vtc
 
