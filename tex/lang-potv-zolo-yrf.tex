@@ -46,6 +46,22 @@
 
 \begin{abstract} Lorem Ipsum Dolor Sit Amet \end{abstract}
 
+\section{Adaptation of Chen—Han algorithm for arbitrary edge-to-edge gluings of squares}
+
+In this section, we show the runtime of Chen—Han algorithm, whose input is an edge-to-edge gluing of squares, and the squares need not to be faces of the resulting polyhedron.
+
+\begin{theorem} \label{thm:shortestSquare}
+	If $T$ is a square of the gluing and $\pi$ is a geodesic shortest path between two vertices $p_1$, $p_2$ of the gluing then the intersection between $\pi$ and $T$ consists of at most 5 segments.
+\end{theorem}
+
+\begin{proof}
+	To prove this theorem, we show that there is at most one segment for each pair of adjacent sides of $T$ with endpoints on these sides, and at most one segment whose endpoints lie on opposite sides of $T$.
+\end{proof}
+
+\begin{corollary} \label{cor:chruntime}
+	For an arbitrary gluing $\Gamma$ of $n$ squares and a vertex $v$ of this gluing, Chen—Han algorithm for $\Gamma$ and $v$ runs in $O(n^2)$ time.
+\end{corollary}
+
 \section{Bounds on the number of egde-to-edge gluings of squares}
 
 In this section, we prove that the number of edge-to-edge gluings of $n$ squares is polynomial in $n$. This result allows to develop a polynomial algorithm to list all the valid gluings.
