@@ -44,7 +44,9 @@
 
 \maketitle
 
-\begin{abstract} Lorem Ipsum Dolor Sit Amet \end{abstract}
+\begin{abstract}We give all the sufficient reasoning and describe a polynomial algorithm that allows to list and classify all edge-to-edge gluings of squares that correspond to convex polyhedra. We show that the number of such gluings of $n$ squares is polynomial in $n$. The methods we use to acheve this can be applied in several similar settings, including gluings of regular hexagons and triangles.\end{abstract}
+
+\section{Introduction}
 
 \section{Adaptation of Chen—Han algorithm for arbitrary edge-to-edge gluings of squares}
 
@@ -116,6 +118,20 @@ To do so, we choose $x$- and $y$-projections for each of at most 18 edges and no
 \input{img/fig-examples}
 
 If the length of the shorter side of the rectangle is equal to $b$, then there is $\left( b(b+1) / 2 \right)^2$ ways to choose how much of angles is cut. However, to count only valid gluings, we have to count in that in some cases the sides of angles we cut do not meet at a node of the grid, see Figure~\ref{fig:cutExB}, and that one polygon can be obtained from several rectangles, see Figure~\ref{fig:cutExC}. This yields the final formula.\end{proof}
+
+\section{Listing the gluings}
+
+We implemented an algorithm that lists all the gluings of at most $n$ squares for a given graph structure of a convex polyhedron. We want to point out that one gluing can admit several ways to cut itself into flat polygons. Thus it can appear in the list several times.
+
+\input{app/yrf-example}
+
+\begin{example}
+	A doubly covered parallelogram shown in Figure~\ref{fig:twonets} admits two ways to cut itself into two flat quadrilaterals, the latter consisting of the faces of the polyhedron.
+\end{example}
+
+\section{Algorithm to classify edge-to-edge gluings of squares}
+
+\section{Discussion}
 
 % \bibliography{boris-bac}
 
