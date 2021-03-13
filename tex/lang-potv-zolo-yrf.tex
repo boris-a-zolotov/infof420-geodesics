@@ -27,7 +27,7 @@
 
 \author{Nicolas Potvin}{Faculté des Sciences, Université Libre de Bruxelles}{potvinnicolas2@gmail.com}{ }{Whatever grant}
 
-\author{Boris Zolotov}{Department of Mathematics and Computer Sciences, St. Petersburg State University}{boris.a.zolotov@yandex.com}{ }{Whatever grant}
+\author{Boris Zolotov}{Department of Mathematics and Computer Sciences, St. Petersburg State University}{boris.a.zolotov@yandex.com}{ }{is supported in part by the Foundation for the Advancement of Theoretical Physics and Mathematics ``BASIS'' and in part by ``Native towns'', a social investment program of PJSC ``Gazprom Neft''.}
 
 \authorrunning{S. Langerman and N. Potvin and B. Zolotov}
 
@@ -35,7 +35,7 @@
 
 \keywords{polyhedral metrics, alexandrov theorem, squares, edge-to-edge gluings}
 
-\acknowledgements{I want to thank \dots}
+\acknowledgements{B. Z. wants to thank the international academic mobility \& students exchange program of SPBU for offering him an exchange in ULB that allowed for cooperation needed to complete this project.}
 
 \ccsdesc{\#10010061 Computational geometry}
 
@@ -51,9 +51,9 @@
 
 Given a collection of 2D polygons, a \emph{gluing} or a \emph{net} describes a closed surface by specifying how to glue each edge of these polygons onto another edge. Alexandrov's uniqueness theorem~\cite{alex} states that any valid gluing that is homeomorphic to a sphere and that does not yield a total facial angle greater than $2\pi$ at any point, corresponds to the surface of a unique convex 3D polyhedron (doubly covered convex polygons are also polyhedra).
 
-There is no known exact algorithm for reconstructing the 3D polyhedron~\cite{bannister2014galois,kpd09-approx}. Enumerating all possible valid gluings is also not an easy task, as the number of gluings can be exponential even for a single polygon~\cite{DDLO02}. Complete enumerations of gluings and the resulting polyhedra are only known for very specific cases such as the Latin cross~\cite{ddlop99} and a single regular convex polygon~\cite{DO07}.
+There is no known exact algorithm for reconstructing the 3D polyhedron~\cite{bannister2014galois,kpd09-approx}. Enumerating all possible valid gluings is also not an easy task, as the number of gluings can be exponential even for a single polygon~\cite{DDLO02}. Complete enumerations of gluings and the resulting polyhedra are only known for very specific cases such as the Latin cross~\cite{ddlop99}, a single regular convex polygon~\cite{DO07}, and a collection of regular pentagons~\cite{alz-penta}.
 
-The special case when the polygons to be glued together are all identical regular $k$-gons, and the gluing is \emph{edge-to-edge} was studied recently for $k \ge 6$~\cite{kl17-hex} and $k=5$~\cite{alz-penta}. The aim of this paper is to study the case of $k=4$: namely, to {\it enumerate} all valid gluings of squares and {\it classify} them up to isomorphism.
+The case when the polygons to be glued together are all identical regular $k$-gons, and the gluing is \emph{edge-to-edge} was studied recently for $k \ge 6$~\cite{kl17-hex}. The aim of this paper is to study the case of $k=4$: namely, to {\it enumerate} all valid gluings of squares and {\it classify} them up to isomorphism.
 
 \section{Chen—Han algorithm for gluings of squares}
 
@@ -79,40 +79,11 @@ In this section, we prove that the number of edge-to-edge gluings of $n$ squares
 	There are $O \left( n^{36} \right)$ edge-to-edge gluings of at most $n$ squares that correspond to convex polyhedra.
 \end{theorem}
 
-\begin{figure}[h] \centering
-\tikz[scale=0.45]{
-	\foreach \i in {-1,...,6} {
-		\draw[gray] (-1,\i) -- (6,\i) (\i,-1) -- (\i,6);
-	}
-	\draw[very thick,red] (4,5) -- (5,2);
-	\draw[thick] (5,2) -- ++(-2,-2) -- ++(-3,0) --
-		++(0,2) -- ++(1,3) -- ++(3,0);
-}\hspace{1.2cm}
-\tikz[scale=0.45]{
-	\foreach \i in {-1,...,6} {
-		\draw[gray] (-1,\i) -- (6,\i) (\i,-1) -- (\i,6);
-	}
-	\draw[very thick,red] (0,4) -- (3,5);
-	\draw[thick] (3,5) -- ++(2,-2) -- ++(0,-3) --
-		++(-3,0) -- ++(-2,2) -- ++(0,2);
-}
-\caption{Highlighted edge has the same lengths of projections on the drawings of two faces}
-\label{fig:edgesMeeting}
-\end{figure}
+\begin{proof}
+	Triangulate the polyhedron corresponding to the net and draw its faces on the square grid. An edge shared by two faces must have the same lengths of $x$- and $y$-projections on the drawings of these faces, see Figures~\ref{fig:emA},~\ref{fig:emB}. Then count the number of sets of triangles satisfying this restriction and taking up at most $n$ squares. To do so, choose the projections (that do not exceed $n$ in length) for each of at most 18 edges. Note that there are at most two ways to place each edge that preserve convexity of the face, see Figure~\ref{fig:emC}.
+\end{proof}
 
-\begin{proof} Triangulate the polyhedron corresponding to the net and draw its faces on the square grid. An edge shared by two faces must have the same lengths of $x$- and $y$-projections on the drawings of these faces, see Figure~\ref{fig:edgesMeeting}. Then count the number of sets of triangles satisfying this restriction and taking up at most $n$ squares. To do so, choose the projections (that do not exceed $n$ in length) for each of at most 18 edges. Note that there are at most two ways to place each edge that preserve convexity of the face, see Figure~\ref{fig:twoWays}. \end{proof}
-
-\begin{figure}[h] \centering
-\tikz[scale=0.45]{
-	\foreach \i in {0,...,6} {
-		\draw[gray] (0,\i) -- (6,\i) (\i,0) -- (\i,6);
-	}
-	\draw[thick] (1,0)--(2,3);
-	\draw[thick,red,dashed] (4,6)--(2,3)--(5,1);
-}
-\caption{Two ways to place an edge with given projections that preserve convexity of the face}
-\label{fig:twoWays}
-\end{figure}
+\input{img/fig-edgesmeet}
 
 \begin{theorem} \label{thm:n52}
 	There are $\Omega \left( n^{\frac52} \right)$ edge-to-edge gluings of at most $n$ squares that satisfy Alexandrov's conditions.
