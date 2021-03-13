@@ -45,7 +45,7 @@
 
 \maketitle
 
-\begin{abstract}We present a polynomial-time algorithm that allows to enumerate and classify all edge-to-edge gluings of squares that correspond to convex polyhedra. We show that the number of such gluings of $n$ squares is polynomial in $n$. The methods we use to achieve this can be applied in several similar settings, including gluings of regular hexagons and triangles.\end{abstract}
+\begin{abstract}We present a polynomial-time algorithm that enumerates and classifies all edge-to-edge gluings of squares that correspond to convex polyhedra. We show that the number of such gluings of $n$ squares is polynomial in $n$. Our technique can be applied in several similar settings, including gluings of regular hexagons and triangles.\end{abstract}
 
 \section{Introduction}
 
@@ -57,31 +57,27 @@ The special case when the polygons to be glued together are all identical regula
 
 \section{Chen—Han algorithm for gluings of squares}
 
-In~\cite{DO07} it is shown that polyhedra are isomorphic if the lengths of shortest paths between their vertices of nonzero curvature coincide. Thus, the problem of finding out if two gluings are isomorphic can be reduced to finding out the distances between vertices of a gluing.
+In~\cite{DO07} it is shown that polyhedra are isomorphic if the lengths of shortest geodesic paths between their vertices of nonzero curvature coincide. Thus, the problem of finding out if two gluings are isomorphic can be reduced to finding out the geodesic distances between vertices of a gluing. Algorithm we are using for this is the Chen—Han algorithm~\cite{chen-han}.
 
-Algorithm we are using for this is  Chen—Han algorithm presented in~\cite{chen-han}. The idea of the algorithm is to project a cone of all possible paths from the source onto the surface of the gluing. This algorithm runs in $O(n^2)$ time. It can be used when the polyhedron is cut into arbitrary flat parts. However, additional observations have to be made to show that the running time is preserved. In this section we make these for edge-to-edge gluings of squares that need not to be faces of the resulting polyhedron.
+The idea of the algorithm is to project a cone of all possible paths from the source onto the surface of the gluing. This algorithm runs in $O(n^2)$ time. To apply it for arbitrary edge-to-edge gluings of squares, it has to be proven that the running time is preserved. To do this, we show that there is at most one segment of a geodesic shortest path for each pair of adjacent sides of a square with endpoints on these sides, and at most one segment whose endpoints lie on opposite sides of a square. This implies the following Theorem.
 
 \begin{theorem} \label{thm:shortestSquare}
-	If $T$ is a square of the gluing and $\pi$ is a geodesic shortest path between two vertices $p_1$, $p_2$ of the gluing then the intersection between $\pi$ and $T$ consists of at most 5 segments.
+	If $T$ is a square of the gluing and $\pi$ is a geodesic shortest path between two vertices of the gluing then the intersection between $\pi$ and $T$ is of at most 5 segments.
 \end{theorem}
 
-\begin{proof}
-	To prove this theorem, we show that there is at most one segment for each pair of adjacent sides of $T$ with endpoints on these sides, and at most one segment whose endpoints lie on opposite sides of $T$.
-\end{proof}
-
-\begin{corollary} \label{cor:chruntime}
-	For an arbitrary gluing $\Gamma$ of $n$ squares and a vertex $v$ of this gluing, Chen—Han algorithm for $\Gamma$ with source $v$ runs in $O(n^2)$ time.
-\end{corollary}
+%	\begin{corollary} \label{cor:chruntime}
+%	For an arbitrary gluing $\Gamma$ of $n$ squares and a vertex $v$
+%	of this gluing, Chen—Han algorithm for $\Gamma$ with source $v$
+%	runs in $O(n^2)$ time.
+%	\end{corollary}
 
 \section{Bounds on the number of egde-to-edge gluings of squares}
 
-In this section, we prove that the number of edge-to-edge gluings of $n$ squares is polynomial in $n$. This result allows to develop a polynomial algorithm to list all the valid gluings.
+In this section, we prove that the number of edge-to-edge gluings of $n$ squares is polynomial in $n$. This result allows to develop a polynomial algorithm to list all the gluings.
 
 \begin{theorem} \label{thm:n36}
-	There are $O \left( n^{36} \right)$ edge-to-edge gluings of at most $n$ squares that satisfy Alexandrov's conditions.
+	There are $O \left( n^{36} \right)$ edge-to-edge gluings of at most $n$ squares that correspond to convex polyhedra.
 \end{theorem}
-
-\begin{proof} Triangulate the polyhedron corresponding to the net and draw its faces on the square grid. Note that an edge shared by two faces must have the same lengths of $x$- and $y$-projections on the drawings of these faces, see Figure~\ref{fig:edgesMeeting}. Then count the number of sets of triangles satisfying this restriction and taking up at most $n$ squares.
 
 \begin{figure}[h] \centering
 \tikz[scale=0.45]{
@@ -104,7 +100,7 @@ In this section, we prove that the number of edge-to-edge gluings of $n$ squares
 \label{fig:edgesMeeting}
 \end{figure}
 
-To do so, choose $x$- and $y$-projections (those do not exceed $n$ in length) for each of at most 18 edges and note that there is at most two ways to place each edge such that the convexity of the face is preserved, those differ by $\frac{\pi}{2}$, see Figure~\ref{fig:twoWays}. \end{proof}
+\begin{proof} Triangulate the polyhedron corresponding to the net and draw its faces on the square grid. An edge shared by two faces must have the same lengths of $x$- and $y$-projections on the drawings of these faces, see Figure~\ref{fig:edgesMeeting}. Then count the number of sets of triangles satisfying this restriction and taking up at most $n$ squares. To do so, choose the projections (that do not exceed $n$ in length) for each of at most 18 edges. Note that there are at most two ways to place each edge that preserve convexity of the face, see Figure~\ref{fig:twoWays}. \end{proof}
 
 \begin{figure}[h] \centering
 \tikz[scale=0.45]{
@@ -114,7 +110,7 @@ To do so, choose $x$- and $y$-projections (those do not exceed $n$ in length) fo
 	\draw[thick] (1,0)--(2,3);
 	\draw[thick,red,dashed] (4,6)--(2,3)--(5,1);
 }
-\caption{There are two ways to place each edge preserving convexity of the face}
+\caption{Two ways to place an edge with given projections that preserve convexity of the face}
 \label{fig:twoWays}
 \end{figure}
 
@@ -122,39 +118,34 @@ To do so, choose $x$- and $y$-projections (those do not exceed $n$ in length) fo
 	There are $\Omega \left( n^{\frac52} \right)$ edge-to-edge gluings of at most $n$ squares that satisfy Alexandrov's conditions.
 \end{theorem}
 
-\begin{proof} To prove the theorem, we construct a series of such gluings. These gluings correspond to doubly-covered polygons, the polygons being obtained by cutting edges of a rectangle with sides no longer than $\frac{\sqrt{n}}{2}$, see Figure~\ref{fig:cutExA}.
+\begin{proof}
+	To prove the theorem, we construct a series of such gluings. These gluings correspond to doubly-covered polygons, the polygons being obtained by cutting edges of a rectangle with sides no longer than $\frac{\sqrt{n}}{2}$, see Figure~\ref{fig:cutEx}.
+\end{proof}
 
 \input{img/fig-examples}
 
-If the length of the shorter side of the rectangle is equal to $b$, then there is $\left( b(b+1) / 2 \right)^2$ ways to choose how much of angles is cut. However, to count only valid gluings, we have to count in that in some cases the sides of angles we cut do not meet at a node of the grid, see Figure~\ref{fig:cutExB}, and that one polygon can be obtained from several rectangles, see Figure~\ref{fig:cutExC}. This yields the final formula.\end{proof}
-
-\section{Enumerating the gluings}
-
-We implemented an algorithm that enumerates all the gluings of at most $n$ squares for a given graph structure of a convex polyhedron. Note that one gluing can admit several ways to cut itself into flat polygons, see Figure~\ref{fig:twonets}. Thus it can appear in the list several times.
+We implemented an algorithm that enumerates all the gluings of at most $n$ squares for a given graph structure of a convex polyhedron. It showed that one gluing can admit several ways to cut itself into flat polygons, see Figure~\ref{fig:twonets}. Thus it can appear in the list several times.
 
 \input{app/yrf-example}
 
 \section{Algorithm to classify edge-to-edge gluings of squares}
 
-\begin{figure}[h]
-\begin{algorithmic}[1]
-	\State $L(n) = \text{list of all edge-to-edge gluings of at most $n$ squares}$
-	\State $M(n) = [\,]$ — list of matrices of pairwise distances between vertices of polyhedra
-	\ForAll{$\Gamma \in L(n)$}
-	    \ForAll{$v_i$ — vertices of $\Gamma$ of nonzero curvature}
-		\State $(M(n))_i = \text{\scshape Chen-Han} (\Gamma,v_i)$
-	\EndFor \EndFor
-	\State Unicalize $M(n)$ up to homothety and permutation of rows and columns, leave only corresponding elements of $L(n)$
-\end{algorithmic}
-	\caption{Enumerating non-isomorphic edge-to-edge gluings of squares}
-	\label{fig:alglistall}
-\end{figure}
+The algorithm consists of the following steps:
 
-The algorithm is presented in Figure~\ref{fig:alglistall}. Due to Theorem~\ref{thm:n36}, generating $L(n)$ takes polynomial time, and $L(n)$ contains polynomial number of instances. Due to Theorem~\ref{thm:shortestSquare}, it takes $O(n^2)$ time to compute $(M(n))_i$ and $O(n^3)$ time to compute $M(n)$. Since $M(n)$ contains matrices with at most 8 rows and 8 columns, it takes polynomial time to unicalize $M(n)$, which results in enumerating all non-isomorphic edge-to-edge gluings of at most $n$ squares.
+\begin{enumerate}
+	\item Generate the list of all edge-to-edge gluings of at most $n$ squares,
+	denote it $L(n)$. Due to Theorem~\ref{thm:n36}, this step takes polynomial time.
+	\item For each gluing in $L(n)$, generate matrix of pairwise distances
+	between its vertices. Due to Theorem~\ref{thm:shortestSquare},
+	this step takes $O(n^3)$ time per gluing.
+	\item Unicalize the list of matrices up to homothety and permutation of rows and columns, leave only corresponding elements of $L(n)$. Since the matrices are of at most 8 rows and 8 columns, the list takes polynomial time to remove duplicates.
+\end{enumerate}
+
+The output of this algorithm is the list of all non-isomorphic edge-to-edge gluings of at most $n$ squares.
 
 \section{Discussion}
 
-The cornerstone of the technique we have been using is the possibility to draw a face of a polyhedron glued from squares on a planar grid. It allows us to estimate the number of valid gluings. The same technique can seemingly be applied for the cases of regular hexagons and triangles, since these polygons also form a planar grid.
+The cornerstone of the technique we have been using is the possibility to draw a face of a polyhedron glued from squares on a planar grid. It allows us to estimate the number of valid gluings. The same technique can seemingly be applied for the cases of regular hexagons and triangles, since these polygons also tile the plane.
 
 \bibliography{boris-bac}
 
