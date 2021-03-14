@@ -23,9 +23,9 @@
 
 \titlerunning{Convex Polyhedra Glued from Squares}
 
-\author{Stefan Langerman}{Faculté des Sciences, Université Libre de Bruxelles}{stefan.langerman@ulb.ac.be}{ }{Whatever grant}
+\author{Stefan Langerman}{Faculté des Sciences, Université Libre de Bruxelles}{stefan.langerman@ulb.ac.be}{ }{is Directeur de recherches du F.R.S.-FNRS}
 
-\author{Nicolas Potvin}{Faculté des Sciences, Université Libre de Bruxelles}{potvinnicolas2@gmail.com}{ }{Whatever grant}
+\author{Nicolas Potvin}{Faculté des Sciences, Université Libre de Bruxelles}{potvinnicolas2@gmail.com}{ }{}
 
 \author{Boris Zolotov}{Department of Mathematics and Computer Sciences, St. Petersburg State University}{boris.a.zolotov@yandex.com}{ }{is supported in part by the Foundation for the Advancement of Theoretical Physics and Mathematics ``BASIS'' and in part by ``Native towns'', a social investment program of PJSC ``Gazprom Neft''.}
 
@@ -59,17 +59,17 @@ The case when the polygons to be glued together are all identical regular $k$-go
 
 In~\cite{DO07} it is shown that polyhedra are isomorphic if the lengths of shortest geodesic paths between their vertices of nonzero curvature coincide. Thus, the problem of finding out if two gluings are isomorphic can be reduced to finding out the geodesic distances between vertices of a gluing. Algorithm we are using for this is the Chen—Han algorithm~\cite{chen-han}.
 
-The idea of the algorithm is to project a cone of all possible paths from the source onto the surface of the gluing. This algorithm runs in $O(n^2)$ time. To apply it for arbitrary edge-to-edge gluings of squares, it has to be proven that the running time is preserved. To do this, we show that there is at most one segment of a geodesic shortest path for each pair of adjacent sides of a square with endpoints on these sides, and at most one segment whose endpoints lie on opposite sides of a square. This implies the following Theorem.
+The idea of the algorithm is to project a cone of all possible paths from the source onto the surface of the gluing. This algorithm runs in $O(n^2)$ time. To apply it for arbitrary edge-to-edge gluings of squares, it has to be proven that the running time is preserved. To do this, we prove the following Lemma.
 
-\begin{theorem} \label{thm:shortestSquare}
+\begin{lemma} \label{lm:shortestSquare}
 	If $T$ is a square of the gluing and $\pi$ is a geodesic shortest path between two vertices of the gluing then the intersection between $\pi$ and $T$ is of at most 5 segments.
-\end{theorem}
+\end{lemma}
 
-%	\begin{corollary} \label{cor:chruntime}
-%	For an arbitrary gluing $\Gamma$ of $n$ squares and a vertex $v$
-%	of this gluing, Chen—Han algorithm for $\Gamma$ with source $v$
-%	runs in $O(n^2)$ time.
-%	\end{corollary}
+The lemma implies the following Theorem.
+
+\begin{theorem} \label{thm:chruntime}
+	The isomorphism between two edge-to-edge gluings of at most $n$ squares can be tested in $O(n^2)$ time.
+\end{theorem}
 
 \section{Bounds on the number of egde-to-edge gluings of squares}
 
@@ -80,20 +80,22 @@ In this section, we prove that the number of edge-to-edge gluings of $n$ squares
 \end{theorem}
 
 \begin{proof}
-	Triangulate the polyhedron corresponding to the net and draw its faces on the square grid. An edge shared by two faces must have the same lengths of $x$- and $y$-projections on the drawings of these faces, see Figures~\ref{fig:emA},~\ref{fig:emB}. Then count the number of sets of triangles satisfying this restriction and taking up at most $n$ squares. To do so, choose the projections (that do not exceed $n$ in length) for each of at most 18 edges. Note that there are at most two ways to place each edge that preserve convexity of the face, see Figure~\ref{fig:emC}.
+	Triangulate the polyhedron corresponding to the net and draw its faces on the square grid. By Gauss—Bonnet theorem, the polyhedron has no more than 8 vertices, and thus at most 18 edges. An edge shared by two faces must have the same lengths of $x$- and $y$-projections on the drawings of these faces, see Figures~\ref{fig:emA},~\ref{fig:emB}.
+
+	Count the number of sets of triangles satisfying this restriction and taking up at most $n$ squares. To do so, choose the lengths of projections (that do not exceed $n$ in length) for each of at most 18 edges. This yields the final formula.
 \end{proof}
 
 \input{img/fig-edgesmeet}
 
 \begin{theorem} \label{thm:n52}
-	There are $\Omega \left( n^{\frac52} \right)$ edge-to-edge gluings of at most $n$ squares that satisfy Alexandrov's conditions.
+	There are $\Omega \left( n^3 \right)$ edge-to-edge gluings of at most $n$ squares that correspond to convex polyhedra.
 \end{theorem}
 
 \begin{proof}
-	To prove the theorem, we construct a series of such gluings. These gluings correspond to doubly-covered polygons, the polygons being obtained by cutting edges of a rectangle with sides no longer than $\frac{\sqrt{n}}{2}$, see Figure~\ref{fig:cutEx}.
+	To prove the theorem, we construct a series of such gluings. These gluings correspond to doubly-covered octagons, the octagons being obtained by cutting edges of a rectangle with sides no longer than $\frac{\sqrt{n}}{2}$, one at least twice as long as the other, see Figure~\ref{fig:cutEx}. The bound is tight: there are $O(n^3)$ doubly covered convex polygons that can be glued from squares.
 \end{proof}
 
-\input{img/fig-examples}
+\input{img/fig-octagon}
 
 We implemented an algorithm that enumerates all the gluings of at most $n$ squares for a given graph structure of a convex polyhedron. It showed that one gluing can admit several ways to cut itself into flat polygons, see Figure~\ref{fig:twonets}. Thus it can appear in the list several times.
 
@@ -107,7 +109,7 @@ The algorithm consists of the following steps:
 	\item Generate the list of all edge-to-edge gluings of at most $n$ squares,
 	denote it $L(n)$. Due to Theorem~\ref{thm:n36}, this step takes polynomial time.
 	\item For each gluing in $L(n)$, generate matrix of pairwise distances
-	between its vertices. Due to Theorem~\ref{thm:shortestSquare},
+	between its vertices. Due to Theorem~\ref{thm:chruntime},
 	this step takes $O(n^3)$ time per gluing.
 	\item Unicalize the list of matrices up to homothety and permutation of rows and columns, leave only corresponding elements of $L(n)$. Since the matrices are of at most 8 rows and 8 columns, the list takes polynomial time to remove duplicates.
 \end{enumerate}
