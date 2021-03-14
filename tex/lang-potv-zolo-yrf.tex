@@ -111,7 +111,7 @@ The algorithm consists of the following steps:
 	\item For each gluing in $L(n)$, generate matrix of pairwise distances
 	between its vertices. Due to Theorem~\ref{thm:chruntime},
 	this step takes $O(n^3)$ time per gluing.
-	\item Unicalize the list of matrices up to homothety and permutation of rows and columns, leave only corresponding elements of $L(n)$. Since the matrices are of at most 8 rows and 8 columns, the list takes polynomial time to remove duplicates.
+	\item Unicalize the list of matrices up to homothety and permutation of rows and columns, leave only corresponding elements of $L(n)$. Since the matrices are of at most 8 rows and 8 columns, it takes polynomial time to remove duplicates from the list.
 \end{enumerate}
 
 The output of this algorithm is the list of all non-isomorphic edge-to-edge gluings of at most $n$ squares.
