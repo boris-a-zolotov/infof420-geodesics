@@ -1,0 +1,15 @@
+\begin{figure}[h] \centering
+\tikz[scale=0.44]{
+	\foreach \x in {0,...,11} {\draw[gray,opacity=0.8] (\x,0) -- (\x,5);}
+	\foreach \y in {0,...,5} {\draw[gray,opacity=0.8] (0,\y) -- (11,\y);}
+	\draw[thick] (0,0) -- (11,0) -- (11,5) -- (0,5) -- cycle;
+	\filldraw[fill=bluetri,thick,fill opacity=0.55] (10,5) -- (11,4) -- (11,5) -- cycle;
+	\filldraw[fill=bluetri,thick,fill opacity=0.55] (8,0) -- (11,3) -- (11,0) -- cycle;
+	\filldraw[fill=bluetri,thick,fill opacity=0.55] (0,0) -- (1,0) -- (0,1) -- cycle;
+	\filldraw[fill=bluetri,thick,fill opacity=0.55] (0,3) -- (2,5) -- (0,5) -- cycle;
+	\fill (11,4) circle[radius = 1.6mm]
+		(11,3) circle[radius = 1.6mm]
+		(0,3) circle[radius = 1.6mm]
+		(0,1) circle[radius = 1.6mm];}
+\caption{An example of an octagon produced by cutting angles of a rectangle} \label{fig:cutEx}
+\end{figure}

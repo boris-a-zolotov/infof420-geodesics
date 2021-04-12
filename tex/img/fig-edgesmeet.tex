@@ -1,0 +1,32 @@
+\begin{figure}[h] \centering
+\begin{subfigure}[t]{3.6cm} \centering
+\tikz[scale=0.45]{
+	\foreach \i in {-1,...,6} {
+		\draw[gray] (-1,\i) -- (6,\i) (\i,-1) -- (\i,6);
+	}
+	\draw[very thick,red] (4,5) -- (5,2);
+	\draw[thick] (5,2) -- ++(-2,-2) -- ++(-3,0) --
+		++(0,2) -- ++(1,3) -- ++(3,0);
+} \caption{} \label{fig:emA} \end{subfigure} \hspace{0.6cm}
+\begin{subfigure}[t]{3.6cm} \centering
+\tikz[scale=0.45]{
+	\foreach \i in {-1,...,6} {
+		\draw[gray] (-1,\i) -- (6,\i) (\i,-1) -- (\i,6);
+	}
+	\draw[very thick,red] (0,4) -- (3,5);
+	\draw[thick] (3,5) -- ++(2,-2) -- ++(0,-3) --
+		++(-3,0) -- ++(-2,2) -- ++(0,2);
+} \caption{} \label{fig:emB} \end{subfigure} \hspace{0.8cm}
+\begin{subfigure}[t]{3.2cm} \centering
+\tikz[scale=0.45]{
+	\foreach \i in {0,...,6} {
+		\draw[gray] (0,\i) -- (6,\i) (\i,0) -- (\i,6);
+	}
+	\draw[thick] (1,0)--(2,3);
+	\draw[thick,red,dashed] (4,6)--(2,3)--(5,1);
+} \caption{} \label{fig:emC} \end{subfigure}
+
+\caption{(a), (b) Highlighted edge has the same lengths of projections on
+	the drawings of two faces. (c) Two ways to place an edge with given
+	projections that preserve convexity of the face.}
+\end{figure}
