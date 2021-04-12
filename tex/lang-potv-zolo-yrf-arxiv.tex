@@ -57,33 +57,23 @@ Count the number of sets of triangles satisfying this restriction and taking up 
 Once the projections of the edges are known, let us draw the faces on the grid. At every vertex, there is at most two ways to place the next edge, such that the convexity of the face is preserved, those differ by $\frac{\pi}{2}$, see Figure~\ref{fig:emC} for an example. This adds at most $2^{2 \cdot 18}$ ways to draw the net once the edges are known, which gives the total of at most $(2n)^{36}$ gluings.
 \end{proof}
 
-\begin{theorem} \label{thm:n52}
+\begin{theorem} \label{thm:n3}
 	There are $\Omega \left( n^3 \right)$ edge-to-edge gluings of at most $n$ squares that correspond to convex polyhedra.
 \end{theorem}
 
 \begin{proof}
-We will construct a family of $\Omega \left( n^{\frac52} \right)$ distinct polyhedra that can be glued from squares edge-to-edge. Those will be doubly-covered convex polygons whose edges are either parallel to the axes or inclined by $\frac{\pi}{4}$, and vertices are vertices of the grid.
+To prove the theorem, we construct a series of such gluings. These gluings correspond to doubly-covered octagons, the octagons being obtained by cutting edges of a rectangle with sides no longer than $\frac{\sqrt{n}}{2}$, one at least twice as long as the other, see Figure~\ref{fig:cutEx}.
 
-Consider a square $\left \lfloor \frac{\sqrt n}{2} \right \rfloor \times \left \lfloor \frac{\sqrt n}{2} \right \rfloor$ drawn on the square grid. If a polygon is drawn inside this square, and it satisfies the conditions of the previous paragraph, then doubly covered version of this polygon can be glued from squares and consists of at most $n$ squares.
+\input{img/fig-octagon}
 
-The polygons will be constructed the following way: we will take a rectangle and cut it angles off. More formally, we will pick two points on either of short sides of the rectangle and shoot lines inclined by $\frac{\pi}{4}$ from them. The points can correspond, in this case there is one vertex of the polyhedron on the corresponding side of the rectangle. An example can be seen in Figure~\ref{fig:cutExA}: the points we picked are marked, and the areas that are cut off are highlighted.
+\end{proof}
 
-\input{img/fig-examples}
+\begin{lemma}
+	The bound of Theorem~\ref{thm:n3} is tight: there are $O(n^3)$ doubly covered convex polygons that can be glued from $n$~squares.
+\end{lemma}
 
-Define the length of the longer side of the rectangle by $a$, and length of the shorter side by $b$. There number of ways to choose a pair of points on each of shorter sides is
-\[ \ll \frac{b(b+1)}{2} \rr^2. \]
-
-However, some sets of points do not produce valid polygons, since the rays shot from them intersect not at a vertex of the grid. An example can be seen in Figure~\ref{fig:cutExB}: red dashed line intersects with the line from the right side in the middle of a cell. Still, at least half the pairs of upper points on the sides are valid: for each invalid pair, the pair where left point is raised by 1 is valid. We get that the number of ways to select a valid set of points is
-\[ \left. \ll \frac{b(b+1)}{2} \rr^2 \right/ 4 . \]
-
-Note that each polyhedron has at least one horizontal edge, since otherwise $a$ must be less than $b$: the sum of segments cut off horizontal edges and the sum of segments cut off vertical edges are equal. However, on the other side there may not be a horizontal edge, see Figure~\ref{fig:cutExC}. In this case, it is not certain from which rectangle the polygon is cut: in Figure~\ref{fig:cutExC} it can be either $6 \times 4$ or $6 \times 5$.
-
-However, one polygon can be cut from at most $a$ rectangles, since we know its horizontal dimension, and at least one horizontal side is fixed. Thus, the number of rectangles we get for a given $a$ is at least
-\[ \sum\limits_{b=1}^a \frac{b^2 (b+1)^2}{16a} = \Omega\ll a^4 \rr. \]
-
-Recall that $a$ can vary from 1 to $\sqrt n / 2$, the number of polygons we can produce is
-\[ \Omega \ll \sum\limits_{a=1}^{\sqrt n / 2} a^4 \rr = \Omega \ll n^\frac{5}{2} \rr. \]
-
+\begin{proof}
+	TODO WRITE PROOF
 \end{proof}
 
 We implemented an algorithm that enumerates all the gluings of at most $n$ squares for a given graph structure of a convex polyhedron. It showed that one gluing can admit several ways to cut itself into flat polygons, see Figure~\ref{fig:twonets}. Thus it can appear in the list several times.
@@ -108,6 +98,12 @@ The output of this algorithm is the list of all non-isomorphic edge-to-edge glui
 \section{Discussion}
 
 The cornerstone of the technique we have been using is the possibility to draw a face of a polyhedron glued from squares on a planar grid. It allows us to estimate the number of valid gluings. The same technique can seemingly be applied for the cases of regular hexagons and triangles, since these polygons also tile the plane.
+
+\section*{Acknowledgements}
+
+S.~L. is Directeur de recherches du F.R.S.-FNRS.
+
+B.~Z. is supported in part by the Foundation for the Advancement of Theoretical Physics and Mathematics «BASIS» and in part by «Native towns», a social investment program of PJSC «Gazprom Neft».
 
 \bibliography{boris-bac}{}
 \bibliographystyle{plain}
