@@ -49,7 +49,7 @@
 
 \section{Introduction}
 
-Given a collection of 2D polygons, a \emph{gluing} or a \emph{net} describes a closed surface by specifying how to glue each edge of these polygons onto another edge. Alexandrov's uniqueness theorem~\cite{alex} states that any valid gluing that is homeomorphic to a sphere and that does not yield a total facial angle greater than $2\pi$ at any point, corresponds to the surface of a unique convex 3D polyhedron (doubly covered convex polygons are also polyhedra).
+Given a collection of 2D polygons, a \emph{gluing} describes a closed surface by specifying how to glue each edge of these polygons onto another edge. Alexandrov's uniqueness theorem~\cite{alex} states that any valid gluing that is homeomorphic to a sphere and that does not yield a total facial angle greater than $2\pi$ at any point, corresponds to the surface of a unique convex 3D polyhedron. The polygons of the gluing may be folded in order to glue the polyhedron.
 
 There is no known exact algorithm for reconstructing the 3D polyhedron~\cite{bannister2014galois,kpd09-approx}. Enumerating all possible valid gluings is also not an easy task, as the number of gluings can be exponential even for a single polygon~\cite{DDLO02}. Complete enumerations of gluings and the resulting polyhedra are only known for very specific cases such as the Latin cross~\cite{ddlop99}, a single regular convex polygon~\cite{DO07}, and a collection of regular pentagons~\cite{alz-penta}.
 
@@ -80,7 +80,7 @@ In this section, we prove that the number of edge-to-edge gluings of $n$ squares
 \end{theorem}
 
 \begin{proof}
-	Triangulate the polyhedron corresponding to the net and draw its faces on the square grid. By Gauss—Bonnet theorem, the polyhedron has no more than 8 vertices, and thus at most 18 edges. An edge shared by two faces must have the same lengths of $x$- and $y$-projections on the drawings of these faces, see Figures~\ref{fig:emA},~\ref{fig:emB}.
+	Triangulate the polyhedron corresponding to the gluing and draw its faces on the square grid. By Gauss—Bonnet theorem, the polyhedron has no more than 8 vertices, and thus at most 18 edges. An edge shared by two faces must have the same lengths of $x$- and $y$-projections on the drawings of these faces, see Figures~\ref{fig:emA},~\ref{fig:emB}.
 
 	Count the number of sets of triangles satisfying this restriction and taking up at most $n$ squares. To do so, choose the lengths of projections (that do not exceed $n$ in length) for each of at most 18 edges. This yields the final formula.
 \end{proof}
