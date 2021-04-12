@@ -66,6 +66,12 @@ To prove the theorem, we construct a series of such gluings. These gluings corre
 
 \input{img/fig-octagon}
 
+Pick width and height of the rectangle. Denote width by $a$, pick it so that $0 < a \le \frac12 \sqrt{n}$. Denote height by $b$, pick it so that $0 < b \le \frac{a}2$. An octagon is defined by its vertices on the vertical edges of the rectangle (those are highlighted in Figure~\ref{fig:cutEx}). There are $\binom{b}{2}^2 \sim \frac14 b^4$ ways to choose these vertices.
+
+To sum up, the number of octagons obtained by cutting edges of a rectangle is
+\[ \Omega\ll \sum\limits_{a=1}^{\frac{\sqrt{n}}{2}} \sum\limits_{b=1}^{\frac{a}{2}} b^4 \rr =
+	\Omega\ll \sum\limits_{a=1}^{\frac{\sqrt{n}}{2}} a^5 \rr = \Omega \ll n^3 \rr. \]
+
 \end{proof}
 
 \begin{lemma}
