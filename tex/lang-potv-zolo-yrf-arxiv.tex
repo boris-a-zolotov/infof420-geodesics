@@ -19,19 +19,25 @@ There is no known exact algorithm for reconstructing the 3D polyhedron~\cite{ban
 
 The case when the polygons to be glued together are all identical regular $k$-gons, and the gluing is \emph{edge-to-edge} was studied recently for $k \ge 6$~\cite{kl17-hex}. The aim of this paper is to study the case of $k=4$: namely, to {\it enumerate} all valid gluings of squares and {\it classify} them up to isomorphism.
 
-\section{Methods}
+\section{Chen—Han algorithm for gluings of squares}
 
-\subsection{Interpreting and listing valid gluings}
+In~\cite{DO07} it is shown that polyhedra are isomorphic if the lengths of shortest geodesic paths between their vertices of nonzero curvature coincide. Thus, the problem of finding out if two gluings are isomorphic can be reduced to finding out the geodesic distances between vertices of a gluing. Algorithm we are using for this is the Chen—Han algorithm~\cite{chen-han}.
 
-Due to Alexandrov's theorem, for every gluing of squares satisfying Alexandrov's conditions there is a convex polyhedron corresponding to it. It is possible to draw each of its faces on square grid, the vertices of the face being also the vertices of the grid.
+The idea of the algorithm is to project a cone of all possible paths from the source onto the surface of the gluing. This algorithm runs in $O(n^2)$ time. To apply it for arbitrary edge-to-edge gluings of squares, it has to be proven that the running time is preserved. To do this, we prove the following Lemma.
 
-Due to Gauss—Bonnet formula, the number of vertices of the polyhedron is at most 8, which yields that the number of faces is at most 12. When there is a constant number of faces and edges, any kind of check can be carried for them in a short matter of time.
+\begin{lemma} \label{lm:shortestSquare}
+	If $T$ is a square of the gluing and $\pi$ is a geodesic shortest path between two vertices of the gluing then the intersection between $\pi$ and $T$ is of at most 5 segments.
+\end{lemma}
 
-Square grid gives a convenient way to represent gluing as a set of faces draw on the grid, it is easy to check if Alexandrov's conditions are satisfied for a gluing if it is represented as a set of planar faces on the grid. This representation allows for estimating the number of valid gluings and for development of an algorithm with polynomial running time that lists all the gluings, which will be done later in this paper.
+\begin{proof}
+	TODO COPY PROOF FROM THESIS
+\end{proof}
 
-We have to note however, that a gluing can comply with different nets, and with one net in several different ways. See Figure~\ref{fig:notRect} for an example: the net consisting of two parallelograms clearly corresponds to a doubly covered rectangle $1 \times 4$. This is still our a-priori knowlegde. It is not possible to determine which net is exactly the net of the polyhedron corresponding to the gluing, because of non-constructiveness of Alexandrov's theorem.
+Lemma~\ref{lm:shortestSquare} implies the following Theorem.
 
-% \input{chenHan}
+\begin{theorem} \label{thm:chruntime}
+	The isomorphism between two edge-to-edge gluings of at most $n$ squares can be tested in $O(n^2)$ time.
+\end{theorem}
 
 \section{Bounds on the number of egde-to-edge gluings of squares}
 
