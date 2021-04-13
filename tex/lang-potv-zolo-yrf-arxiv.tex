@@ -22,17 +22,17 @@ The case when the polygons to be glued together are all identical regular $k$-go
 
 In~\cite{DO07} it is shown that polyhedra are isomorphic if the lengths of shortest geodesic paths between their vertices of nonzero curvature coincide. Thus, the problem of finding out if two gluings are isomorphic can be reduced to finding out the geodesic distances between vertices of a gluing. Algorithm we are using for this is the Chen—Han algorithm~\cite{chen-han}.
 
-The idea of the algorithm is to project a cone of all possible paths from the source onto the surface of the gluing. This algorithm runs in $O(n^2)$ time. To apply it for arbitrary edge-to-edge gluings of squares, it has to be proven that the running time is preserved. To do this, we prove the following Lemma.
+The idea of the algorithm is to project a cone of all possible paths from the source onto the surface of the gluing. This algorithm runs in $O(n^2)$ time. To apply it for arbitrary edge-to-edge gluings of squares, it has to be proven that the running time is preserved. To do this, we prove the following Theorem.
 
-\begin{lemma} \label{lm:shortestSquare}
+\begin{theorem} \label{lm:shortestSquare}
 	If $T$ is a square of the gluing and $\pi$ is a geodesic shortest path between two vertices of the gluing then the intersection between $\pi$ and $T$ is of at most 5 segments.
-\end{lemma}
+\end{theorem}
 
 \begin{proof}
 	TODO COPY PROOF FROM THESIS
 \end{proof}
 
-Lemma~\ref{lm:shortestSquare} implies the following Theorem.
+Theorem~\ref{lm:shortestSquare} implies the following Theorem.
 
 \begin{theorem} \label{thm:chruntime}
 	The isomorphism between two edge-to-edge gluings of at most $n$ squares can be tested in $O(n^2)$ time.
@@ -77,9 +77,64 @@ To sum up, the number of octagons obtained by cutting edges of a rectangle is
 	The bound of Theorem~\ref{thm:n3} is tight: there are $O(n^3)$ doubly covered convex polygons that can be glued from $n$~squares.
 \end{theorem}
 
-\begin{proof}
-	TODO WRITE PROOF
-\end{proof}
+\begin{proof} Edges of a doubly covered polygon glued from squares can only have four directions: vertical, horizontal, or inclined by $\frac{\pi}{2}$ or $\frac{3\pi}{2}$. Thus any doubly covered polygon glued from squares is an octagon cut from a rectangle. Some edges of the octagon, however, may have zero length.
+
+\begin{figure}[h] \centering \tikz[scale=0.46]{
+	\foreach \x in {1,...,7} {\draw[gray,opacity=0.8] (\x,0) -- (\x,6);}
+	\foreach \y in {1,...,5} {\draw[gray,opacity=0.8] (0,\y) -- (8,\y);}
+	\filldraw[fill=white,draw=white,thick] (0,0) -- (0,1) -- (1,0) -- cycle;
+	\filldraw[fill=white,draw=white,thick] (6,0) -- (8,0) -- (8,2) -- cycle;
+	\filldraw[fill=white,draw=white,thick] (8,4) -- (8,6) -- (6,6) -- cycle;
+	\filldraw[fill=white,draw=white,thick] (0,3) -- (3,6) -- (0,6) -- cycle;
+	\draw[thick] (1,0) -- ++(5,0) -- ++(2,2) -- ++(0,2)
+		-- ++(-2,2) -- ++(-3,0) -- ++(-3,-3) -- ++(0,-2) -- cycle;
+	\draw (3.5,0) node[below]{$G$} (7.4,0.6) node{$F$}
+		(8,3) node[right]{$E$} (7.4,5.4) node{$D$}
+		(4.5,6) node[above]{$C$} (1.1,4.9) node{$B$}
+		(0,2) node[left]{$A$} (0.1,0.1) node{$H$};
+	\draw[<->] (0,-1.5) -- (8,-1.5);
+	\draw[<->] (9.5,0) -- (9.5,6);
+	\draw[white] (-1.5,0) -- (-1.5,6) (-1.5,3) node[left]{$b$};
+	\draw (4,-1.5) node[below]{$a$} (9.5,3) node[right]{$b$};
+}
+	\caption{An octagon cut from rectangle and its dimensions}
+	\label{fig:octparam}
+\end{figure}
+
+Let us denote the numbers of squares traversed by the edges by $A$,~\ldots, $H$, as shown in Figure~\ref{fig:octparam}. The width of the circumscribed rectangle is denoted by $a$, and the height of the circumscribed rectangle is denoted by $b$. We can think that $a \le b$. Note that
+
+\[ \begin{cases}
+	A+B+H = D+E+F = b \\
+	B+C+D = F+G+H = a \\
+	b \le a\\ a \cdot b \le \frac{n}{2}
+\end{cases} \]
+
+Six variables out of these ten: $a$, $A$, $B$, $D$, $F$, $H$ — define other four. This means, given values of $a$, $A$, $B$, $D$, $F$, $H$, the octagon is either defined uniquely or non-existent:
+
+\[ \begin{array}{l}
+	b = A+B+H \\
+	E = A+B+H-D-F \\
+	C = a-B-D \\
+	G = a-H-F \\
+\end{array} \]
+
+Let us now count the ways to pick $a$, $A$, $B$, $D$, $F$, $H$.
+
+{\bfseries First case} \( 1 \le b \le a \le \sqrt{n} \). In this case all the variables $A$,~\ldots, $H$ are at most $\sqrt{n}$, which yields the number of ways to pick six variables does not exceed $(\sqrt{n})^6 = n^3$.
+
+{\bfseries Second case} \(a \ge \sqrt{n}\), \(b \le \frac{n}{a}\). In this case $A$, $B$, $D$, $F$, $H$ are at most $\frac{n}{a}$ since they all contribute to the height of the octagon. The number of ways to pick six variables is hence equal to
+	\[ \slim_{a=\sqrt{n}}^n \ll \frac{n}{a} \rr^5.\]
+
+We now split and estimate this sum. Assume $n$ is a power of $2$ or consider the closest to $n$ power of $2$ from above.\vspace{-0.7cm}
+
+\begin{align*}
+	& \slim_{a=\sqrt{n}}^n \ll \frac{n}{a} \rr^5\ \ \le\ \ \sloglim
+		\slim_{a=2^{i-1}}^{2^i} \ll \frac{n}{a} \rr^5\ \ \le \\
+ 	\le\ \ & \sloglim \ll \frac{n}{2^{i-1}} \rr^5 \cdot 2^i\ \ =\ \ \sloglim
+ 		2n \cdot \ll \frac{n}{2^{i-1}} \rr^4\ \ = \\
+	=\ \ & \slim_{i=0}^{\frac{\log n}{2}} 2n \cdot \ll \frac{\sqrt{n}}{2^{i-1}} \rr^4
+		\ \ =\ \ 2n^3 \cdot \slim_{i=0}^{\frac{\log n}{2}} \frac{16}{2^{4i}}\ \ =\ \ O(n^3).
+\end{align*} \end{proof}
 
 We implemented an algorithm that enumerates all the gluings of at most $n$ squares for a given graph structure of a convex polyhedron. It showed that one gluing can admit several ways to cut itself into flat polygons, see Figure~\ref{fig:twonets}. Thus it can appear in the list several times.
 
