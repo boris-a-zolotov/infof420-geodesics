@@ -13,8 +13,9 @@
 \RequirePackage{xspace}
 
 \RequirePackage{tikz}
-\usetikzlibrary{arrows,backgrounds,patterns,matrix,
+\usetikzlibrary{arrows,arrows.meta,patterns,matrix,
 	shapes,fit,calc,shadows,plotmarks,snakes}
+\tikzset{>={Latex[width=1.2mm,length=2.8mm]}}
 
 \linespread{1.12}
 \def\ll{\left(} \def\rr{\right)}
@@ -41,3 +42,6 @@
 \newcommand{\midnode}{
 	node[midway,circle,fill=white,fill opacity=0.92,inner sep=0pt,minimum size=2.1ex]
 }
+
+\newcommand{\slim}{\sum\limits}
+\newcommand{\sloglim}{\sum\limits_{i = \frac{\log n}{2}}^{\log n}}

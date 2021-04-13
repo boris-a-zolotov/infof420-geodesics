@@ -1,7 +1,6 @@
 \documentclass[a4paper,11pt]{article}
-\RequirePackage[margin=1.1in]{geometry}
+\usepackage[margin=1.1in]{geometry}
 \usepackage{f420}
-\usepackage[]{algorithm2e}
 
 \title{Enumerating All Convex Polyhedra Glued from Squares in Polynomial Time}
 \author{{\scshape Langerman} Stefan\and {\scshape Potvin} Nicolas \and {\scshape Zolotov} Boris}
@@ -74,9 +73,9 @@ To sum up, the number of octagons obtained by cutting edges of a rectangle is
 
 \end{proof}
 
-\begin{lemma}
+\begin{theorem}
 	The bound of Theorem~\ref{thm:n3} is tight: there are $O(n^3)$ doubly covered convex polygons that can be glued from $n$~squares.
-\end{lemma}
+\end{theorem}
 
 \begin{proof}
 	TODO WRITE PROOF
