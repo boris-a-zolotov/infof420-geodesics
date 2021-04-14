@@ -31,9 +31,7 @@ The idea of the algorithm is to project a cone of all possible paths from the so
 To prove this Theorem, we need an additional definition and a series of lemmas.
 
 \begin{definition}
-	Let $a_ib_i$ be a segment of the intersection between $\pi$ and $T$ with $a_i, b_i \in \partial T$. The points $a_i$, $b_i$ divide the boundary of $T$ into two parts. Let there be $n_1$ and $n_2$ be the numbers of vertices of $\partial T$ in the parts respectively. Then the segment $a_ib_i$ has \emph{type $s$} if \[\min (n_1, n_2) = s.\]
-
-	If $T$ is a convex $r$-gon then the possible types of a segment can range between 1 and $\lfloor r / 2 \rfloor$ (see Figure~\ref{fig:segmType}).
+	Let $a_ib_i$ be a segment of the intersection between $\pi$ and $T$ with $a_i, b_i \in \partial T$. The points $a_i$, $b_i$ divide the boundary of $T$ into two parts. Let $n_1$ and $n_2$ be the numbers of vertices of $T$ in the parts respectively. Then the segment $a_ib_i$ has \emph{type $s$} if $\min (n_1, n_2) = s$. If $T$ is a convex $r$-gon then the possible types of a segment can range between 1 and $\lfloor r / 2 \rfloor$ (see Figure~\ref{fig:segmType}).
 \end{definition}
 
 \begin{figure}[h]
@@ -50,10 +48,10 @@ To prove this Theorem, we need an additional definition and a series of lemmas.
 \end{lemma}
 
 \begin{proof} Let us prove item~(\ref{item:past}). If there is a point $p$ of a segment $a_jb_j$ preceding $a_ib_i$ inside that circle then (because $T$ is convex) the segment $pb_i$ lies entirely inside $T$ and is shorter than $a_ib_i$. Then we can replace the path
-	$$\pi = \ldots a_jpb_j \ldots a_ib_i \ldots$$
+	\[\pi = \ldots a_jpb_j \ldots a_ib_i \ldots\]
 with $\ldots a_jpb_i \ldots$, which is shorter than $\pi$, thus $\pi$ is not the shortest.
 
-	The proof of~(\ref{item:future}) is analogous. To prove~(\ref{item:noother}) let us note that the intersection between the disks from~(\ref{item:past}) and~(\ref{item:future}) covers the smaller circle we are considering (see Figure~\ref{fig:typeOne})—thus no segments either from the past or the future of path $\pi$ can lie inside it.\end{proof}
+	The proof of~(\ref{item:future}) is analogous. To prove~(\ref{item:noother}) let us note that the intersection between the disks from~(\ref{item:past}) and~(\ref{item:future}) covers the smaller circle we are considering (see Figure~\ref{fig:typeOne}), thus no segments either from the past or the future of path $\pi$ can lie inside it.\end{proof}
 
 \begin{figure}[h]
 	\input{img/typeone}
@@ -104,7 +102,7 @@ In this section, we prove that the number of edge-to-edge gluings of $n$ squares
 
 Count the number of sets of triangles satisfying this restriction and taking up at most $n$ squares. For each edge, we can pick lengths of its $x$- and $y$-projections. Since the edge is a part of a flat face, all the squares that intersect the edge are distinct. There is at most $n$ of them, which yields that both projections are at most $n$, so there is at most $n^2$ ways to choose the edge.
 
-Once the projections of the edges are known, let us draw the faces on the grid. At every vertex, there is at most two ways to place the next edge, such that the convexity of the face is preserved, those differ by $\frac{\pi}{2}$, see Figure~\ref{fig:emC} for an example. This adds at most $2^{2 \cdot 18}$ ways to draw the net once the edges are known, which gives the total of at most $(2n)^{36}$ gluings.
+Once the projections of the edges are known, let us draw the faces on the grid. At every vertex, there is at most two ways to place the next edge, such that the convexity of the face is preserved, those differ by $\frac{\pi}{2}$, see Figure~\ref{fig:emC} for an example. This adds at most $2^{2 \cdot 18}$ ways to draw the faces once the edges are known, which gives the total of at most $(2n)^{36}$ gluings.
 \end{proof}
 
 \begin{theorem} \label{thm:n3}
