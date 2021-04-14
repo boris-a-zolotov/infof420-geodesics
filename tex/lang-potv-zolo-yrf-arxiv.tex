@@ -28,48 +28,45 @@ The idea of the algorithm is to project a cone of all possible paths from the so
 	If $T$ is a square of the gluing and $\pi$ is a geodesic shortest path between two vertices of the gluing then the intersection between $\pi$ and $T$ is of at most 5 segments.
 \end{theorem}
 
+To prove this Theorem, we need an additional definition and a series of lemmas.
+
 \begin{definition}
-	Let $a_ib_i$ be a segment of the intersection between $\pi$ and $T$ with $a_i, b_i \in \partial T$. The points $a_i$, $b_i$ divide the boundary of $T$ into two parts. Let there be $n_1$ and $n_2$ be the numbers of vertices of $\partial T$ in the parts respectively. Then the segment $a_ib_i$ has \emph{type $s$} if
-	$$\min (n_1, n_2) = s.$$
+	Let $a_ib_i$ be a segment of the intersection between $\pi$ and $T$ with $a_i, b_i \in \partial T$. The points $a_i$, $b_i$ divide the boundary of $T$ into two parts. Let there be $n_1$ and $n_2$ be the numbers of vertices of $\partial T$ in the parts respectively. Then the segment $a_ib_i$ has \emph{type $s$} if \[\min (n_1, n_2) = s.\]
 
 	If $T$ is a convex $r$-gon then the possible types of a segment can range between 1 and $\lfloor r / 2 \rfloor$ (see Figure~\ref{fig:segmType}).
 \end{definition}
 
+\begin{figure}[h]
+	\input{img/past-and-future-circles}
+\end{figure}
+
 \begin{lemma}
 \label{lm:pastFuture}
-	If $a_ib_i$ is a segment of the intersection between $\pi$ and $T$, then
-
-\begin{enumerate}
+	Let the intersection between $\pi$ and $T$ consist of $m$ segments, denote them by $a_1b_1$ \ldots $a_mb_m$ according to the order in which they appear in $\pi$. If $a_ib_i$ is a segment of the intersection between $\pi$ and $T$, then \begin{enumerate}
 	\item \label{item:past} no point of $a_1b_1, \ldots, a_{i-1}b_{i-1}$ may lie in the disk centered at $b_i$ with radius $|a_ib_i|$ (shown in Figure~\ref{fig:past}),
 	\item \label{item:future} no point of $a_{i+1}b_{i+1}, \ldots, a_mb_m$ may lie in the disk centered at $a_i$ with radius $|a_ib_i|$ (shown in Figure~\ref{fig:future}),
 	\item \label{item:noother} no point of $a_jb_j$, $j \ne i$ may lie inside the disk having $a_ib_i$ as its diameter.
 \end{enumerate}
 \end{lemma}
 
-\begin{figure}
-	\input{img/past-and-future-circles}
-\end{figure}
-
 \begin{proof}
 
 	Let us prove item~(\ref{item:past}). If there is a point $p$ of a segment $a_jb_j$ preceding $a_ib_i$ inside that circle then (because $T$ is convex) the segment $pb_i$ lies entirely inside $T$ and is shorter than $a_ib_i$. Then we can replace the path
 	$$\pi = \ldots a_jpb_j \ldots a_ib_i \ldots$$
-with
-	$$\ldots a_jpb_i \ldots,$$
-which is shorter than $\pi$ , thus $\pi$ is not the shortest.
+with $\ldots a_jpb_i \ldots$, which is shorter than $\pi$, thus $\pi$ is not the shortest.
 
 	The proof of~(\ref{item:future}) is analogous. To prove~(\ref{item:noother}) let us note that the intersection between the disks from~(\ref{item:past}) and~(\ref{item:future}) covers the smaller circle we are considering (see Figure~\ref{fig:typeOne})—thus no segments either from „the past“ or „the future“ of path $\pi$ can lie inside it.
 
 \end{proof}
 
+\begin{figure}[h]
+	\input{img/typeone}
+\end{figure}
+
 \begin{lemma}
 \label{lm:typeOne}
 	If the angle at a vertex $v$ of polygon $T$ is not less than $90^\circ$ then there is at most one segment $a_ib_i$ of the intersection $\pi \cap T$ of type 1 such that the vertex $v$ lies between points $a_i$ and $b_i$.
 \end{lemma}
-
-\begin{figure}
-	\input{img/typeone}
-\end{figure}
 
 \begin{proof}
 
