@@ -1,0 +1,18 @@
+\centering
+	\tikz{
+		\filldraw [draw=fill1,fill=fill1,opacity=0.45]
+			(-1.5,0) arc(180:240:3cm) arc(300:360:3cm) -- cycle;
+		\draw (-1.5,0) arc (180:260:3cm); \draw (1.5,0) arc (360:280:3cm);
+		\draw (-1.5,0) arc (180:168:3cm); \draw (1.5,0) arc (360:372:3cm);
+		\draw[thick] (-1.5,0) -- (1.5,0);
+		\draw (-1.5,0) node[left]{$a_i$}; \draw (1.5,0) node[right]{$b_i$};
+		\draw[thick,dashed] (-1.5,0) arc(180:360:1.5cm);
+			\draw[thick,dashed] (-1.5,0) arc(180:156:1.5cm);
+			\draw[thick,dashed] (1.5,0) arc(360:384:1.5cm);
+		\filldraw[thick,draw=black,fill=fill1] (-1.5,0) -- (235:1.15cm) -- (1.5,0);
+		\draw (235:1.15cm) node[below]{$v$};
+	}
+	\caption{No points of path $\pi$ lie inside the disk
+		whose diameter is $a_ib_i$ and thus, in turn,
+		inside the triangle $a_ivb_i$.}
+	\label{fig:typeOne}

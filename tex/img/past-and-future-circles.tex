@@ -1,0 +1,49 @@
+\centering
+	\begin{subfigure}[b]{0.29\textwidth}	% Первая копия
+	\centering
+		\tikz[scale=0.32]{
+			\coordinate (ai) at (1.5,1.5);
+			\coordinate (bi) at (6.66666,4);
+			\filldraw [fill=fill2,draw=black,thick] (3,7) -- (1,6) -- (0,3) --
+				(2,1) -- (5,0) -- (7,3) -- (6,6) -- cycle;
+			\draw [thick] (ai) node[below]{$a_i$} -- (bi) node[right]{$b_i$};
+		}
+		\caption{The segment $a_ib_i$ has type 3 which is the maximum
+			possible type of a segment inside a heptagon.}
+		\label{fig:segmType}
+	\end{subfigure}
+\hspace{0.3cm}
+	\begin{subfigure}[b]{0.29\textwidth}	% Вторая копия
+	\centering
+		\tikz[scale=0.32]{
+			\coordinate (ai) at (1.5,1.5);
+			\coordinate (bi) at (6.66666,4);
+			\filldraw [fill=fill2,draw=black,thick] (3,7) -- (1,6) -- (0,3) --
+				(2,1) -- (5,0) -- (7,3) -- (6,6) -- cycle;
+			\tkzDrawCircle[fill=fill4,fill opacity = 0.55,draw=black,dashed](bi,ai);
+			\draw [thick] (3,7) -- (1,6) -- (0,3) --
+				(2,1) -- (5,0) -- (7,3) -- (6,6) -- cycle;
+			\draw [thick] (ai) node[below]{$a_i$} -- (bi) node[right]{$b_i$};
+		}
+		\caption{No points of \\ \centerline{$a_1b_1 \ldots a_{i-1}b_{i-1}$}
+			can lie in this disk.}
+		\label{fig:past}
+	\end{subfigure}
+\hspace{0.3cm}
+	\begin{subfigure}[b]{0.29\textwidth}	% Третья копия
+	\centering
+		\tikz[scale=0.32]{
+			\coordinate (ai) at (1.5,1.5);
+			\coordinate (bi) at (6.66666,4);
+			\filldraw [fill=fill2,draw=black,thick] (3,7) -- (1,6) -- (0,3) --
+				(2,1) -- (5,0) -- (7,3) -- (6,6) -- cycle;
+			\tkzDrawCircle[fill=fill4,fill opacity = 0.55,draw=black,dashed](ai,bi);
+			\draw [thick] (3,7) -- (1,6) -- (0,3) --
+				(2,1) -- (5,0) -- (7,3) -- (6,6) -- cycle;
+			\draw [thick] (ai) node[below]{$a_i$} -- (bi) node[right]{$b_i$};
+		}
+		\caption{No points of \\ \centerline{$a_{i+1}b_{i+1} \ldots a_mb_m$}
+			can lie in this disk.}
+		\label{fig:future}
+	\end{subfigure}
+\caption{Type of a segment and Lemma~\ref{lm:pastFuture}.}
