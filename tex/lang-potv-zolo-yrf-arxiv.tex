@@ -42,7 +42,7 @@ To prove this Theorem, we need an additional definition and a series of lemmas.
 
 \begin{lemma}
 \label{lm:pastFuture}
-	Let the intersection between $\pi$ and $T$ consist of $m$ segments, denote them by $a_1b_1$ \ldots $a_mb_m$ according to the order in which they appear in $\pi$. If $a_ib_i$ is a segment of the intersection between $\pi$ and $T$, then \begin{enumerate}
+	Let the intersection between $\pi$ and $T$ consist of $m$ segments, denote them by $a_1b_1 \ldots a_mb_m$ according to the order in which they appear in $\pi$. If $a_ib_i$ is a segment of the intersection between $\pi$ and $T$, then \begin{enumerate}
 	\item \label{item:past} no point of $a_1b_1, \ldots, a_{i-1}b_{i-1}$ may lie in the disk centered at $b_i$ with radius $|a_ib_i|$ (shown in Figure~\ref{fig:past}),
 	\item \label{item:future} no point of $a_{i+1}b_{i+1}, \ldots, a_mb_m$ may lie in the disk centered at $a_i$ with radius $|a_ib_i|$ (shown in Figure~\ref{fig:future}),
 	\item \label{item:noother} no point of $a_jb_j$, $j \ne i$ may lie inside the disk having $a_ib_i$ as its diameter.
@@ -81,10 +81,7 @@ with $\ldots a_jpb_i \ldots$, which is shorter than $\pi$, thus $\pi$ is not the
 	Among all these segments let us consider the segment $a_ib_i$ of type 2 with the greatest possible~$i$. Without loss of generality $a_i \in AB$, $b_i \in CD$. The disk centered at $b_i$ with radius $|a_ib_i| \ge |CD|$ covers $CD$, thus, by Lemma~\ref{lm:pastFuture}, there are no segments $a_jb_j$, $j<i$ with endpoints on $CD$. It means that $a_ib_i$ is the only segment of type 2, which completes the proof.\end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:shortestSquare}]
-	A segment in the intersection can either have type 1 or type 2. \begin{enumerate}
-	\item By Lemma~\ref{lm:typeOne}, there are at most 4 segments of type 1: at most one for each vertex;
-	\item By Lemma~\ref{lm:squareTypeTwo}, there is at most one segment of type 2. This sums up to 5 segments.
-\end{enumerate} \end{proof}
+	A segment in the intersection can either have type 1 or type 2. By Lemma~\ref{lm:typeOne}, there are at most 4 segments of type 1: at most one for each vertex. By Lemma~\ref{lm:squareTypeTwo}, there is at most one segment of type 2. This sums up to 5 segments.\end{proof}
 
 Theorem~\ref{thm:shortestSquare} implies the following Theorem.
 
@@ -212,6 +209,8 @@ The output of this algorithm is the list of all non-isomorphic edge-to-edge glui
 \section{Discussion}
 
 The cornerstone of the technique we have been using is the possibility to draw a face of a polyhedron glued from squares on a planar grid. It allows us to estimate the number of valid gluings. The same technique can seemingly be applied for the cases of regular hexagons and triangles, since these polygons also tile the plane.
+
+The method we used to prove the bound on the number of intersections between a shortest path and a polygon can also be generalized to arbitrary polygons.
 
 \section*{Acknowledgements}
 
