@@ -49,15 +49,11 @@ To prove this Theorem, we need an additional definition and a series of lemmas.
 \end{enumerate}
 \end{lemma}
 
-\begin{proof}
-
-	Let us prove item~(\ref{item:past}). If there is a point $p$ of a segment $a_jb_j$ preceding $a_ib_i$ inside that circle then (because $T$ is convex) the segment $pb_i$ lies entirely inside $T$ and is shorter than $a_ib_i$. Then we can replace the path
+\begin{proof} Let us prove item~(\ref{item:past}). If there is a point $p$ of a segment $a_jb_j$ preceding $a_ib_i$ inside that circle then (because $T$ is convex) the segment $pb_i$ lies entirely inside $T$ and is shorter than $a_ib_i$. Then we can replace the path
 	$$\pi = \ldots a_jpb_j \ldots a_ib_i \ldots$$
 with $\ldots a_jpb_i \ldots$, which is shorter than $\pi$, thus $\pi$ is not the shortest.
 
-	The proof of~(\ref{item:future}) is analogous. To prove~(\ref{item:noother}) let us note that the intersection between the disks from~(\ref{item:past}) and~(\ref{item:future}) covers the smaller circle we are considering (see Figure~\ref{fig:typeOne})—thus no segments either from „the past“ or „the future“ of path $\pi$ can lie inside it.
-
-\end{proof}
+	The proof of~(\ref{item:future}) is analogous. To prove~(\ref{item:noother}) let us note that the intersection between the disks from~(\ref{item:past}) and~(\ref{item:future}) covers the smaller circle we are considering (see Figure~\ref{fig:typeOne})—thus no segments either from the past or the future of path $\pi$ can lie inside it.\end{proof}
 
 \begin{figure}[h]
 	\input{img/typeone}
@@ -68,15 +64,11 @@ with $\ldots a_jpb_i \ldots$, which is shorter than $\pi$, thus $\pi$ is not the
 	If the angle at a vertex $v$ of polygon $T$ is not less than $90^\circ$ then there is at most one segment $a_ib_i$ of the intersection $\pi \cap T$ of type 1 such that the vertex $v$ lies between points $a_i$ and $b_i$.
 \end{lemma}
 
-\begin{proof}
-
-	Suppose there are multiple segments satisfying the statement of the lemma. Let us denote by $a_ib_i$ the one whose end is the farthest from $v$. Due to Lemma~\ref{lm:pastFuture} all the points of the segments $a_jb_j$, $j \ne i$ of the intersection $\pi \cap T$ must lie outside the disk $D$ whose diameter is $a_ib_i$.
+\begin{proof} Suppose there are multiple segments satisfying the statement of the lemma. Let us denote by $a_ib_i$ the one whose end is the farthest from $v$. Due to Lemma~\ref{lm:pastFuture} all the points of the segments $a_jb_j$, $j \ne i$ of the intersection $\pi \cap T$ must lie outside the disk $D$ whose diameter is $a_ib_i$.
 	
 	This disk covers all the points $s$ such that $\measuredangle a_isb_i \ge 90^\circ$, thus it covers the triangle $a_ivb_i$ (see Figure~\ref{fig:typeOne}) and consequently no other points of the path $\pi$ can lie inside this triangle.
 
-	All the other segments satisfying the statement have at least some of their points lying inside $a_ivb_i$. Thus we arrive to a contradiction: $\pi$ is not the shortest path.
-
-\end{proof}
+	All the other segments satisfying the statement have at least some of their points lying inside $a_ivb_i$. Thus we arrive to a contradiction: $\pi$ is not the shortest path.\end{proof}
 
 \begin{lemma}
 \label{lm:squareTypeTwo}
@@ -84,29 +76,15 @@ with $\ldots a_jpb_i \ldots$, which is shorter than $\pi$, thus $\pi$ is not the
 	of type 2 in $\pi \cap T$.
 \end{lemma}
 
-\begin{proof}
-	A segment of type 2 connects either $AB$ with $CD$ or $BC$ with $DA$. Since $\pi$ is a shortest path, segments that are parts of $\pi$ can not intersect each other. Therefore, without loss of generality all the segments of type 2 connect $AB$ with $CD$.
+\begin{proof} A segment of type 2 connects either $AB$ with $CD$ or $BC$ with $DA$. Since $\pi$ is a shortest path, segments that are parts of $\pi$ can not intersect each other. Therefore, without loss of generality all the segments of type 2 connect $AB$ with $CD$.
 	
-	Among all these segments let us consider the segment $a_ib_i$ of type 2 with the greatest possible~$i$. Without loss of generality $a_i \in AB$, $b_i \in CD$. The disk centered at $b_i$ with radius $|a_ib_i| \ge |CD|$ covers $CD$—thus, by Lemma~\ref{lm:pastFuture}, there are no segments $a_jb_j$, $j<i$ with endpoints on $CD$. It means that $a_ib_i$ is the only segment of type 2, which completes the proof.
-\end{proof}
+	Among all these segments let us consider the segment $a_ib_i$ of type 2 with the greatest possible~$i$. Without loss of generality $a_i \in AB$, $b_i \in CD$. The disk centered at $b_i$ with radius $|a_ib_i| \ge |CD|$ covers $CD$, thus, by Lemma~\ref{lm:pastFuture}, there are no segments $a_jb_j$, $j<i$ with endpoints on $CD$. It means that $a_ib_i$ is the only segment of type 2, which completes the proof.\end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:shortestSquare}]
-
-	A segment in the intersection can either have type 1, type 2 or contain $p_1$ or $p_2$.
-	
-\begin{enumerate}
-	
+	A segment in the intersection can either have type 1 or type 2. \begin{enumerate}
 	\item By Lemma~\ref{lm:typeOne}, there are at most 4 segments of type 1: at most one for each vertex;
-	
-	\item By Lemma~\ref{lm:squareTypeTwo}, there is at most one segment of type 2;
-	
-	\item For each of the points $p_1$, $p_2$ at most one segment contains it.
-
-\end{enumerate}
-
-	This sums up to $4+1+2=7$ segments.
-
-\end{proof}
+	\item By Lemma~\ref{lm:squareTypeTwo}, there is at most one segment of type 2. This sums up to 5 segments.
+\end{enumerate} \end{proof}
 
 Theorem~\ref{thm:shortestSquare} implies the following Theorem.
 
