@@ -24,15 +24,94 @@ In~\cite{DO07} it is shown that polyhedra are isomorphic if the lengths of short
 
 The idea of the algorithm is to project a cone of all possible paths from the source onto the surface of the gluing. This algorithm runs in $O(n^2)$ time. To apply it for arbitrary edge-to-edge gluings of squares, it has to be proven that the running time is preserved. To do this, we prove the following Theorem.
 
-\begin{theorem} \label{lm:shortestSquare}
+\begin{theorem} \label{thm:shortestSquare}
 	If $T$ is a square of the gluing and $\pi$ is a geodesic shortest path between two vertices of the gluing then the intersection between $\pi$ and $T$ is of at most 5 segments.
 \end{theorem}
 
+\begin{definition}
+	Let $a_ib_i$ be a segment of the intersection between $\pi$ and $T$ with $a_i, b_i \in \partial T$. The points $a_i$, $b_i$ divide the boundary of $T$ into two parts. Let there be $n_1$ and $n_2$ be the numbers of vertices of $\partial T$ in the parts respectively. Then the segment $a_ib_i$ has \emph{type $s$} if
+	$$\min (n_1, n_2) = s.$$
+
+	If $T$ is a convex $r$-gon then the possible types of a segment can range between 1 and $\lfloor r / 2 \rfloor$ (see Figure~\ref{fig:segmType}).
+\end{definition}
+
+\begin{lemma}
+\label{lm:pastFuture}
+	If $a_ib_i$ is a segment of the intersection between $\pi$ and $T$, then
+
+\begin{enumerate}
+	\item \label{item:past} no point of $a_1b_1, \ldots, a_{i-1}b_{i-1}$ may lie in the disk centered at $b_i$ with radius $|a_ib_i|$ (shown in Figure~\ref{fig:past}),
+	\item \label{item:future} no point of $a_{i+1}b_{i+1}, \ldots, a_mb_m$ may lie in the disk centered at $a_i$ with radius $|a_ib_i|$ (shown in Figure~\ref{fig:future}),
+	\item \label{item:noother} no point of $a_jb_j$, $j \ne i$ may lie inside the disk having $a_ib_i$ as its diameter.
+\end{enumerate}
+\end{lemma}
+
+\begin{figure}
+	\input{img/past-and-future-circles}
+\end{figure}
+
 \begin{proof}
-	TODO COPY PROOF FROM THESIS
+
+	Let us prove item~(\ref{item:past}). If there is a point $p$ of a segment $a_jb_j$ preceding $a_ib_i$ inside that circle then (because $T$ is convex) the segment $pb_i$ lies entirely inside $T$ and is shorter than $a_ib_i$. Then we can replace the path
+	$$\pi = \ldots a_jpb_j \ldots a_ib_i \ldots$$
+with
+	$$\ldots a_jpb_i \ldots,$$
+which is shorter than $\pi$ , thus $\pi$ is not the shortest.
+
+	The proof of~(\ref{item:future}) is analogous. To prove~(\ref{item:noother}) let us note that the intersection between the disks from~(\ref{item:past}) and~(\ref{item:future}) covers the smaller circle we are considering (see Figure~\ref{fig:typeOne})—thus no segments either from „the past“ or „the future“ of path $\pi$ can lie inside it.
+
 \end{proof}
 
-Theorem~\ref{lm:shortestSquare} implies the following Theorem.
+\begin{lemma}
+\label{lm:typeOne}
+	If the angle at a vertex $v$ of polygon $T$ is not less than $90^\circ$ then there is at most one segment $a_ib_i$ of the intersection $\pi \cap T$ of type 1 such that the vertex $v$ lies between points $a_i$ and $b_i$.
+\end{lemma}
+
+\begin{figure}
+	\input{img/typeone}
+\end{figure}
+
+\begin{proof}
+
+	Suppose there are multiple segments satisfying the statement of the lemma. Let us denote by $a_ib_i$ the one whose end is the farthest from $v$. Due to Lemma~\ref{lm:pastFuture} all the points of the segments $a_jb_j$, $j \ne i$ of the intersection $\pi \cap T$ must lie outside the disk $D$ whose diameter is $a_ib_i$.
+	
+	This disk covers all the points $s$ such that $\measuredangle a_isb_i \ge 90^\circ$, thus it covers the triangle $a_ivb_i$ (see Figure~\ref{fig:typeOne}) and consequently no other points of the path $\pi$ can lie inside this triangle.
+
+	All the other segments satisfying the statement have at least some of their points lying inside $a_ivb_i$. Thus we arrive to a contradiction: $\pi$ is not the shortest path.
+
+\end{proof}
+
+\begin{lemma}
+\label{lm:squareTypeTwo}
+	Let $T = ABCD$ be a square, then there is at most one segment
+	of type 2 in $\pi \cap T$.
+\end{lemma}
+
+\begin{proof}
+	A segment of type 2 connects either $AB$ with $CD$ or $BC$ with $DA$. Since $\pi$ is a shortest path, segments that are parts of $\pi$ can not intersect each other. Therefore, without loss of generality all the segments of type 2 connect $AB$ with $CD$.
+	
+	Among all these segments let us consider the segment $a_ib_i$ of type 2 with the greatest possible~$i$. Without loss of generality $a_i \in AB$, $b_i \in CD$. The disk centered at $b_i$ with radius $|a_ib_i| \ge |CD|$ covers $CD$—thus, by Lemma~\ref{lm:pastFuture}, there are no segments $a_jb_j$, $j<i$ with endpoints on $CD$. It means that $a_ib_i$ is the only segment of type 2, which completes the proof.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:shortestSquare}]
+
+	A segment in the intersection can either have type 1, type 2 or contain $p_1$ or $p_2$.
+	
+\begin{enumerate}
+	
+	\item By Lemma~\ref{lm:typeOne}, there are at most 4 segments of type 1: at most one for each vertex;
+	
+	\item By Lemma~\ref{lm:squareTypeTwo}, there is at most one segment of type 2;
+	
+	\item For each of the points $p_1$, $p_2$ at most one segment contains it.
+
+\end{enumerate}
+
+	This sums up to $4+1+2=7$ segments.
+
+\end{proof}
+
+Theorem~\ref{thm:shortestSquare} implies the following Theorem.
 
 \begin{theorem} \label{thm:chruntime}
 	The isomorphism between two edge-to-edge gluings of at most $n$ squares can be tested in $O(n^2)$ time.
