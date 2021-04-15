@@ -58,7 +58,7 @@ The case when the polygons to be glued together are all identical regular $k$-go
 
 In~\cite{DO07} it is shown that polyhedra are isomorphic if the lengths of shortest geodesic paths between their vertices of nonzero curvature coincide. Thus, the problem of finding out if two gluings are isomorphic can be reduced to finding out the geodesic distances between vertices of a gluing. Algorithm we are using for this is the Chen—Han algorithm~\cite{chen-han}.
 
-The idea of the algorithm is to project a cone of all possible paths from the source onto the surface of the gluing. This algorithm runs in $O(n^2)$ time. To apply it for arbitrary edge-to-edge gluings of squares, it has to be proven that the running time is preserved. To do this, we prove the following Lemma.
+The idea of the algorithm is to project a cone of all possible paths from the source onto the surface of the gluing. For $n$ faces, this algorithm runs in $O(n^2)$ time. To apply it for arbitrary edge-to-edge gluings of squares, it has to be proven that the running time is preserved. To do this, we prove the following Lemma.
 
 \begin{lemma} \label{lm:shortestSquare}
 	If $T$ is a square of the gluing and $\pi$ is a geodesic shortest path between two vertices of the gluing then the intersection between $\pi$ and $T$ is of at most 5 segments.
