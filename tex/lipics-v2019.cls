@@ -434,12 +434,6 @@
    \else
      \@keywords
    \fi
-   \ifx\@hideLIPIcs\@undefined
-     \ifx\@DOIPrefix\@empty\else
-       \vskip\topmattervskip\baselineskip\noindent
-       \doiHeading\href{https://doi.org/\@lipicsdoi}{\@lipicsdoi}%
-     \fi
-   \fi
    \ifx\@category\@empty\else
      \vskip\topmattervskip\baselineskip\noindent
      \categoryHeading\@category
@@ -748,7 +742,7 @@ pdfsubject={LIPIcs, Vol.\@SeriesVolume, \@EventShortTitle; Copyright (C) \ifx\au
 \ArticleNo{}
 \def\DOIPrefix#1{\gdef\@DOIPrefix{#1}}
 \DOIPrefix{10.4230/LIPIcs}
-\def\@lipicsdoi{\@DOIPrefix.\@EventAcronym.\@EventYear.\@ArticleNo}
+\def\@lipicsdoi{ }
 \def\and{\newline}
 \let\orig@author\@author
 \let\@authorsfortoc\@empty
