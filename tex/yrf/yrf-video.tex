@@ -1,0 +1,57 @@
+\documentclass[11pt]{article}
+
+\usepackage[paperheight=112mm,paperwidth=200mm,margin=8mm]{geometry}
+\usepackage{tikz,subcaption,caption}
+
+\newcommand{\midnode}{
+	node[midway,circle,fill=white,fill opacity=0.92,inner sep=0pt,minimum size=2.1ex]
+}
+
+\pagestyle{empty}
+\parskip=3mm \parindent=0cm
+\renewcommand*\labelenumi{\theenumi)}
+
+\begin{document}
+
+\input{s-intro}
+
+\input{s-ex}
+
+\input{s-cube}
+
+\input{s-uncertain}
+
+\newpage \begin{center}
+	{\Large\bfseries Many things can be glued from a single polygon} \vspace{0.65cm}
+
+  \tikz{
+    \foreach \i in {1,2,3,4,5,6,8,9,10,11,12,13} {
+      \draw (360/14*\i:0.4)
+      -- (360/14*\i+12.857:3)
+      -- (360/14*\i+25.714:0.4);
+    }
+    \foreach \i in {0,7} {
+      \draw (360/14*\i:0.4)
+      -- (360/14*\i+12.857:3)
+      node[pos=0.32,circle,draw=black,fill=white,inner sep=0pt,minimum size=0.7ex]{}
+      -- (360/14*\i+25.714:0.4);
+    }
+  } \vspace{0.65cm}
+
+$2n$ vertices, $2^{\Omega(n)}$ polyhedra.
+\end{center}
+
+
+\newpage \begin{center}
+	{\Large\bfseries In our presentation we find out that}
+\end{center} \vspace{1cm}
+
+\begin{enumerate}
+	\item There are $O(n^{36})$ polyhedra that can be glued from at most $n$ squares; \medskip
+	\item There are $\Omega(n^3)$ polyhedra that can be glued from at most $n$ squares; \medskip
+	\item There are $O(n^3)$ doubly covered polygons that can be glued from at most $n$ squares;
+\end{enumerate}
+
+
+
+\end{document}

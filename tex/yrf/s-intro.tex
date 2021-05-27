@@ -1,0 +1,20 @@
+\newpage \begin{center}
+	{\Large\bfseries Gluing things from squares}
+\end{center}
+
+Imagine a gluing of squares
+
+Squares are congruent, and the gluing is {\it edge-to-edge}
+
+Then the gluing can be drawn on the grid
+
+\begin{center}
+  \tikz{
+    \fill[white] (-0.4,-0.4) rectangle (3+0.4,3+0.4);
+    \foreach \i in {0,...,3} {\draw[gray,opacity=0.6] (0,\i) -- (3,\i) (\i,0) -- (\i,3);}
+    \draw[thick] (0,1) -- (1,0) \midnode{1} -- (2,0) \midnode{2} -- (2,1) \midnode{3} -- (1,2) \midnode{4} -- (0,2) \midnode{5} -- cycle \midnode{0};} \qquad
+  \tikz{
+    \fill[white] (-0.4,-0.4) rectangle (3+0.4,3+0.4);
+    \foreach \i in {0,...,3} {\draw[gray,opacity=0.6] (0,\i) -- (3,\i) (\i,0) -- (\i,3);}
+    \draw[thick] (2,1) -- (2,2) \midnode{0} -- (1,2) \midnode{5} -- (0,1) \midnode{4} -- (0,0) \midnode{3} -- (1,0) \midnode{2} -- cycle \midnode{1};} \qquad
+\end{center}

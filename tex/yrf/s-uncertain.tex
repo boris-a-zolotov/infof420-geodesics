@@ -1,0 +1,38 @@
+\newpage \begin{center}
+	{\Large\bfseries Sometimes it's uncertain what is glued}
+\end{center} \vspace{1.2cm}
+
+\begin{figure}[h] \centering
+      \begin{subfigure}[b]{0.44\textwidth} \centering
+            \tikz[scale=0.78]{\fill[white] (-0.4,-0.4) rectangle (4.4,4.4);
+                  \foreach \i in {0,...,3} {\draw[gray,opacity=0.6] (\i,0) -- (\i,4);}
+                  \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (3,\i);}
+                  \draw[thick] (2,3) -- (0,0) \midnode{0} --
+                        (1,1) \midnode{1} -- (3,4) \midnode{2} --
+                        cycle \midnode{3};}
+            \quad
+            \tikz[scale=0.78]{\fill[white] (-0.4,-0.4) rectangle (4.4,4.4);
+                  \foreach \i in {0,...,3} {\draw[gray,opacity=0.6] (\i,0) -- (\i,4);}
+                  \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (3,\i);}
+                  \draw[thick] (3,3) -- (2,4) \midnode{3} --
+                        (0,1) \midnode{2} -- (1,0) \midnode{1} --
+                        cycle \midnode{0};}
+      \caption{} \end{subfigure} \quad
+      \begin{subfigure}[b]{0.44\textwidth} \centering
+            \tikz[scale=0.78]{\fill[white] (-0.4,-0.4) rectangle (4.4,4.4);
+                  \foreach \i in {0,...,3} {\draw[gray,opacity=0.6] (\i,0) -- (\i,4);}
+                  \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (3,\i);}
+                  \draw[dashed] (2,3)--(1,1.5) (2,2.5)--(1,1);
+                  \draw[thick] (1,4) -- (1,1) \midnode{0} --
+                        (2,0) \midnode{1} -- (2,3) \midnode{2} --
+                        cycle \midnode{3};}
+            \quad
+            \tikz[scale=0.78]{\fill[white] (-0.4,-0.4) rectangle (4.4,4.4);
+                  \foreach \i in {0,...,3} {\draw[gray,opacity=0.6] (\i,0) -- (\i,4);}
+                  \foreach \i in {0,...,4} {\draw[gray,opacity=0.6] (0,\i) -- (3,\i);}
+                  \draw[dashed] (2,4)--(1,2.5) (2,1.5)--(1,0);
+                  \draw[thick] (2,4) -- (2,1) \midnode{0} --
+                        (1,0) \midnode{1} -- (1,3) \midnode{2} --
+                        cycle \midnode{3};}
+      \caption{} \end{subfigure}
+\end{figure}
