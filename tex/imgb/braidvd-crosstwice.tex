@@ -1,0 +1,58 @@
+\begin{tikzpicture}[scale=0.65]
+	\draw
+	\foreach \h / \t in {0 / A, 1 / A, 2 / C, 3 / C}
+		{(-0.6,3.5-\h) node{{\sffamily\t}}}
+	\foreach \w / \t in {0 / A, 1 / A, 2 / C, 3 / B, 4 / A, 5 / C}
+		{(0.4+\w,4.5) node{{\sffamily\t}}};
+ % ────── Границы областей Вороного
+	\fill[c8,opacity=0.22] (0,0)\vr\vu\vl -- cycle;
+	\fill[c9,opacity=0.22] (0,1)\vd\vr\vuu\vl -- cycle;
+	\fill[ca,opacity=0.22] (0,2)\vd\vr\vu\vul -- cycle;
+	\fill[cb,opacity=0.22] (0,3)\vd\vrd\vdd\vdd\vrr
+		\vuu\vuu\vul\vlu\vul -- cycle;
+	\fill[c1,opacity=0.22] (0,4)\vd\vrd\vdr\vrd\vdd\vdd\vrr\vrr
+		\vu\vuu\vl\vlu\vu\vl\vlu\vul\vlu -- cycle;
+	\fill[c2,opacity=0.22] (0.5,4)\vdr\vrd\vdr\vr\vuu\vl\vlu -- cycle;
+	\fill[c3,opacity=0.22] (1.5,4)\vdr\vr\vu -- cycle;
+	\fill[c4,opacity=0.22] (2.5,4)\vdd\vdd\vdr\vr\vuu\vuu\vu -- cycle;
+	\fill[c5,opacity=0.22] (3.5,4)\vdd\vdd\vdd\vdd\vrr\vrr\vr
+		\vuu\vu\vlu\vuu\vu\vl\vlu -- cycle;
+	\fill[c6,opacity=0.22] (4.5,4)\vdr\vr\vu -- cycle;
+	\fill[c7,opacity=0.22] (5.5,4)\vdd\vdd\vdr\vuu\vuu\vu -- cycle;
+ % ────── Нити кос
+	\draw[thick,green] (0,3.5)
+	\hc\hc\hx\hx\hc\hx\hn
+	\hc\hc\hx\hx\hc\hx\hn
+	\hx\hx\hc\hx\hc\hc\hn
+	\hx\hx\hc\hx\hx\hc;
+ % ────── Диагональные рёбра
+	\draw[thick,red]
+	\foreach \x / \y in
+		{0 / 3, 0 / 4, 1 / 3, 1 / 4,
+		 2 / 1, 2 / 2, 4 / 3, 4 / 4,
+		 5 / 1, 5 / 2}
+		{(\x,\y) -- ++(1,-1)};
+ % ────── Границы рисунка
+	\draw[black,opacity=0.35] (0,0) grid (6,4);
+	\draw (0,0) rectangle (6,4);
+ % ────── Путь, не пересекающий нити дважды
+	\draw[thick,DarkOrchid] (2,4) -- (2,2) -- (3,1) -- (5,1) -- (6,0);
+	\draw[thick,DarkOrchid] (3,4) -- (6,1) -- (6,0.5);
+	\fill[black] (4,1) circle[radius=1mm];
+	\fill[black] (4,3) circle[radius=1mm];
+ % ────── Сайты и углы областей
+	\draw
+	\foreach \i / \ix / \iy in
+		{1/3.5/0, 2/2.5/2.5, 3/6/0, 4/6/0.5,
+		 5/5.5/2.5, 6/6/1.5, 7/6/3.5}
+		{(-1+\i,4) node[circle,fill=c\i,inner sep=0.55mm]{ }
+		 (\ix,\iy) \rdcor{\i}}
+	\foreach \nom / \i / \ix / \iy in
+		{0/8/0.5/0, 1/9/0.5/0.5, 2/a/0.5/1.5, 3/b/1.5/0}
+		{(0,\nom) node[circle,fill=c\i,inner sep=0.55mm]{ }
+		 (\ix,\iy) \rdcor{\i}};
+
+ % ══════════════════
+
+	\draw (3,-1) node{(c)};
+\end{tikzpicture}
