@@ -1,7 +1,8 @@
 \RequirePackage{amsmath,amssymb,amsthm,mathtools,hyperref}
-\RequirePackage{graphicx,xcolor,caption,subcaption,makecell}
+\RequirePackage{graphicx,caption,subcaption,makecell}
 \RequirePackage{enumerate,enumitem,indentfirst}
 \RequirePackage[numbers,sort]{natbib}
+\RequirePackage[svgnames]{xcolor}
 
 \hypersetup{unicode=true}
 
@@ -21,6 +22,7 @@
 
 \linespread{1.12}
 \def\ll{\left(} \def\rr{\right)}
+\DeclarePairedDelimiter{\lr}{(}{)}
 
 \parindent=0.33in \footskip=1.4cm \parskip=0.12cm
 \renewcommand{\labelenumi}{\arabic{enumi}) }

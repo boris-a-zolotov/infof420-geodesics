@@ -9,10 +9,57 @@
 
 \begin{document} \maketitle
 
-\section{Voronoi D}
+\section{Definitions}
+
+\begin{definition}
+	\emph{A Voronoi diagram} is a subdivision of a \(n \times m\) table equipped with a greedy braid into regions such that
+   \begin{enumerate}
+	\item Left boundary of each region is composed of a single braid strand and possibly a piece of the boundary;
+	\item Right boundary of each region is composed of several pieces \(e_1, e_2, \ldots, e_k\) of braid strands, such that \begin{enumerate}
+	   \item the pieces \(e_1, e_2, \ldots, e_k\) cross no strand from left to right,
+	   \item the strand containing \(e_i\) crosses the strand containing \(e_{i+1}\) from left to right at the point where \(e_i\) meets \(e_{i+1}\), \(i = 1,\ldots, k-1\).
+	\end{enumerate}
+   \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+	The following are equivalent:
+   \begin{enumerate}
+	\item Point \(p\) belongs to the Voronoi cell \(f_i\) of a Voronoi site \(s_i\);
+	\item Site \(s_i\) is the leftmost site such that there is a path from \(s_i\) to \(p\) that crosses no braid strand from left to right.
+   \end{enumerate}
+\end{lemma}
+
+\section{Notation}
+
+\newcommand{\VD}{\ensuremath{\text{\sffamily VD}}\xspace}
+\newcommand{\braid}{\ensuremath{\mathcal{B}}\xspace}
+
+\begin{enumerate}
+	\item \(\braid\) for the greedy braid of the \(\frac{n}{2} \times m\) table;
+	\item \(\VD\) for the Voronoi diagram of \(\braid\) % the \(\frac{n}{2} \times m\) table;
+	\item \(\braid^*\) for the upward \(\frac{n}{2} \times m\) greedy braid;
+	\item \(\braid^{-h}\) for the \(\lr*{\frac{n}{2} + h} \times m\) greedy braid that starts \(h\) rows above the middle line;
+	\item \(\VD^{-h}\) for the Voronoi diagram corresponding to \(\braid^{-h}\);
+	\item \(s_0, \ldots, s_{m+n}\) for the sites of the Voronoi diagram;
+	\item \(f_0, \ldots, f_{m+n}\); \(f_0^{-h}, \ldots, f_{m+n}^{-h}\) for the Voronoi cells of \(\VD\) and \(\VD^{-h}\) correspondingly;
+	\item \(c_0, \ldots, c_{m+n}\); \(c_0^{-h}, \ldots, c_{m+n}^{-h}\) for the lower right corners of the Voronoi cells of \(\VD\) and \(\VD^{-h}\) correspondingly.
+\end{enumerate}
+
+\section{Query}
+
+\begin{lemma}
+	The following are equivalent:
+   \begin{enumerate}
+	\item Point \(p\) belongs to the Voronoi cell \(f_i^{-h}\) of \(\VD^{-h}\);
+	\item There is a path from \(s_i\) to \(c_i^{-h}\) passing through \(p\) that crosses no strand of \braid twice.
+   \end{enumerate}
+\end{lemma}
 
 \begin{figure}[ht] \centering
 	\input{imgb/braidvd-allsites}
+
+	\input{imgb/braidvd-crosstwice}
 \end{figure}
 
 %\bibliography{}{}
