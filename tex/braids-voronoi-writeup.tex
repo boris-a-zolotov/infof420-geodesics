@@ -46,7 +46,22 @@
 	\item \(c_0, \ldots, c_{m+n}\); \(c_0^{-h}, \ldots, c_{m+n}^{-h}\) for the lower right corners of the Voronoi cells of \(\VD\) and \(\VD^{-h}\) correspondingly.
 \end{enumerate}
 
+
+\begin{figure}[ht] \centering
+	\input{imgb/braidvd-allsites}
+
+	\input{imgb/braidvd-crosstwice}
+
+	\caption{(a) Voronoi diagram for a given greedy braid, (b) \(\VD^{-2}\), (c) paths from \(s_6\) to \(c_6^{-2}\) through \(p_1\) and from \(s_7\) to \(c_7^{-2}\) through \(p_2\)}
+	\label{fig:vd-ex}
+\end{figure}
+
+
 \section{Query}
+
+\begin{problem}
+	Given braid \braid, the lower right corners \(c_0^{-h}, \ldots, c_{m+n}^{-h}\) of the Voronoi cells of \(\VD^{-h}\), point \(p\) and a number \(i\), check whether \(p \in f_i^{-h}\), \(p\) is to the left or to the right from \(f_i^{-h}\).
+\end{problem}
 
 \begin{lemma}
 	The following are equivalent:
@@ -56,11 +71,8 @@
    \end{enumerate}
 \end{lemma}
 
-\begin{figure}[ht] \centering
-	\input{imgb/braidvd-allsites}
+The path can utilize diagonal edges, see Figure~\ref{fig:vd-ex},~(c): \(p_1 \in f_6^{-2}\) (green), \(p_2 \in f_7^{-2}\) (yellow).
 
-	\input{imgb/braidvd-crosstwice}
-\end{figure}
 
 %\bibliography{}{}
 %\bibliographystyle{plain}
