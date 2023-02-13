@@ -1,0 +1,994 @@
+\documentclass[a4paper,UKenglish,cleveref]{lipics-v2021}
+
+%%---------------------------------------------------------------------------%%
+% always generating inline graphics
+%\usepackage[pdftex]{graphicx}                       % must be given before tikz
+%\usepackage{tikz}
+%\usetikzlibrary{decorations.pathmorphing}
+%\AtBeginDocument{\long\def\beginpgfgraphicnamed#1#2\endpgfgraphicnamed{#2}}
+%\newlength{\unit}
+
+% generating inline graphics unless external graphic exists
+% externalising graphics: pdflatex --jobname=graphicname semi.tex
+% must set correct \pgfrealjobname!!!
+%\usepackage{tikz}
+%\usetikzlibrary{decorations.pathmorphing}
+%\pgfrealjobname{gc-tmatch}
+%\newlength{\unit}
+
+% always using external graphics, pgf/tikz not loaded
+% \long\def\beginpgfgraphicnamed#1#2\endpgfgraphicnamed{\includegraphics[scale=\gscale]{#1}}
+%\usepackage[pdftex]{graphicx}
+% \usepackage{graphicx}
+
+%%---------------------------------------------------------------------------%%
+%% AMS-LaTeX package
+
+\usepackage{amsmath}
+\allowdisplaybreaks
+% \usepackage{atmath}
+% \usepackage{amssymb}
+
+%%---------------------------------------------------------------------------%%
+
+
+%%---------------------------------------------------------------------------%%
+% \usepackage{amsthm,amsthm_ext}
+
+% \usepackage[amsmath,thmmarks]{ntheorem}
+% \usepackage{ntheorem_extbig}
+
+% \usepackage[capitalise,noabbrev]{cleveref}
+
+%%---------------------------------------------------------------------------%%
+\newcommand{\Half}[1][1]{\frac{#1}{2}}
+\newcommand{\tHalf}[1][1]{\tfrac{#1}{2}}
+
+\newcommand{\R}{\mathsf}
+\newcommand{\C}{\mathrm}
+\newcommand{\T}{\mathfrak}
+\newcommand{\W}{\mathcal}
+
+\newcommand{\A}{\hat}
+
+\newcommand{\idx}{\mathsf{id}}
+
+\newcommand{\sxpx}{\mathit{sx.px}}
+\newcommand{\subs}{\mathit{sub.s}}
+\newcommand{\ssub}{\mathit{s.sub}}
+\newcommand{\pxsx}{\mathit{px.sx}}
+
+\newcommand{\bimati}{%
+  \bigpa{\begin{smallmatrix} 1 & 0 \\ 0 & 1 \end{smallmatrix}}}
+
+\newcommand{\bimatii}{%
+  \bigpa{\begin{smallmatrix} 0 & 1 \\ 1 & 0 \end{smallmatrix}}}
+
+\newcommand{\why}[1]{\tag*{\small (#1)}}
+
+\newcommand{\charguard}{\textsf{\$}}
+% \newcommand{\charwild}{\textsf{\upshape ?}}
+\newcommand{\charwild}{\textsf ?}
+%\newcommand{\charwild}{\textit{?}}
+
+\DeclareMathSymbol{:}{\mathpunct}{operators}{"3A}
+
+\newcommand{\pa}[1]{(#1)}
+\newcommand{\bigpa}[1]{\bigl(#1\bigr)}
+\newcommand{\bra}[1]{[#1]}
+\newcommand{\bigbra}[1]{\bigl[#1\bigr]}
+\newcommand{\brc}[1]{\{#1\}}
+\newcommand{\bigbrc}[1]{\bigl\{#1\bigr\}}
+\newcommand{\ang}[1]{\langle#1\rangle}
+\newcommand{\bigang}[1]{\bigl\langle#1\bigr\rangle} 
+
+\newcommand{\becomes}[1][]{\overset{\thickspace #1}{\leftarrow}}
+
+% \newcommand{\rG}{\mathsf G}
+\newcommand{\rH}{\mathsf H}
+\newcommand{\rP}{\mathsf P}
+% \newcommand{\cG}{\mathcal G}
+% \newcommand{\cH}{\mathcal H}
+% \newcommand{\cS}{\mathcal S}
+
+% \newcommand{\A}{\hat}
+% \newcommand{\T}{\mathfrak}
+
+% \newcommand{\ssub}{\mathit{s.sub}}
+\newcommand{\SSub}[1]{#1^\ssub}
+
+% \newcommand{\charguard}{\textsf{\$}}
+% \newcommand{\charwild}{\textsf{\upshape ?}}
+
+%%---------------------------------------------------------------------------%%
+%% miscellaneous packages
+
+% \usepackage{subfig}
+% \usepackage{verbatim,url}
+% \usepackage{ifthen}
+
+% \renewcommand{\topfraction}{0.9}
+% \renewcommand{\textfraction}{0.1}
+
+% \newcommand{\option}{\AtEndDocument}
+% \newcommand{\option}[1]{}
+
+%%===========================================================================%%
+
+% \EventEditors{Katharina T. Huber and Dan Gusfield}
+% \EventNoEds{2}
+% \EventLongTitle{19th International Workshop on Algorithms in Bioinformatics (WABI 2019)}
+% \EventShortTitle{WABI 2019}
+% \EventAcronym{WABI}
+% \EventYear{2019}
+% \EventDate{September 8--10, 2019}
+% \EventLocation{Niagara Falls, NY, USA}
+% \EventLogo{}
+% \SeriesVolume{143}
+% \ArticleNo{16}
+
+\ccsdesc[500]{Theory of computation~Pattern matching}
+\ccsdesc[500]{Theory of computation~Algorithm design techniques}
+\ccsdesc[500]{Theory of computation~Dynamic programming}
+\ccsdesc[500]{Theory of computation~Divide and conquer}
+
+\begin{document}
+
+% \newcommand{\mytitle}{%
+\title{A local edit distance oracle: Simpler, smaller, faster to construct}
+
+\titlerunning{A local edit distance oracle}
+
+\newcommand{\myabstract}{%
+The longest common subsequence (LCS) and the edit distance (ED) problems 
+are two classical string comparison problems.
+Their generalisations, asking for local comparisons 
+between designated subsets of substrings of the input strings,
+also are of considerable theoretical and practical importance.
+In particular, a local LCS (or ED) oracle is defined as a data structure
+that can be precomputed from the input string pair,
+and can answer queries for the LCS length (respectively, ED) 
+between any designated pair of substrings from each string.
+In this paper, we propose a new LCS/ED oracle 
+with construction time and space $\tilde O(n^2)$ and query time $\tilde O(1)$,
+thus achieving optimality within a polylogarithmic factor 
+simultaneously in construction time (assuming SETH) and query time.
+% This improves on the ED oracle by Charalampopoulos et al.\ \cite{Ch} in construction time and space, 
+% and also simplifies their construction.
+}
+
+\author{Alexander Tiskin}{Department of Mathematics and Computer Science, 
+St.~Petersburg University, 
+Russia}{}{}{}
+
+\authorrunning{A.~Tiskin}
+
+\Copyright{Alexander Tiskin}
+
+\keywords{longest common subsequence;
+string comparison;
+maximum clique;
+circle graphs}
+
+\maketitle
+
+\begin{abstract}
+\myabstract
+\end{abstract}
+
+% \renewcommand{\mythanks}{%
+% Research supported by DIMAP, University of Warwick.}
+
+%%===========================================================================%%
+
+%%---------------------------------------------------------------------------%%
+\section{Introduction}
+
+The longest common subsequence (LCS) and the edit distance (ED) problems 
+are two classical string comparison problems, see e.g.\ \cite{xxx}.
+Given a pair of strings $a$, $b$, the \emph{LCS problem}
+asks for the length of the longest string that occurs 
+as a (not necessarily contiguous) subsequence in both $a$, $b$.
+For simplicity, we let $a$, $b$ be of equal length $n$.
+The \emph{ED problem} asks for the minimum number of edits that are required to transform $a$ into $b$,
+where an edit is defined either as a character insertion or deletion 
+(this version of the problem is called 
+\emph{indel distance}, \emph{LCS distance}, or \emph{Feldman--Katok distance}),
+or can additionally include character substitution
+(\emph{indelsub distance}, or \emph{Levenshtein distance}).
+
+These problems' generalisations, asking for local comparisons 
+between designated subsets of substrings of the input strings,
+also are of considerable theoretical and practical importance.
+For instance, approximate pattern matching \cite{xxx}
+compares a fixed pattern string to the substrings of the text string,
+and can therefore be termed \emph{semi-local comparison}.
+One of the main algorithmic techniques in computational molecular biology, 
+the Smith--Waterman algorithm \cite{xxx},
+compares substrings in both input strings, and returns the most similar pair of substrings from each string
+(or, more generally, for each pair of the input strings' prefixes, returns their most similar suffixes),
+and therefore represents \emph{local comparison}.
+A more general, and more difficult, form of local comparison 
+asks for an (implicit) comparison between all pairs of substrings from each string,
+not necessarily the most similar such pairs either locally or globally.
+In particular, a \emph{local LCS} (or \emph{ED}) \emph{oracle} is defined as a data structure
+that can be precomputed from the input string pair,
+and can answer queries for the LCS length (respectively, ED) 
+between any designated pair of substrings from each string.
+A \emph{semi-local LCS} (or \emph{ED}) \emph{oracle} is similar,
+but restricted to queries between a whole input string and a designated substring of the other input string,
+and/or queries between a designated prefix of one input string and a designated suffix of the other.
+
+\begin{table}\centering
+\begin{tabular}{|l|l|l|l|}\hline
+%
+Reference & constr. & space & query \\ \hline
+%
+classical DP ($n$ times) & $O(n^3)$ & $O(n^2)$ & \\
+%
+Schmidt \cite{Schmidt:98}  & $\tilde O(n^2)$ & $O(n^2)$ & \\
+%
+Alves et al.\ \cite{Alves+:08}, Tiskin \cite{Tiskin:06_CSR} & $O(n^2)$ & $O(n^2)$ & \\ \hline
+%
+Alves et al.\ \cite{Alves+:08}, Tiskin \cite{Tiskin:06_CSR} & $O(n^2)$ & $O(n)$ & $O(l)$ \\
+%
+Tiskin \cite{Tiskin:06_CSR} & $O(n^2)$ & $\tilde O(n)$ & $\tilde O(1)$ \\ \hline
+%
+\end{tabular}
+%
+\caption{\label{t-slcs}Semi-local LCS/ED: algorithms (with $O(n^2)$ explicit output) and oracles}
+%
+\end{table}
+
+\begin{table}\centering
+\begin{tabular}{|l|l|l|l|}\hline
+%
+Reference & constr. & space & query \\ \hline
+%
+classical DP ($n^2$ times) & $O(n^4)$ & $O(n^4)$ & \\ \hline
+%
+Schmidt \cite{Schmidt:98} ($n$ times), Tiskin \cite{Tiskin:06_CSR} ($n$ times) & 
+$\tilde O(n^3)$ & $\tilde O(n^3)$ & $\tilde O(1)$ \\
+%
+Tiskin \cite{Tiskin:08}, Sakai \cite{Sakai:19}, Charalampopoulos et al.\ \cite{Charalampopoulos+:20} & 
+$\tilde O(n^2)$ & $\tilde O(n^2)$ & $O(l)$ \\
+%
+Sakai \cite{Sakai:22} & $\tilde O(n^2)$ & $\tilde O(n^2)$ & $O(l^{1/2})$ \\
+%
+Charalampopoulos et al.\ \cite{Charalampopoulos+:21} & 
+$O(n^{2+\epsilon})$ & $O(n^{2+\epsilon})$ & $\tilde O(1)$ \\
+%
+this work & $\tilde O(n^2)$ & $\tilde O(n^2)$ & $\tilde O(1)$ \\ \hline
+%
+\end{tabular}
+%
+\caption{\label{t-llcs}Local LCS/ED: algorithms (with $O(n^4)$ explicit output) and oracles}
+%
+\end{table}
+
+The classical dynamic programming (DP) algorithm for the (global) LCS/ED problem
+was rediscovered independently many times; see \cite{jeffe} for a timeline and references.
+The algorithm in fact solves the LCS/ED problem between every pair of prefixes of $a$, $b$.
+Therefore, one can solve the semi-local (respectively, local) LCS/ED problem naively,
+by applying the classical DP algorithm repeatedly $O(n)$ (respectively, $O(n^2)$) times
+to the original $a$ against all suffixes of $b$ 
+(respectively, to all pairs of suffixes of $a$, $b$).
+
+Schmidt \cite{Schmidt:98} made the first important insights,
+leading to an improvement on the naive approach.
+In particular, she gave an oracle for solving the LCS/ED problem 
+between all prefixes of string $a$ and all substrings of string $a$,
+with construction time $\tilde O(n^2)$ and query time $\tilde O(1)$.
+This oracle also serves as an algorithm for the semi-local LCS/ED problem running in time $\tilde O(n^2)$.
+One can obtain a local LCS/ED oracle by constructing the oracle of \cite{Schmidt:98} 
+repeatedly $O(n)$ times for all suffixes of $a$ against the original $b$.
+Alves et al.\ \cite{Alves+:08} gave an algorithm for the semi-local LCS/ED problem running in time $O(n^2)$,
+and a semi-local LCS/ED oracle with construction time $O(n^2)$ and query time $O(l)$,
+where $l$ is the length of the query substring (for string-substring LCS/ED).
+This was improved by a polylogarithmic factor, and also extended to prefix-suffix LCS/ED
+(where $l$ is the sum of the lengths of the query prefix and query suffix)
+by the current author \cite{Tiskin:06_CSR}.
+Further, the current author \cite{Tiskin:06_CSR,Tiskin:08} exposed a deep connection 
+between the semi-local LCS/ED problem and an algebraic structure known as the \emph{Hecke monoid},
+and gave a semi-local LCS/ED oracle
+with construction time $\tilde O(n^2)$ and query time $\tilde O(1)$.
+Similarly to the oracle of \cite{Schmidt:98}, the oracle of \cite{Tiskin:06_CSR,Tiskin:08}
+can be used to obtain a local LCS/ED oracle, by constructing it
+repeatedly $O(n)$ times for all suffixes of $a$ against the original $b$.
+
+Another improvement to local LCS/ED oracles comes by constructing semi-local oracles
+for a hierarchical partitioning of string $a$ against the original string $b$.
+This technique was introduced and applied in different forms 
+by the current author \cite{Tiskin:08}, Sakai \cite{Sakai:19}, 
+Charalampopoulos et al.\ \cite{Charalampopoulos+:20}.
+The resulting local LCS/ED oracle
+has construction time $\tilde O(n^2)$ and query time $O(l)$,
+where $l$ is the sum of the lengths of query substring pair.
+More recently, substantial breakthroughs have been made by Sakai \cite{Sakai:22},
+who gave a local LCS/ED oracle
+with construction time $\tilde O(n^2)$ and query time $O(l^{1/2})$,
+and by Charalampopoulos et al.\ \cite{Charalampopoulos+:20},
+who gave a local LCS/ED oracle
+with construction time $O(n^{2+\epsilon})$ and query time $O(1)$.
+\cref{t-slcs,t-llcs} list the aforementioned results
+(except for the polylogarithmic speedups, which we consider to be outside the scope for this paper).
+
+Besides the generic algorithms and oracles for the semi-local and local LCS/ED problems,
+a number of solutions for restricted versions of these problems have been proposed.
+In particular, this author \cite{Tiskin:08_MCS} and Krusche and Tiskin \cite{Krusche_Tiskin:10}
+gave algorithms for the window-substring and window-window LCS problems, running in time $O(n^2)$;
+here, the term \emph{window} refers to any substring of $a$ of some fixed length.
+Sakain {Sakai:11} gave an algorithm for the general fragment-substring problem, running in time $O(n^2)$;
+here, the term \emph{window} refers to any substring of $a$ 
+from some fixed set of substrings of cardinality $O(n)$.
+Barsky et al.\ \cite{Barsky+:08} gave a parameterised algorithm for obtaining
+all maximal substring pairs within edit distence $\kappa$, running in time $O(n^2 \kappa^3)$.
+
+The currently best known local LCS oracle, in terms of $\tilde O$ asymptotics, 
+is the one by Charalampopoulos et al.\ \cite{Charalampopoulos+:21}.
+The description of this oracle is quite intricate,
+using a weighted Voronoi partitioning of the LCS grid, with complex bookkeeping and parameter tuning.
+Underneath this LCS/ED-specific layer, this oracle relies on a layer of data structures and subroutines 
+for the multiple-source shortest paths (MSSP) problem in a planar graph, developed by Klein \cite{Klein}.
+
+In this paper, we propose a new LCS/ED oracle 
+with construction time and space $\tilde O(n^2)$ and query time $\tilde O(1)$.
+We replace the lower layer of generic planar MSSP
+by a simpler, more specific framework of data structures and subroutines
+for the semi-local LCS problem developed by Tiskin \cite{Tiskin}.
+Apart from providing a significant simplification by itself,
+the use of this framework also simplifies and streamlines the upper layer of weighted Voronoi diagrams.
+These modifications also result in an improvement on the ED oracle by Charalampopoulos et al.\ \cite{Ch} 
+to construction time and space $\tilde O(n^2)$, while keeping query time $\tilde O(1)$.
+Considering the LCS lower bound of \cite{xxx},
+our oracle is optimal to within polylogarithmic factors, assuming the Strong Exponential Time Hypothesis.
+
+%%---------------------------------------------------------------------------%%
+\section{The framework}
+\label{s-framework}
+
+In this section, we introduce briefly the framework developed by the author 
+in \cite{Tiskin:08_MCS,Tiskin:08_JDA,Tiskin:09_JMS,Tiskin:15_Algorithmica}.
+Definitions and results of this section have either appeared in these publications,
+or are their straightforward generalisations.
+
+%%---------------------------------------------------------------------------%%
+\subsection{Preliminaries}
+
+For matrix and vector indices, we will use either integers, or half-integers%
+\footnote{The intuition behind using both integers and half-integers
+is that when comparing a pair of strings, 
+we are dealing with a planar grid-like graph;
+our techniques also require dealing with its dual graph.
+In this setting, it is natural to use integers for indexing the nodes of the primal grid,
+and half-integers for indexing the nodes of the dual grid (i.e.\ the faces of the primal grid).}
+(sometimes called odd half-integers):
+%
+\begin{gather*}
+%
+\brc{\ldots, -2, -1, 0, 1, 2, \ldots}\qquad
+\bigbrc{\ldots, -\tHalf[5], -\tHalf[3], -\tHalf[1], 
+ \tHalf[1], \tHalf[3], \tHalf[5], \ldots}
+%
+\end{gather*}
+%
+For ease of reading, half-integer variables will be indicated by hats
+(e.g.\ $\A\imath$, $\A\jmath$).
+Ordinary variable names 
+(e.g.\ $i$, $j$, with possible subscripts or superscripts), 
+will normally denote integer variables,
+but can sometimes denote a variable 
+that may be either integer, or half-integer.
+
+It will be convenient to denote
+%
+\begin{gather*}
+%
+i^- = i-\tHalf \qquad i^+ = i+\tHalf
+%
+\end{gather*}
+%
+for any integer or half-integer $i$.
+The set of all half-integers can now be written as
+%
+\begin{gather*}
+%
+\bigbrc{\ldots, (-3)^+, (-2)^+, (-1)^+, 0^+, 1^+, 2^+, \ldots}
+%
+\end{gather*}
+
+\index{interval notation}%
+We denote integer and half-integer \emph{intervals} by
+%
+\begin{gather*}
+%
+\bra{i:j} = \brc{i, i+1, \ldots, j-1, j} \qquad
+\ang{i:j} = \bigbrc{i^+, i+\tHalf[3], \ldots, j-\tHalf[3], j^-}
+%
+\end{gather*}
+%
+In both cases, the interval is defined by a pair of integer \emph{endpoints}.
+We will use round parentheses $(i:j)$ to indicate that in the given context,
+either square $\bra{i:j}$ or angle $\ang{i:j}$ brackets may be used.
+
+For finite intervals $\bra{i:j}$ and $\ang{i:j}$,
+we call the difference $j-i$ interval \emph{length}.
+Note that for a given length $n$, 
+an integer interval consists of $n+1$ elements,
+and a half-integer interval of $n$ elements.
+
+\index{$\pa{i_0:i_1 ; j_0:j_1}$: interval Cartesian product}%
+We use the semicolon notation for the Cartesian product 
+of two integer or two half-integer intervals:
+%
+\begin{gather*}
+%
+\bra{i:j ; k:l} = \bra{i:j} \times \bra{k:l}\qquad
+\ang{i:j ; k:l} = \ang{i:j} \times \ang{k:l}
+%
+\end{gather*}
+%
+We identify a singleton interval with its only element, 
+extending this notation to Cartesian products.
+Thus, we have, for example
+%
+% We will denote a singleton Cartesian product (i.e.\ an ordered pair) 
+% by $\bra{i,j} = \bra{i ; j}$, $\ang{i,j} = \ang{i ; j}$.
+%
+\begin{gather*}
+%
+\bra{i;j} = \bra{i:i ; j:j}\qquad
+\ang{\A\imath ; j:k} = \ang{\A\imath^- : \A\imath^+ ; j:k}
+%
+\end{gather*}
+
+We indicate the index range of a matrix by juxtaposition, 
+e.g.\ matrix $A\pa{i:i' \mid j:j'}$ over an integer or half-integer index range.
+The same notation will be used for selecting subvectors and submatrices:
+for example, given matrix $A\pa{0:n \mid 0:n}$, 
+we denote by $A\pa{i:i' \mid j:j'}$
+the submatrix defined by the given sub-intervals.
+When any of the indices $i$, $i'$, $j$, $j'$ coincide with the range boundary,
+they can be omitted,
+e.g.\ $A\pa{i: \mid :j'} = A\pa{i:n \mid 0:j'}$,
+and $A\pa{: \mid j:j'} = A\pa{0:n \mid j:j'}$.
+In particular, we write $A\pa{i,j}$ for a single matrix element,
+$A\pa{i \mid :}$ for a row, and $A\pa{: \mid j}$ for a column.
+We will denote by $\sum A$ the sum of all elements in matrix $A$.
+
+By default, vectors and matrices will be indexed by integers based at $0$, 
+or by half-integers based at $0^+ = \tHalf$.
+Where necessary, all our definitions and statements can easily be generalised
+to indexing over arbitrary integer or half-integer intervals.
+
+Given a string, we distinguish between its contiguous \emph{substrings},
+and not necessarily contiguous \emph{subsequences}.
+Special cases of a substring 
+are \emph{a prefix} and \emph{a suffix} of a string.
+Given string $a$ and a set $I$ of indices,
+we denote by $a|_I$ a subsequence formed by the characters at the specified indices.
+
+Unless indicated otherwise, an algorithm's input is
+a string $a$ of length $m$, and a string $b$ of length $n$;
+we assume $m \leq n$.
+Normally, we will say that two characters $\alpha$, $\beta$ \emph{match}, 
+if $\alpha=\beta$, and \emph{mismatch} otherwise.
+In addition to this, we introduce the \emph{wildcard character} `\charwild',
+which matches itself and all other characters.
+
+\begin{definition}
+\label{def-dsum}
+%
+Let $D\ang{0:n_1 \mid 0:n_2}$ be a matrix.
+Its \emph{dominance-sum matrix} (also called \emph{distribution matrix})
+$D^\Sigma\bra{0:n_1 \mid 0:n_2}$ is defined by
+%
+\begin{gather*}
+%
+\textstyle
+D^\Sigma\bra{i,j} = \sum D\ang{i: \mid :j}
+%
+\end{gather*}
+%
+for all $i \in \bra{0:n_1}$, $j \in \bra{0:n_2}$.
+%
+\end{definition}
+
+\begin{definition}
+\label{def-xdiff}
+%
+Let $A\bra{0:n_1 \mid 0:n_2}$ be a matrix.
+Its \emph{cross-difference matrix} $A^\square\ang{0:n_1 \mid 0:n_2}$
+(also called \emph{density matrix}) is defined by
+%
+\begin{gather*}
+%
+A^\square\ang{\A\imath,\A\jmath} =
+A\bra{\A\imath^+,\A\jmath^-} - A\bra{\A\imath^-,\A\jmath^-} -
+A\bra{\A\imath^+,\A\jmath^+} + A\bra{\A\imath^-,\A\jmath^+}
+%
+\end{gather*}
+%
+for all $\A\imath \in \ang{0:n_1}$, $\A\jmath \in \ang{0:n_2}$.
+%
+\end{definition}
+
+\begin{definition}
+\label{def-monge}
+%
+\index{matrix!Monge}%
+Matrix $A$ is a \emph{Monge matrix},
+if its cross-difference matrix $A^\square$ is nonnegative.
+Matrix $A$ is an \emph{anti-Monge matrix}, if its negative $-A$ is Monge.
+%
+\end{definition}
+
+\begin{definition}
+\label{def-permutation}
+%
+A \emph{permutation matrix}
+is a zero-one matrix containing exactly one nonzero 
+in every row and every column.
+%
+\end{definition}
+
+\begin{definition}
+\label{def-umonge}
+%
+Matrix $A$ is called \emph{unit-Monge},
+if its cross-difference matrix $A^\square$ is a permutation matrix.
+Matrix $A$ is called \emph{unit-anti-Monge}, 
+if its negative $-A$ is unit-Monge.
+%
+\end{definition}
+
+\begin{definition}
+\label{def-simple}
+%
+Matrix $A$ is called \emph{simple},
+if its leftmost column (the one with the lowest index) 
+and bottom row (the one with the highest index) are identically zero.
+%
+\end{definition}
+
+\begin{theorem}
+\label{th-umonge-matrix-query}
+%
+Given a permutation matrix $P$ with $n$ nonzeros, 
+there exists a data structure that
+%
+\begin{itemize}
+%
+\item has size $O\bigpa{n \log n}$;
+\item can be built in time $O\bigpa{n \log n}$;
+\index{matrix!implicit!element query}%
+\item supports queries for any individual element 
+of the simple (sub)unit-Monge matrix $P^\Sigma$ in time $O\bigpa{\log^2 n}$;
+%
+\end{itemize}
+%
+\end{theorem}
+
+\begin{theorem}
+\label{th-umonge-matrix-query-inc}
+%
+Given a permutation matrix $P$ and the value $P^\Sigma[i;j]$,
+the values $P^\Sigma[i \pm 1;j]$, $P^\Sigma[i;j \pm 1]$,
+where they exist, can be queried in time $O(1)$.
+%
+\end{theorem}
+
+%%---------------------------------------------------------------------------%%
+\subsection{Sticky matrix multiplication}
+
+In our previous work, we established the connection between string comparison
+and implicit distance multiplication of unit-Monge matrices,
+expressed as \emph{sticky multiplication} $P \boxdot Q = R$ 
+on the corresponding permutation matrices.
+%
+Subquadratic distance multiplication algorithms 
+for implicit simple unit-Monge matrices 
+were given in \cite{Tiskin:06_CSR,Tiskin:08_MCS}, 
+and culminated with the following result in \cite{Tiskin:15_Algorithmica}.
+%
+\begin{theorem}
+\label{th-pmat-smult}
+%
+Let $P$, $Q$, $R$ be permutation matrices with at most $n$ nonzeros each.
+Let $P \boxdot Q = R$.
+Given the nonzeros of $P$, $Q$, the nonzeros of $R$ can be computed in time $O(n \log n)$.
+%
+\end{theorem}
+
+
+%%---------------------------------------------------------------------------%%
+\subsection{LCS and semi-local LCS}
+
+Unless indicated otherwise, a string comparison problem will take as input 
+strings $a\ang{0:m}$ and a string $b\ang{0:n}$ (indexed by half-integers).
+%
+\begin{definition}
+\label{def-lcs}
+%
+Let $a$, $b$ be strings.
+The \emph{longest common subsequence (LCS) score} $\mathsf{score}_{LCS}(a,b)$
+is the length of the longest string that is a subsequence of both $a$ and $b$.
+Given strings $a$, $b$, the \emph{LCS problem} asks for the LCS score $\mathsf{score}_{LCS}(a,b)$.
+%
+\end{definition}
+%
+The classical dynamic programming algorithm for the LCS problem 
+\cite{Needleman_Wunsch:70,Wagner_Fischer:74} runs in time $O(mn)$.
+The best known algorithms speed it up by a (model-dependent) polylogarithmic factor
+% \cite{Masek_Paterson:80,Crochemore+:03_SIAM,Wu+:96,Bille_Farach:08}.
+\cite{Masek_Paterson:80,Crochemore+:03_SIAM,Bille_Farach:08}.
+Similar speedups are possible for the algorithms presented in this paper;
+however, we will consider them outside the paper's scope, 
+and will not discuss them any further.
+
+Although global comparison (full string against full string)
+and fully-local comparison (all substrings against all substrings)
+are the two most common approaches to comparing strings,
+another important type of string comparison lies ``in between''.
+%
+\begin{definition}
+\label{def-slcs}
+%
+Given strings $a$, $b$, the \emph{semi-local LCS problem}
+asks for the LCS scores as follows:
+%
+\begin{itemize}
+%
+\item the whole $a$ against every substring of $b$
+(\emph{string-substring LCS});
+%
+\item every prefix of $a$ against every suffix of $b$
+(\emph{prefix-suffix LCS});
+%
+\item every suffix of $a$ against every prefix of $b$
+(\emph{suffix-prefix LCS});
+%
+\item every substring of $a$ against the whole $b$
+(\emph{substring-string LCS}).
+%
+\end{itemize}
+%
+\end{definition}
+%
+Hereafter, we allow the output of the semi-local LCS problem and its variants
+to be represented implicitly by an oracle 
+that allows efficient querying of a score for any given substring pair as specified.
+
+Note that \cref{def-slcs} is symmetric with respect to exchanging the two strings.
+In many ways, our approach consists in exploiting to the full 
+this and other symmetries of the LCS problem,
+such as the symmetry between the left and the right within each of the strings.
+
+Some alternative terms for semi-local comparison,
+used especially in biological texts, 
+are ``end-free alignment''
+\cite{Jackson_Aluru:06}, \cite[Subsection 11.6.4]{Gusfield:97}
+or ``semi-global alignment'' 
+\cite{Jackson_Aluru:06}, \cite[Problem 6.24]{Jones_Pevzner:04}.
+% \cite[Section 8.4]{Gogol+:10}.
+The string-substring (and its symmetric substring-string) component
+of semi-local string comparison is also called ``fitting alignment'' 
+\cite[Problem 6.23]{Jones_Pevzner:04}.
+String-substring LCS is an important problem in its own right,
+closely related to approximate pattern matching,
+where a short fixed pattern string 
+is compared to various substrings of a long text string.
+
+% \subsection{LCS grid.}
+The LCS problem can be represented by a graph as follows.
+%
+\begin{definition}
+\label{def-grid}
+%
+\index{grid!triangulated}%
+A \emph{triangulated grid} $G\bra{0:m;0:n}$ is a directed acyclic graph, 
+defined on the set of nodes $\bra{0:m;0:n}$.
+For all $i \in \bra{0:m}$, $\A\imath \in \ang{0:m}$,
+$j \in \bra{0:n}$, $\A\jmath \in \ang{0:n}$,
+the triangulated grid contains:
+%
+\begin{itemize}
+%
+\item the horizontal edge $\bra{i;\A\jmath^-} \to \bra{i;\A\jmath^+}$;
+%
+\item the vertical edge $\bra{\A\imath^-;j} \to \bra{\A\imath^+;j}$;
+%
+\item the diagonal edge $\bra{\A\imath^-;\A\jmath^-} \to \bra{\A\imath^+;\A\jmath^+}$.
+%
+\end{itemize}
+%
+\end{definition}
+%
+We can also view such a triangulated grid as an $m \times n$ 
+grid of \emph{cells}, each induced by four neigbouring nodes.
+A cell contains a pair of vertical edges, a pair of horizontal edges, and a diagonal edge.
+
+Triangulated grids representing string comparison will have weights on the edges.
+These weights will be called \emph{scores}.
+The score of a path is defined as the sum of the scores along its edges.
+%
+\begin{definition}
+\label{def-grid-lcs}
+%
+\index{grid!LCS}%
+\index{$\R G_{a,b}$: LCS grid}%
+The \emph{LCS grid} for strings $a$, $b$
+is a weighted triangulated grid $\R G_{a,b}\bra{0:m;0:n}$, defined as follows.
+A cell induced by nodes $\bra{\A\imath^\pm;\A\jmath^\pm}$, 
+$\A\imath\in\ang{0:m}$, $\A\jmath\in\ang{0:n}$, is called
+%
+\begin{itemize}
+%
+\item a \emph{match cell}, if $a\ang{\A\imath}$ matches $b\ang{\A\jmath}$;
+\item a \emph{mismatch cell}, otherwise
+%
+\end{itemize}
+%
+An edge is called
+%
+\begin{itemize}
+%
+\item a \emph{match edge}, if it is a diagonal edge in a match cell;
+\item a \emph{mismatch edge}, if it is a diagonal edge in a mismatch cell;
+\item a \emph{gap edge}, if it is a horizontal or vertical edge.
+%
+\end{itemize}
+%
+Match edges have score $1$; mismatch and gap edges have score $0$.
+Mismatch edges do not affect maximum path scores between given endpoints, 
+and can therefore be ignored.
+%
+\end{definition}
+
+Let $b^{\mathit{pad}}\ang{-m:m+n} = \charwild^m \underline{b} \charwild^m$.
+%
+\begin{definition}
+\label{def-lcsmat}
+%
+The \emph{semi-local LCS matrix} is defined as 
+$\rH_{a,b}[i,j] = \mathsf{score}_{LCS}(a, b^{\mathit{pad}}\ang{i,j})$,
+where $i \in \bra{-m:n}$, $j \in \bra{0:m+n}$.
+The \emph{string-substring LCS matrix} is defined as 
+$\SSub\rH_{a,b}[i,j] = \rH_{a,b}[i,j] = \mathsf{score}_{LCS}(a, b\ang{i:j})$, 
+where $i,j \in \bra{0:n}$.
+%
+\end{definition}
+%
+Matrix $\rH_{a,b}$ provides (subject to some easy linear transformations)
+the solution to all four components of the semi-local LCS problem;
+its submatrix $\SSub\rH_{a,b}$ singles out the string-substring LCS component.
+In \cite{Tiskin:08_MCS}, we show that matrix $\rH_{a,b}$ is unit-anti-Monge,
+% By \cref{th-monge-decomp}, it can be represented implicitly in compact form 
+so it can be represented implicitly in compact form 
+by a permutation matrix $\rP_{a,b}$, that we call here \emph{semi-local LCS kernel},
+from which every element of $\rH_{a,b}$ (and therefore also of its submatrix $\SSub\rH_{a,b}$) 
+can be queried efficiently.
+The elements $\rP_{a,b}\ang{\A\imath,\A\jmath}$ are indexed 
+by $\A\imath \in \ang{-m:n}$, $\A\jmath \in \ang{0:m+n}$.
+In \cite{Tiskin:08_MCS}, we also give an algorithm 
+computing this implicit representation in time $O(mn)$.
+
+We will abbreviate ``semi-local LCS kernel'' to just \emph{LCS kernel}, 
+where that is justified by the context.
+% The key idea of our approach is to regard \cref{th-lcsmat-decomp}
+The key idea of our approach is to use LCS kernels
+as implicit solutions to the semi-local LCS problem.
+% as defining an implicit solution to the semi-local LCS problem.
+
+%\begin{figure}%[tbp]
+%\centering
+%
+%\includegraphics{f-grid-final.pdf}
+%
+%\caption{\label{f-slcs-braid}%
+%LCS grid $\R G_{a,b}$ and semi-local LCS kernel $\R P_{a,b}$ as a sticky braid}
+%\end{figure}
+
+\textcolor{magenta}{Picture {\tt f-grid-final}}
+
+\begin{example}
+%
+\cref{f-slcs-braid} shows the LCS kernel $\R P_{a,b}$ for strings 
+$a = \textsf{``BAABCBCA''}$, $b = \textsf{``BAABCABCABACA''}$,
+in terms of a \emph{sticky braid} embedded in the LCS grid $\R G_{a,b}$.
+The edges on the top-left boundary of the grid are indexed by $\A\imath \in \ang{-8:13}$
+from bottom-left to top-left to top-right, 
+and the edges on the bottom-right boundary of the grid by $\A\jmath \in \ang{0:8+13}$
+from bottom-left to bottom-right to top-right.
+The nonzeros of the LCS kernel $\R P_{a,b}$ correspond 
+to those pairs of indices $\A\imath$, $\A\jmath$
+that are connected by a strand in the sticky braid.
+%
+\end{example}
+%
+\begin{definition}
+%
+\index{problem!oracle}%
+Let $X$ be an algorithmic problem 
+asking for comparison scores between certain substrings of input string(s).
+An \emph{$X$-oracle} with query time $T$ is a data structure obtained from the input strings,
+that supports the queries specified by $X$ on substrings of length at most $s$ in time $T(s)$.
+%
+\end{definition}
+%
+\begin{theorem}
+\label{th-slcs-oracle}
+%
+Given strings $a$, $b$, there exists a semi-local LCS oracle with 
+%
+\begin{itemize}
+%
+\item size $O(m+n)$ and query time $O(s)$;
+\item size $O\bigpa{(m+n)\log(m+n)}$ and query time $O\bigpa{(\log s)^2}$;
+%
+\end{itemize}
+%
+where $s$ is the length of the shorter string or substring in the query.
+%
+\end{theorem}
+
+In fact, the oracle of \cref{th-slcs-oracle} is provided by the LCS kernel $\rP_{a,b}$,
+enhanced with the data structure of \cref{th-umonge-matrix-query}.
+
+\begin{theorem}
+\label{th-}
+%
+Let $a = a'a''$, where $a'$, $a''$ are of length $m'$, $m''$ respectively.
+Let $m^* = \min(m',m'',n)$.
+Given LCS kernels $\rP_{a',b}$, $\rP_{a'',b}$, the LCS kernel $\rP_{a,b}$
+can be obtained in time $O\bigpa{n \log m^*}$.
+%
+\end{theorem}
+
+The idea of the proof of \cref{th-}, presented in our previous work, is as follows:
+if $m^* = n$, then the problem is solved by a single call 
+to the algorithm of \cref{th-pmat-smult}.
+Otherwise, let without loss of generality $m^* = m'$.
+The problem is then solved by partitioning the LCS grid $\R G_{a',b}$
+horizontally into $n/m'$ near-square blocks, and calling 
+the algorithm of \cref{th-pmat-smult} once for each block.
+
+\begin{theorem}
+\label{th-slcs-mbs}
+%
+Given strings $a$, $b$, and assuming $m \leq n$, the LCS kernel $\rP_{a,b}$
+can be obtained in time $O\bigpa{\frac{mn (\log\log n)^2}{(\log n)^2} + n}$.
+%
+\end{theorem}
+
+%%---------------------------------------------------------------------------%%
+\subsection{Alignment and ED}
+\label{ss-align}
+
+Blow-up
+
+%%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%%
+\section{The local LCS/ED oracle}
+\label{s-llcs}
+
+%%---------------------------------------------------------------------------%%
+\subsection{Auxiliary structures}
+
+Forward braid: information on highest-scoring paths originating at base level
+
+A strand: unit obstruction to LCS
+
+Main property: a highest-scoring path may not cross a strand twice
+
+In other words, only ``necessary crossings'' between a path and a strand
+
+A necessary, but not a sufficient condition.
+Instead, a certain type of ``convexity'': 
+a path is between leftmost and rightmost highest-scoring paths, if it never crosses a strand twice.
+
+Double-crossing type: left-right-left or right-left-right
+
+(dominance counting oracle, crossing oracle: 2D range tree or Patrascu)
+
+(entanglement = double-crossing)
+
+\emph{entanglement counting oracle}.
+Set of $N$ index triples $(i, j, k)$.
+Answers queries: given an arbitrary index triple, 
+count how many triples in set are entangled with it (LRL, RLR).
+3D range tree (or Patrascu-like).
+Size $O(n \log n)$, query $O((\log n)^3)$
+
+Points on horizontal edges.
+
+Reduced embedded braid.
+Point triple double-crossed crossed by a strand, 
+
+\emph{strand entanglement oracle}.
+Reduced embedded braid.
+Answers queries: given an arbitrary point triple $(0,r), (k,s), (l,t)$,
+decide whether it is double-crossed by any strand.
+
+Partition grid hierarchically into canonical strips.
+For every canonical strip (u,v), build entanglement counting oracle for levels (0, u, v).
+
+Query: decompose strip $(k,l)$ into canonical strips.
+Trace left and right boundaries of entanglement-free region at decomposition levels.
+Each level: binary search with the entanglement counting oracle.
+Since braid is reduced, direction for binary search is always well-defined.
+
+Decide at level $k$: point $(k,s)$ left, within, or right of the boundaries
+
+%%---------------------------------------------------------------------------%%
+\subsection{Structure of the local LCS/ED oracle}
+
+Oracle is built recursively, based on a hierarchical partitioning of string $a$.
+At the top level, a structure to answer queries where the substring of $a$ crosses its midpoint,
+beginning in the lower half and ending in the upper half of $a$.
+The construction is then repeated recursively for each of the two halves of $a$.
+
+We now describe the top level of the oracle's hierarchical construction.
+Let us fix initially $l$ as the base level.
+We will call $n/2$ site level, and all its nodes will be called sites.
+Consider a forward braid for the subgrid below $l$.
+Further consider a subgrid below $n/2$.
+This subgrid is partitioned into intercept regions.
+Simplified analogue of weighted Voronoi regions of Charalampopoulos et al 
+(the concept, in its turn, inspired by graph oracles).
+
+Call a node simply reachable, if it is reachable from $s$ 
+without crossing from left to right any strand of the forward braid.
+Intercept region for a given site $s$: consists of all grid nodes below site level
+\begin{itemize}
+\item simply reachable from $s$ 
+\item not simply reachable from any site to the left of $s$
+\end{itemize}
+
+Partitioning achieved by terminating every strand at its first horizontal crossing.
+Call this crossing the region's intercept corner.
+Intercept region's left boundary formed by a full strand from site level to intercept,
+where it is terminated.
+Intercept region's right boundary formed by a sequence of strand pieces,
+where each piece begins by a strand crossing the previous piece from right to left,
+terminating the corresponding strand,
+and ends by the piece being terminated by the next piece in the sequence.
+The final piece is terminated at the region's intercept.
+
+The local oracle consists of 
+\begin{itemize}
+\item the forward braid for the lower subgrid 
+(note that this is different from the forward braids defining the intercept regions)
+\item the interception oracle built on this braid;
+\item for every base level, the sequence of intercepts (indexed by sites)
+\end{itemize}
+
+Size $\tilde O(n^2)$. Recursively, size $\tilde O(n^2)$.
+
+%%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%%
+\section{Query algorithm}
+\label{s-query}
+
+
+
+
+%%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%%
+\section{Construction algorithm}
+\label{s-construction}
+
+%%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%%
+\section{Conclusion and open problems}
+\label{s-conclusion}
+
+%%===========================================================================%%
+
+% \bibliographystyle{plainurl}
+% \bibliography{research}
+
+\textcolor{magenta}{Bibliography!}
+
+% \appendix
+% \clearpage
+% \ifthenelse{\equal{\option{x}}{}}{}{\section{Proofs and examples}}
+
+%===========================================================================%%
+\end{document}
