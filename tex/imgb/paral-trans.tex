@@ -1,21 +1,29 @@
 \begin{tabular}{ccc}
-\makecell[c]{\begin{tikzpicture}[xscale=0.6,yscale=-0.6]
+\makecell[c]{\begin{tikzpicture}[xscale=0.66,yscale=-0.6]
+   \begin{scope}[xshift=0.5cm]
 	\fill[cb,opacity=0.25] (0,0) rectangle (6,4);
 	\draw (0,0) rectangle (6,4)
-	      (0,2.25) -- (6,2.25) (0,3.5) -- (6,3.5)
-	      (2,0) -- (4.25,3.5);
+	      (0,2.25) -- (6,2.25)
+	      (1.5,0) -- (3.75,4);
+   \end{scope}
 	\draw[thick,green] (3.75,0)
 	      .. controls (3.75,1) and (2.25,1.5) ..
 	      (2.25,2.25)
-	      .. controls (2.25,3) and (5.25,2.75) ..
-	      (5.25,3.5);
+	      .. controls (2.25,3) and (5.25,3.15) ..
+	      (5.25,4);
 	\fill[black]
-	 (2,0) circle[fill=black,radius=1mm]
-	       node[anchor = south west]{\small \(s_i\)}
-	 (3.4464,2.25) circle[radius=1mm]
-	               node[anchor = south west]{\small \(p\)}
-	 (4.25,3.5) circle[radius=1mm]
-	            node[anchor = south west]{\small \(c_i^{-h}\)};
+	 (2,0) circle[radius=1mm]
+	               node[anchor = south west]{\small \(q_1\)}
+	 (3.2656,2.25) circle[radius=1mm]
+	               node[anchor = south west]{\small \(q_2\)}
+	 (4.25,4) circle[radius=1mm]
+	               node[anchor = south west]{\small \(q_3\)}
+	 (3.75,0) circle[radius=1mm]
+	               node[anchor = south west]{\small \(a^i_1\)}
+	 (2.25,2.25) circle[radius=1mm]
+	               node[anchor = south east]{\small \(a^i_2\)}
+	 (5.25,4) circle[radius=1mm]
+	               node[anchor = south west]{\small \(a^i_3\)};
 \end{tikzpicture}} & \hspace{0.8cm} &
 \makecell[c]{\begin{tikzpicture}[xscale=0.45,yscale=0.5]
  % ────── Задняя часть
@@ -42,11 +50,11 @@
 	\draw[thick,->,IndianRed] \proj000 -- \proj00{5.5};
  % ────── Отсечения на поверхности
 	\draw[thick,HotPink] \proj254 -- \proj204 -- \proj200
-	      node[anchor=north east]{\color{black}\small \(s_i\)}
+	      node[anchor=north east]{\color{black}\small \(q_1\)}
 	      \proj65{2.5} -- \proj60{2.5} -- \proj00{2.5}
-	      node[anchor=east]{\color{black}\small \(c_i^{-h}\)}
+	      node[anchor=east]{\color{black}\small \(q_3\)}
 	      \proj630 -- \proj634 -- \proj034
-	      node[anchor=south east]{\color{black}\small \(p\)};
+	      node[anchor=south east]{\color{black}\small \(q_2\)};
 \end{tikzpicture}} \\
 	(a) & & (b) \\
 \end{tabular}
