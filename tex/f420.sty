@@ -23,6 +23,7 @@
 \linespread{1.12}
 \def\ll{\left(} \def\rr{\right)}
 \DeclarePairedDelimiter{\lr}{(}{)}
+\DeclarePairedDelimiter{\set}{\{}{\}}
 
 \parindent=0.33in \footskip=1.4cm \parskip=0.12cm
 \renewcommand{\labelenumi}{\arabic{enumi}) }
@@ -35,6 +36,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{problem}{Problem}
+\newtheorem{remark}[theorem]{Remark}
 
 \newcommand{\baserect}{
 	\foreach \x in {0,...,6} {\draw[gray,opacity=0.8] (\x,0) -- (\x,5);}
@@ -56,3 +58,4 @@
 
 \newcommand{\slim}{\sum\limits}
 \newcommand{\sloglim}{\sum\limits_{i = \frac{\log n}{2}}^{\log n}}
+\newcommand{\Ot}{\tilde O}

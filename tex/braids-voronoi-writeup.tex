@@ -73,12 +73,54 @@
 
 The path can utilize diagonal edges, see Figure~\ref{fig:vd-ex},~(c): \(p_1 \in f_6^{-2}\) (green), \(p_2 \in f_7^{-2}\) (yellow).
 
+
+\subsection{Entanglement of triples oracle}
+
+\begin{definition}
+	We call two triples of numbers \(\lr*{a_1, a_2, a_3}\),
+	\(\lr*{b_1, b_2, b_3}\) \emph{entangled} if
+	\[ a_1 < b_1,\ a_2 > b_2,\ a_3 < b_3\quad\text{or}\quad
+	   a_1 > b_1,\ a_2 < b_2,\ a_3 > b_3\]
+\end{definition}
+
+\begin{theorem}
+	There exists a data structure that can store a set of \(N\) triples
+	\[S = \set*{\lr*{a^1_1, a^1_2, a^1_3}, \ldots, \lr*{a^N_1, a^N_2, a^N_3}}\]
+	and, given a query triple \(q = \lr*{q_1, q_2, q_3}\), output
+	in time \(\Ot\lr*{1}\)  %  Count logs precisely
+	the number of triples in \(S\) that are entangled with \(q\).
+\end{theorem}
+
+\begin{proof}
+	Store the set \(S\) in a 3-dimensional range tree [{\color{magenta} cite!}].
+	A \(d\)-dimensional range tree is a data structure that stores several points
+	in \(\mathbb{R}^d\) and effectively reports all the stored points that are
+	inside a \(d\)-dimensional rectangular parallelepiped defined by
+	its lower and higher coordinates on each axis.
+
 \begin{figure}[ht] \centering
 	\input{imgb/paral-trans}
 
-	\caption{(a) A strand crossing the path twice, (b) a parallelepiped query that finds this strand}
+	\caption{(a) A triple \(\lr*{a^i_1, a^i_2, a^i_3}\) entangled
+	with \(\lr*{q_1, q_2, q_3}\),
+	         (b) a range query that finds this triple}
 	\label{fig:paral-trans}
 \end{figure}
+
+	An entanglement query can then be interpreted as two 3-dimensional range
+	queries, as shown in Figure~\ref{fig:paral-trans}:
+   \begin{enumerate}
+	\item \(a_1 < q_1,\ a_2 > q_2,\ a_3 < q_3\) is a 3-dimensional parallelepiped
+	  to the left, further and lower than a point \(\lr*{q_1, q_2, q_3}\);
+	\item \(a_1 > q_1,\ a_2 < q_2,\ a_3 > q_3\) is a 3-dimensional parallelepiped
+	  to the right, closer and higher than a point \(\lr*{q_1, q_2, q_3}\).
+   \end{enumerate}
+\end{proof}
+
+\begin{remark}
+	The construction of a 3-dimensional range tree takes \(O \lr*{n \log^2 n}\) time,
+	and a range query takes \(O \lr*{\log n}\) time.
+\end{remark}
 
 
 %\bibliography{}{}
