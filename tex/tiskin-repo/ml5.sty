@@ -1,0 +1,193 @@
+%───────────────────────────────
+%	usepackages
+%───────────────────────────────
+
+\RequirePackage[margin=1.15in,bottom=1.1in]{geometry}
+\RequirePackage{amsmath,amssymb,amsthm,mathtools,spalign}
+\RequirePackage{graphicx,caption,subcaption,makecell}
+\RequirePackage{titletoc,tocloft,hyperref,fancyhdr}
+\RequirePackage{enumerate,enumitem,indentfirst,euscript}
+\RequirePackage{alphalph,algorithm}
+\RequirePackage[noend]{algpseudocode}
+\RequirePackage{comment}
+
+%% Order is important
+\RequirePackage[small]{complexity}
+\hypersetup{unicode=true}
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{cmap}
+\RequirePackage[T2A]{fontenc}
+\RequirePackage{csquotes}
+\RequirePackage[russian]{babel}
+\RequirePackage{xspace}
+
+\RequirePackage[backend=biber,style=alphabetic]{biblatex}
+\RequirePackage{tikz}
+\usetikzlibrary{calc,cd,babel}
+
+
+%───────────────────────────────
+%	tikz forests
+%───────────────────────────────
+\RequirePackage[linguistics]{forest}
+
+\forestset{
+  tria/.style={
+    node format={
+      \noexpand\node [
+      draw,
+      shape=regular polygon,
+      regular polygon sides=3,
+      inner sep=0pt,
+      outer sep=0pt,
+      \forestoption{node options},
+      anchor=\forestoption{anchor}
+      ]
+      (\forestoption{name}) {\foresteoption{content format}};
+    },
+    child anchor=parent,
+  }
+}
+
+
+%───────────────────────────────
+%	pagestyle
+%───────────────────────────────
+
+\linespread{1.12}
+\parindent=0.33in \footskip=0.35in \parskip=0.18cm
+\renewcommand{\labelenumi}{\arabic{enumi}) }
+\captionsetup[figure]{width=12.5cm}
+
+\begin{comment}
+	\pagestyle{fancy}
+	\renewcommand{\headrulewidth}{0cm}
+	\fancyhead[CO,CE,LO,LE,RO,RE]{ }
+	\fancyfoot[LO,LE,RO,RE]{ }
+	\fancyfoot[CO,CE]{{\rm\thepage}}
+\end{comment}
+
+
+%───────────────────────────────
+%	upright mathematical things
+%───────────────────────────────
+
+\newcommand{\bq}{{\mathbb Q}}
+\newcommand{\br}{{\mathbb R}}
+\newcommand{\bc}{{\mathbb C}}
+\newcommand{\bn}{{\mathbb N}}
+\newcommand{\bz}{{\mathbb Z}}
+\newcommand{\ba}{{\mathbb A}} % A и B часто встречаются как названия структур
+\newcommand{\bb}{{\mathbb B}}
+
+\def\matrz{\text{\bf 0}}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\size}{size}
+\DeclareMathOperator{\rect}{rect}
+\DeclareMathOperator{\opt}{OPT}
+\DeclareMathOperator{\maxind}{MAX\,IND}
+
+\DeclareMathOperator{\FV}{FV}
+\DeclareMathOperator{\Formu}{For}
+\DeclareMathOperator{\Models}{Mod}
+\DeclareMathOperator{\Th}{Th}
+\DeclareMathOperator{\Bool}{{\EuScript{P}}}
+
+\def\l{\lambda}
+
+\newcommand{\divby}{
+   \mathrel{\rlap{.}\rlap{\raisebox{0.55ex}{.}}\raisebox{1.1ex}{.}}}
+
+% "Divisible by" symbol -- modification of \vdots that looks less ugly
+% taken from https://tex.stackexchange.com/a/32503
+% \DeclareRobustCommand{\divby}{%
+%  \mathrel{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}%
+% }
+
+
+%───────────────────────────────
+%	theorems and statements
+%───────────────────────────────
+
+\newtheorem{exmpl}{Пример}
+\newtheorem{theorem}{Теорема}
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{corollary}[theorem]{Следствие}
+\newtheorem{conjecture}[theorem]{Гипотеза}
+\newtheorem{stat}[theorem]{Утверждение}
+\newtheorem{prop}[theorem]{Предложение}
+\newtheorem{clm}[theorem]{Утверждение}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\newtheorem{task}{Задача}
+
+\newtheorem*{remark}{Замечание}
+
+
+%───────────────────────────────
+%	peculiarities
+%───────────────────────────────
+
+\newcommand\Lra{\Longrightarrow}
+\newcommand\eps{\varepsilon}
+\newcommand\vfi{\varphi}
+\newcommand{\arbs}{arborally satisfiable\xspace}
+\newcommand{\ditto}{—\(\prime\)\(\prime\)—\xspace}
+\newcommand{\chN}{\mathbf{n}}
+
+\def\newthm#1{\begin{theorem} #1 \end{theorem}}
+\def\newdefn#1{\begin{definition} #1 \end{definition}}
+\def\newclm#1{\begin{clm} #1 \end{clm}}
+
+\def\tpl{«$+$»\xspace} \def\tmi{«$-$»\xspace}
+
+\newcommand{\noteauthor}[1]{\vspace{-5.5mm}
+     \begin{flushright}{\itshape Записал: #1}\end{flushright}}
+
+\newcommand{\noteauthoress}[1]{\vspace{-5.5mm}
+     \begin{flushright}{\itshape Записала: #1}\end{flushright}}
+
+
+%───────────────────────────────
+%	paired delimiters
+%───────────────────────────────
+
+\DeclarePairedDelimiter\lr{(}{)}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\set{\lbrace}{\rbrace}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\segment{[}{]}
+
+\DeclarePairedDelimiterX{\map}[2]{\lbrace}{\rbrace}{#1 \,\delimsize\vert\,\mathopen{} #2}
+
+
+% Square upper corner brackets for predicate codes (see lecture 12)
+% taken from https://tex.stackexchange.com/a/239286
+\newbox\qqBoxA
+\newdimen\qqCornerHgt
+\setbox\qqBoxA=\hbox{$\ulcorner$}
+\global\qqCornerHgt=\ht\qqBoxA
+\newdimen\qqArgHgt
+\def\cor #1{%
+    \setbox\qqBoxA=\hbox{$#1$}%
+    \qqArgHgt=\ht\qqBoxA%
+    \ifnum     \qqArgHgt<\qqCornerHgt \qqArgHgt=0pt%
+    \else \advance \qqArgHgt by -\qqCornerHgt%
+    \fi \raise\qqArgHgt\hbox{$\ulcorner$} \box\qqBoxA %
+    \raise\qqArgHgt\hbox{$\urcorner$}}
+
+\newcommand{\defeq}{\vcentcolon=}
+
+%───────────────────────────────
+%	titlepage
+%───────────────────────────────
+
+\title{Математическая логика — 2 \\ V семестр}
+\author{Лектор: Виктор Львович Селиванов \\
+        Записывали: Глеб Минаев, Иван Кабашный \\
+        Редактировал: Борис Алексеевич Золотов}
+\date{МКН СПбГУ, осень 2022}
