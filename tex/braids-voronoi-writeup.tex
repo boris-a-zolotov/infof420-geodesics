@@ -83,9 +83,9 @@ The path can utilize diagonal edges, see Figure~\ref{fig:vd-ex},~(c): \(p_1 \in 
 	   a_1 > b_1,\ a_2 < b_2,\ a_3 > b_3\]
 \end{definition}
 
-\begin{theorem}
-	There exists a data structure that can store a set of \(N\) triples
-	\[S = \set*{\lr*{a^1_1, a^1_2, a^1_3}, \ldots, \lr*{a^N_1, a^N_2, a^N_3}}\]
+\begin{theorem} \label{thm:entgtripls}
+	There exists a data structure that can store a set of \(n\) triples
+	\[S = \set*{\lr*{a^1_1, a^1_2, a^1_3}, \ldots, \lr*{a^n_1, a^n_2, a^n_3}}\]
 	and, given a query triple \(q = \lr*{q_1, q_2, q_3}\), output
 	in time \(\Ot\lr*{1}\)  %  Count logs precisely
 	the number of triples in \(S\) that are entangled with \(q\).
@@ -122,6 +122,27 @@ The path can utilize diagonal edges, see Figure~\ref{fig:vd-ex},~(c): \(p_1 \in 
 	and a range query takes \(O \lr*{\log n}\) time.
 \end{remark}
 
+
+\subsection{Entanglement of strands oracle}
+
+\begin{theorem} \label{thm:entgstrands}
+	There exists a data structure that can store a reduced embedded braid \braid and,
+	given an arbitrary point triple \(g = (0,r)\), \(h = (k,s)\), \(f = (\ell,t)\),
+	decide in time \(\Ot\lr*{1}\) if there exists a path from \(g\) to \(f\)
+	through \(h\) that is not double-crossed by any strand.
+\end{theorem}
+
+\begin{proof}
+	To build the data structure, first partition the grid of height \(\ell\) hierarchically into \(O\lr*{\ell}\) canonical strips located in a binary tree.
+
+	For each canonical strip \(\lr*{a, b}\) build an entanglement of triples oracle (Theorem~\ref{thm:entgtripls}): for each strand \(s\) store the triple \(\lr*{s_0, s_a, s_b}\) of its positions at the ground of the grid, the top of the canonical strip, and the bottom of the canonical strip respectively.
+
+	In total there are \(O\lr*{n}\) entanglement of triples oracles, the construction of them takes \(O\lr*{n^2 \log^2 n}\) time.
+
+	To answer the query, decompose strip \((k,\ell)\) into canonical strips. At each boundary of neighboring canonical strips we maintain an \emph{entanglement-free region} which is the region where the not-double-crossed path can pass through.
+
+	On levels \(k\) and \(\ell\) the entanglement-free regions consist of a single point: \(s\) and \(t\) respectively. We proceed from the top of the tree of canonical strips down. 
+\end{proof}
 
 %\bibliography{}{}
 %\bibliographystyle{plain}
