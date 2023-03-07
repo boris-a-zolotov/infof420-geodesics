@@ -73,6 +73,7 @@
 
 The path can utilize diagonal edges, see Figure~\ref{fig:vd-ex},~(c): \(p_1 \in f_6^{-2}\) (green), \(p_2 \in f_7^{-2}\) (yellow).
 
+\newpage
 
 \subsection{Entanglement of triples oracle}
 
@@ -111,9 +112,11 @@ The path can utilize diagonal edges, see Figure~\ref{fig:vd-ex},~(c): \(p_1 \in 
 	queries, as shown in Figure~\ref{fig:paral-trans}:
    \begin{enumerate}
 	\item \(a_1 < q_1,\ a_2 > q_2,\ a_3 < q_3\) is a 3-dimensional parallelepiped
-	  to the left, further and lower than a point \(\lr*{q_1, q_2, q_3}\);
+	  to the left, further and lower than the point \(\lr*{q_1, q_2, q_3}\)
+	  (call this \emph{left entanglement query});
 	\item \(a_1 > q_1,\ a_2 < q_2,\ a_3 > q_3\) is a 3-dimensional parallelepiped
-	  to the right, closer and higher than a point \(\lr*{q_1, q_2, q_3}\).
+	  to the right, closer and higher than the point \(\lr*{q_1, q_2, q_3}\)
+	  (call this \emph{right entanglement query}).
    \end{enumerate}
 \end{proof}
 
@@ -133,15 +136,104 @@ The path can utilize diagonal edges, see Figure~\ref{fig:vd-ex},~(c): \(p_1 \in 
 \end{theorem}
 
 \begin{proof}
-	To build the data structure, first partition the grid of height \(\ell\) hierarchically into \(O\lr*{\ell}\) canonical strips located in a binary tree.
+	To build the data structure, first partition the grid of height \(n\)
+	hierarchically into \(O\lr*{n}\) canonical strips located in a binary tree:
+	each canonical strip contains two canonical strips of half its height.
 
-	For each canonical strip \(\lr*{a, b}\) build an entanglement of triples oracle (Theorem~\ref{thm:entgtripls}): for each strand \(s\) store the triple \(\lr*{s_0, s_a, s_b}\) of its positions at the ground of the grid, the top of the canonical strip, and the bottom of the canonical strip respectively.
+	For each canonical strip \(\lr*{a, b}\) build an entanglement of triples
+	oracle (Theorem~\ref{thm:entgtripls}): for each strand \(s\) store the triple
+	\(\lr*{s_0, s_a, s_b}\) of its positions at the ground of the grid,
+	the top of the canonical strip, and the bottom of
+	the canonical strip respectively.
 
-	In total there are \(O\lr*{n}\) entanglement of triples oracles, the construction of them takes \(O\lr*{n^2 \log^2 n}\) time.
+	In total there are \(O\lr*{n}\) entanglement of triples oracles,
+	the construction of them takes \(O\lr*{n^2 \log^2 n}\) time.
 
-	To answer the query, decompose strip \((k,\ell)\) into canonical strips. At each boundary of neighboring canonical strips we maintain an \emph{entanglement-free region} which is the region where the not-double-crossed path can pass through.
+\begin{figure}[ht] \centering
+   \input{imgb/eostrands}
+   \caption{The decomposition of the strip~\(\lr*{k, \ell}\) into canonical strips;
+            boundaries \(\lr*{L_i, R_i}\) of entanglement-free regions} 
+   \label{fig:eostrands}
+\end{figure}
 
-	On levels \(k\) and \(\ell\) the entanglement-free regions consist of a single point: \(s\) and \(t\) respectively. We proceed from the top of the tree of canonical strips down. 
+	To answer the query, decompose the strip~\((k,\ell)\) into
+	canonical strips~\(c_1, c_2, \ldots, c_v\), the indexation is from the bottom
+	of the strip upwards (see Figure~\ref{fig:eostrands}). At each
+	boundary of neighboring canonical strips~\(c_i\), \(c_{i+1}\) we maintain
+	an \emph{entanglement-free region}~\(\left[ L_i, R_i \right]\) which is
+	the region where the not-double-crossed path can pass through.
+
+	It is obvious that at least one such path from~\(g\) to \(f\) exists, therefore
+	each entanglement-free region is nonempty. Naturally, \(L_0 = R_0 = f\).
+	Points~\(L_{i+1}, R_{i+1}\) are constructed from \(L_i, R_i\) recursively:
+   \begin{enumerate}
+	\item \(L_{i+1}\) is the leftmost point such that any strand that is
+	  to the left of \(g\) and \(L_i\) is also to the left of \(L_{i+1}\),
+	\item \(R_{i+1}\) is the rightmost point such that any strand that is
+	  to the right of \(g\) and \(R_i\) is also to the right of \(R_{i+1}\).
+   \end{enumerate}
+	Given \(L_i\), we find \(L_{i+1}\) using binary search in the boundary
+	of~\(c_{i+1}, c_{i+2}\): if for a point~\(p\) the left entanglement query
+	for~\(\lr*{g, p, L_i}\) returns some strands, descend to the right,
+	otherwise descend to the left.
+	Given \(R_i\), we find \(R_{i+1}\) in a symmetric way.
+
+\begin{lemma} \label{lm:entg}
+	The recursive construction of~\(L_i, R_i\) is correct;
+	the following are equivalent:
+   \begin{itemize}
+	\item[a)] a point \(p\) is to the left of \(L_i\),
+	\item[b)] there exists a strand that is to the left of \(g\) and \(f\),
+	  but to the right of \(p\).
+   \end{itemize}
+\end{lemma}
+
+\begin{proof} \begin{itemize}
+	\item \( \text{b)} \Rightarrow \text{a)} \): Assume that \(p\) is
+	to the right of (or equal to) \(L_i\), see Figure~\ref{fig:entga}.
+	The strand~\(\sigma\), which is to the left of~\(g\) and~\(f\), but
+	to the right of~\(p\), is also to the right of~\(L_i\); this contradicts
+	the construction of~\(L_i\). 
+
+\begin{figure}[ht] \centering
+   \input{imgb/entg}
+   \caption{Proof of Lemma~\ref{lm:entg}}
+\end{figure}
+
+	\item \( \text{a)} \Rightarrow \text{b)} \): Proof by induction in~\(i\);
+	assume there are no strands that are to the left of~\(g\) and~\(f\),
+	but to the right of~\(p\). There is however a strand~\(\sigma_1\)
+	between~\(L_i\) and~\(p\) that made us descend to the right when performing
+	the binary search for~\(L_i\); \(\sigma_1\) is to the left of~\(L_{i-1}\),
+	see Figure~\ref{fig:entgb}. The strand~\(\sigma_1\) must be
+	to the right of~\(f\), since it is to the left of~\(g\)
+	and to the right of~\(p\).
+
+	Take a point~\(p^\prime\) immediately to the left of~\(\sigma_1\)
+	at the level of~\(L_{i-1}\). By the induction hypothesis, there exists a strand
+	that is to the left of~\(g\) and~\(f\), but to the right of~\(p^\prime\),
+	call it \(\sigma_2\). The strand~\(\sigma_2\) must cross \(\sigma_1\)
+	below~\(p^\prime\), since \(\sigma_2\) is to the left of~\(f\), and \(p^\prime\)
+	is the immediate left neighbor of~\(\sigma_1\).
+
+	Since the braid is reduced, \(\sigma_2\) is to the right of~\(p\);
+	this contradicts the assumption for~\(p\).
+\end{itemize} \end{proof}
+
+	Lemma~\ref{lm:entg} implies that there exists a path from~\(g\) to~\(f\)
+	through~\(h\) that is not double-crossed by any strand if and only if \(h\)
+	is between~\(L_v\) and~\(R_v\). Moreover, if \(h\) is outside the
+	entanglement-free region, we can conclude whether there is a right or left
+	entanglement of the \(g\)-to-\(h\)-to-\(f\) path with a strand of~\braid.
+	
+\begin{remark}
+	The strip~\(\lr*{k, \ell}\) is decomposed into~\(O\lr*{\log n}\)
+	canonical strips, therefore there is as much entanglement-free regions
+	to be calculated. For each region~\(\lr*{L_i, R_i}\) two binary searches
+	with~\(O\lr*{\log n}\) probes are done. Each probe calls a range query
+	that takes \(O\lr*{\log n}\) time. In total, the entanglement of strands
+	query takes \(O\lr*{\log^3 n}\) time.
+\end{remark}
 \end{proof}
 
 %\bibliography{}{}
